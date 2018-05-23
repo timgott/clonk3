@@ -22,8 +22,6 @@
 
 //------------------------------ Headers -------------------------------------
 
-#include <dos.h>
-#include <conio.h>
 #include <stdio.h>
 
 #include "standard.h"

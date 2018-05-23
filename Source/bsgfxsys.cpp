@@ -6,7 +6,6 @@
 
 // RedWolf Design CLONK tng BattleSequence GameCon System Module
 
-#include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -89,7 +88,7 @@ extern char *RankName[11];
 
 void ManCanDoMsg(MANTYPE *mptr, char *verb)
 {
-	sprintf_s(OSTR, "%s %s|can %s!", RankName[mptr->mi->rank], mptr->mi->name, verb);
+	sprintf(OSTR, "%s %s|can %s!", RankName[mptr->mi->rank], mptr->mi->name, verb);
 	GameMessage(OSTR, 0, 0, CWhite, mptr);
 }
 
@@ -681,7 +680,7 @@ void ClonkThrowCon(MANTYPE *mptr, BYTE plr, int par)
 					(*xbtload) += mptr->carrp;
 					mptr->carr = NOROCK;
 					GSTP = SNDCONNECT;
-					sprintf_s(OSTR, "%d/%d/%d", tvhc->VHDXBowLoadA, tvhc->VHDXBowLoadF, tvhc->VHDXBowLoadB);
+					sprintf(OSTR, "%d/%d/%d", tvhc->VHDXBowLoadA, tvhc->VHDXBowLoadF, tvhc->VHDXBowLoadB);
 					GameMessage(OSTR, tvhc->x + 6, tvhc->y - 15, CWhite, NULL);
 					tvhc->VHDXBowJustL = 1;
 				}
@@ -821,7 +820,7 @@ void ClonkBuildCon(MANTYPE *mptr, BYTE plr, int type)
 	}
 	if (mptr->act != MAWALK || (mptr->carr != CONKIT))
 	{
-		sprintf_s(OSTR, "%s can|not build here", mptr->mi->name);
+		sprintf(OSTR, "%s can|not build here", mptr->mi->name);
 		GameMessage(OSTR, 0, 0, CWhite, mptr); GSTP = SNDERROR;
 		return;
 	}
@@ -837,7 +836,7 @@ void ClonkBuildCon(MANTYPE *mptr, BYTE plr, int type)
 		{
 			DrawStructBase(nstrc, 1);
 			FreeStructBack(nstrc);
-			sprintf_s(OSTR, "Constructing|%s", StructTypeName[type]);
+			sprintf(OSTR, "Constructing|%s", StructTypeName[type]);
 			GameMessage(OSTR, 0, 0, CWhite, mptr);
 			EventCall(208);
 		}
@@ -858,7 +857,7 @@ void ClonkBridgeCon(MANTYPE *mptr, int plr, int dir)
 	}
 	if ((mptr->act != MAWALK) || Inside(GBackPix(mptr->x + 3, mptr->y + 9), CVhcL, CVhcH))
 	{               // check for steel/loam carr
-		sprintf_s(OSTR, "%s can|not build here", mptr->mi->name);
+		sprintf(OSTR, "%s can|not build here", mptr->mi->name);
 		GameMessage(OSTR, 0, 0, CWhite, mptr); GSTP = SNDERROR;
 		return;
 	}
@@ -1199,8 +1198,8 @@ void PlayerVhcOrder(BYTE plr, int oid, BYTE autoc)
 		case 0: // New Clonk
 			if (Crew[plr].ManCnt - 1 + 1 > hirank * 5)
 			{
-				if (hirank < 10) sprintf_s(OSTR, "Without a %s|no additional clonks|may be ordered", RankName[hirank + 1]);
-				else sprintf_s(OSTR, "No additional clonks|may be ordered");
+				if (hirank < 10) sprintf(OSTR, "Without a %s|no additional clonks|may be ordered", RankName[hirank + 1]);
+				else sprintf(OSTR, "No additional clonks|may be ordered");
 				if (!autoc) GameMessage(OSTR, -1, plr, CWhite, NULL);
 				return;
 			}
@@ -1248,7 +1247,7 @@ void CursorCallBalloon(BYTE plr)         // not by recruit?
 			if ((cvhc->type == VHBALLOON) && (cvhc->owner == plr))
 			{
 				cvhc->tptr = Crew[plr].Cursor;
-				sprintf_s(OSTR, "Balloon to|%s", Crew[plr].Cursor->mi->name);
+				sprintf(OSTR, "Balloon to|%s", Crew[plr].Cursor->mi->name);
 				GameMessage(OSTR, 0, 0, CWhite, Crew[plr].Cursor);
 				return;
 			}
@@ -1322,7 +1321,7 @@ void GameConExecMenu(BYTE com, BYTE plr)
 			if (BSA.Plr[com - 3].Col > -1) if (com - 3 != plr)
 			{
 				Toggle(Crew[plr].Hostile[com - 3]);
-				sprintf_s(OSTR, "%s attack|%s!", Crew[plr].Hostile[com - 3] ? "" : "Don't ", ColorName[BSA.Plr[com - 3].Col]);
+				sprintf(OSTR, "%s attack|%s!", Crew[plr].Hostile[com - 3] ? "" : "Don't ", ColorName[BSA.Plr[com - 3].Col]);
 				GameMessage(OSTR, -1, plr, CWhite, NULL);
 				GSTP = SNDTRUMPET;
 				Crew[plr].RedrStB = 1;

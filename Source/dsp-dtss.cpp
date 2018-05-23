@@ -13,9 +13,6 @@
 
 //-------------------------- Include Headers ---------------------------------
 
-#include <dos.h>
-#include <io.h>
-
 #include "standard.h"
 
 //----------------------- DSP Command Definitions ----------------------------

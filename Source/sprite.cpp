@@ -11,8 +11,6 @@
 
 //--------------------------- Include Headers --------------------------------
 
-#include <dos.h>
-
 #include "standard.h"
 #include "vga4.h"
 #include "std_gfx.h"

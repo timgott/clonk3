@@ -20,15 +20,14 @@ char *PrgInfoLine = "RedWolf Design CLONK 3.5 Radikal";
 
 //------------------------------ Include Headers --------------------------------
 
-#include <conio.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <SDL.h>
 
-#include "STANDARD.H"
-#include "VGA4.H"
-#include "STD_GFX.H"
-#include "STDFILE.H"
+#include "standard.h"
+#include "vga4.h"
+#include "std_gfx.h"
+#include "stdfile.h"
 
 #include "svi20ext.h"
 
@@ -333,9 +332,9 @@ void DrawCrewListCell(int num, int tx, int ty, BYTE sel)
 		SOut(RankName[centr->rank], tx + 14, ty + 1, !centr->dead ? CGray1 : CGray2);
 		SOutS(centr->name, tx + 14, ty + 7, !centr->dead ? CDGreen : CGray2, CGray4);
 		SOut("Exp", tx + 98, ty + 1, !centr->dead ? CGray1 : CGray3, -1, 2);
-		sprintf_s(OSTR, "%d", centr->exp);
+		sprintf(OSTR, "%d", centr->exp);
 		SOut(OSTR, tx + 98, ty + 7, !centr->dead ? CGray1 : CGray3, -1, 2);
-		sprintf_s(OSTR, "Rnd:%d Wbl:%d", centr->rnds, centr->rean);
+		sprintf(OSTR, "Rnd:%d Wbl:%d", centr->rnds, centr->rean);
 		SOut(OSTR, tx + 1, ty + 14, !centr->dead ? CGray1 : CGray3);
 	}
 }
@@ -450,19 +449,19 @@ void ManInfoEdit(MANINFO *man)
 
 	NewObject("RankPic", PICTURE, 0, 0, 5, 15, 11, 11, MenuPage, 0, 0, 0 + 11 * man->rank, 32, 0, 0, 0, NULL, NULL);
 
-	sprintf_s(OSTR, "Rank: €%c%s  €%cExperience: €%c%d", CGray1, RankName[man->rank], CGray2, CGray1, man->exp);
+	sprintf(OSTR, "Rank: €%c%s  €%cExperience: €%c%d", CGray1, RankName[man->rank], CGray2, CGray1, man->exp);
 	TextObject(OSTR, 5, 30, CGray2);
-	if (man->rank < 10) sprintf_s(OSTR, "(Promotion to %s at %d)", RankName[man->rank + 1], ClonkRankExp(man->rank + 1));
-	else sprintf_s(OSTR, "(No more promotions)");
+	if (man->rank < 10) sprintf(OSTR, "(Promotion to %s at %d)", RankName[man->rank + 1], ClonkRankExp(man->rank + 1));
+	else sprintf(OSTR, "(No more promotions)");
 	TextObject(OSTR, 5, 36, CGray2);
-	sprintf_s(OSTR, "Rounds (survived): €%c%d", CGray1, man->rnds);
+	sprintf(OSTR, "Rounds (survived): €%c%d", CGray1, man->rnds);
 	TextObject(OSTR, 5, 48, CGray2);
-	sprintf_s(OSTR, "Reanimated: €%c%d times", CGray1, man->rean);
+	sprintf(OSTR, "Reanimated: €%c%d times", CGray1, man->rean);
 	TextObject(OSTR, 5, 54, CGray2);
 
 	if (man->dead)
 	{
-		sprintf_s(OSTR, "%s is dead", man->name);
+		sprintf(OSTR, "%s is dead", man->name);
 		TextObject(OSTR, 5, 66, CGray2);
 	}
 
@@ -505,15 +504,15 @@ void ReanimateMan(int mnum)
 
 	if (!man->dead)
 	{
-		sprintf_s(OSTR, "%s is alive and does not|need to be reanimated.", man->name);
+		sprintf(OSTR, "%s is alive and does not|need to be reanimated.", man->name);
 		Message(OSTR); return;
 	}
 	if (CCrewListPlr->scorepot < ReanCost(man))
 	{
-		sprintf_s(OSTR, "Player %s needs at least %d storage score points,|to reanimate %s.", CCrewListPlr->name, ReanCost(man), man->name);
+		sprintf(OSTR, "Player %s needs at least %d storage score points,|to reanimate %s.", CCrewListPlr->name, ReanCost(man), man->name);
 		Message(OSTR, "Insufficient storage points"); return;
 	}
-	sprintf_s(OSTR, "Reanimate %s|for %d score points?", man->name, ReanCost(man));
+	sprintf(OSTR, "Reanimate %s|for %d score points?", man->name, ReanCost(man));
 	ConfirmedCall(OSTR, 0, &ExecManRean, mnum, "Reanimate Clonks");
 }
 
@@ -527,7 +526,7 @@ int CrewList(int pnum)
 	cwin = NewWindow("Permanent crew", STANDARD, 1, -1, 37, 268, 144, 1, 0, XRVCLOSE, "Contents");
 	if (plr->name[0])
 	{
-		sprintf_s(OSTR, "Player: %s", plr->name);
+		sprintf(OSTR, "Player: %s", plr->name);
 		TextObject(OSTR, 268 / 2, 10, CGray2, -1, 1);
 	}
 	NewObject("CrewPic", PICTURE, 0, 0, 6, 4, 20, 10, MenuPage, 0, 0, 175, 25, 0, 0, 0, NULL, NULL);
@@ -613,7 +612,7 @@ int TestImportPCX(int tface)
 
 	if (pcxrv)
 	{
-		sprintf_s(OSTR, "Error importing|%s:|€%c%s", ImportFileName, CDRed, LoadPCXError(pcxrv));
+		sprintf(OSTR, "Error importing|%s:|€%c%s", ImportFileName, CDRed, LoadPCXError(pcxrv));
 		Message(OSTR, "Error help not translated");
 	}
 
@@ -638,7 +637,7 @@ int TakeOverImportFace(int dummy)
 	}
 	else
 	{
-		sprintf_s(OSTR, "Error while saving|player portrait file FACES.DAT:|€%c%s", CDRed, AGCError(saverv));
+		sprintf(OSTR, "Error while saving|player portrait file FACES.DAT:|€%c%s", CDRed, AGCError(saverv));
 		Message(OSTR);
 	}
 	return dummy;
@@ -708,7 +707,7 @@ void DeleteFace(int num)
 	saverv = SaveAGCPageV1("FACES.DAT", FacePage, 0, 0, ffwdt, ffhgt, NULL, NULL);
 	if (saverv)
 	{
-		sprintf_s(OSTR, "Error while saving|player portrait file FACES.DAT:|€%c%s", CDRed, AGCError(saverv));
+		sprintf(OSTR, "Error while saving|player portrait file FACES.DAT:|€%c%s", CDRed, AGCError(saverv));
 		Message(OSTR);
 		Config.FaceFile = 0;
 	}
@@ -837,17 +836,17 @@ void DrawPlrListCell(int num, int tx, int ty, BYTE sel)
 	SOutS(cplr->name, tx + 42, ty + 7, cplr->inses ? CDBlue : CGray2, CGray4);
 	if (Config.ShowQuotes)
 	{
-		sprintf_s(OSTR, "%c%s%c", '"', cplr->quote, '"');
+		sprintf(OSTR, "%c%s%c", '"', cplr->quote, '"');
 		FTOut(OSTR, tx + 42, ty + 14, 19, 7, 0, cplr->inses ? CGray1 : CGray3, -1, 0);
 	}
 	else
 	{
 		SOut(sortname[spbn], tx + 42, ty + 14, CGray3);
-		sprintf_s(OSTR, "Score: %lu", (spbn == 0) ? PlrTotalScore(cplr) : cplr->score[spbn - 1]);
+		sprintf(OSTR, "Score: %lu", (spbn == 0) ? PlrTotalScore(cplr) : cplr->score[spbn - 1]);
 		SOut(OSTR, tx + 42, ty + 20, cplr->inses ? CGray1 : CGray3);
-		sprintf_s(OSTR, "Rounds: %d", (spbn == 0) ? PlrTotalRounds(cplr) : cplr->rnds[spbn - 1]);
+		sprintf(OSTR, "Rounds: %d", (spbn == 0) ? PlrTotalRounds(cplr) : cplr->rnds[spbn - 1]);
 		SOut(OSTR, tx + 42, ty + 26, cplr->inses ? CGray1 : CGray3);
-		sprintf_s(OSTR, "Average: %.1f", (spbn == 0) ? PlrTotalAverage(cplr) : PlrAverage(cplr, spbn - 1));
+		sprintf(OSTR, "Average: %.1f", (spbn == 0) ? PlrTotalAverage(cplr) : PlrAverage(cplr, spbn - 1));
 		SOut(OSTR, tx + 42, ty + 32, cplr->inses ? CGray1 : CGray3);
 	}
 }
@@ -943,7 +942,7 @@ int SetPlayerFace(int pnum)
 	cwin = NewWindow("Player portrait", STANDARD, 1, -1, 45, 225, 122, 1, 0, XRVCLOSE, NULL);
 	if (plr->name[0])
 	{
-		sprintf_s(OSTR, "for %s", plr->name); TextObject(OSTR, 225 / 2, 10, CGray2, -1, 1);
+		sprintf(OSTR, "for %s", plr->name); TextObject(OSTR, 225 / 2, 10, CGray2, -1, 1);
 	}
 	dfobj = NewButton("Delete", 0, 180, 98, 40, 9, 0, 0);
 	NewULink(EXCREDR, NULL,
@@ -996,26 +995,26 @@ void PlayerInfoEdit(PLAYERINFO *plr)
 		NewObject("Color", ICON, 1, 0, ftx + 3, fty + 9, 19, 16, MenuPage, 8, 1, 0, 20, 9, 12, 0, NULL, &plr->pfcol),
 		NULL, &SetPlrColor, pnum);
 
-	sprintf_s(OSTR, "Rank: %s", PlrRankName(plr->rank));
+	sprintf(OSTR, "Rank: %s", PlrRankName(plr->rank));
 	TextObject(OSTR, 52, 23, CGray1);
-	sprintf_s(OSTR, "Total score: %lu", PlrTotalScore(plr));
+	sprintf(OSTR, "Total score: %lu", PlrTotalScore(plr));
 	TextObject(OSTR, 52, 29, CGray1);
 
 	playmin = plr->playsec / 60;
-	sprintf_s(OSTR, "Total playing time: %lu:%02lu:%02lu", playmin / 60, playmin % 60, plr->playsec % 60);
+	sprintf(OSTR, "Total playing time: %lu:%02lu:%02lu", playmin / 60, playmin % 60, plr->playsec % 60);
 	TextObject(OSTR, 52, 92, CGray1);
 
 	NewObject("Statistics", FRAME, 0, 0, 52, 40, 192, 49, 1, 0, 0, CGray3, -1, CGray5, 0, 0, NULL, NULL);
 	TextObject(" Mission  Single   Melee   Total", 110, 47, CDRed);
-	sprintf_s(OSTR, "        Score  %6lu  %6lu  %6lu  %6lu", plr->score[0], plr->score[1], plr->score[2], PlrTotalScore(plr));
+	sprintf(OSTR, "        Score  %6lu  %6lu  %6lu  %6lu", plr->score[0], plr->score[1], plr->score[2], PlrTotalScore(plr));
 	TextObject(OSTR, 57, 55, CGray1);
-	sprintf_s(OSTR, " Total rounds    %4d    %4d    %4d    %4d", plr->rnds[0], plr->rnds[1], plr->rnds[2], PlrTotalRounds(plr));
+	sprintf(OSTR, " Total rounds    %4d    %4d    %4d    %4d", plr->rnds[0], plr->rnds[1], plr->rnds[2], PlrTotalRounds(plr));
 	TextObject(OSTR, 57, 61, CGray2);
-	sprintf_s(OSTR, "          Won    %4d    %4d    %4d    %4d", plr->won[0], plr->won[1], plr->won[2], PlrTotalWon(plr));
+	sprintf(OSTR, "          Won    %4d    %4d    %4d    %4d", plr->won[0], plr->won[1], plr->won[2], PlrTotalWon(plr));
 	TextObject(OSTR, 57, 67, CDRed);
-	sprintf_s(OSTR, "         Lost    %4d    %4d    %4d    %4d", plr->rnds[0] - plr->won[0], plr->rnds[1] - plr->won[1], plr->rnds[2] - plr->won[2], PlrTotalRounds(plr) - PlrTotalWon(plr));
+	sprintf(OSTR, "         Lost    %4d    %4d    %4d    %4d", plr->rnds[0] - plr->won[0], plr->rnds[1] - plr->won[1], plr->rnds[2] - plr->won[2], PlrTotalRounds(plr) - PlrTotalWon(plr));
 	TextObject(OSTR, 57, 73, CDBlue);
-	sprintf_s(OSTR, "      Average  %6.1f  %6.1f  %6.1f  %6.1f", PlrAverage(plr, 0), PlrAverage(plr, 1), PlrAverage(plr, 2), PlrTotalAverage(plr));
+	sprintf(OSTR, "      Average  %6.1f  %6.1f  %6.1f  %6.1f", PlrAverage(plr, 0), PlrAverage(plr, 1), PlrAverage(plr, 2), PlrTotalAverage(plr));
 	TextObject(OSTR, 57, 79, CGray1);
 	NewObject("RoundBack", FRAME, 0, 0, 114, 54, 27, 31, 0, 0, 0, -1, CWhite, -1, 0, 0, NULL, NULL);
 	NewObject("RoundBack", FRAME, 0, 0, 146, 54, 27, 31, 0, 0, 0, -1, CWhite, -1, 0, 0, NULL, NULL);
@@ -1063,7 +1062,7 @@ void PlrListCellAction(int num, int aid)
 		case 0: PlayerInfoEdit(cplr); break;
 		case 1: Toggle(cplr->inses); break;
 		case 2:
-			sprintf_s(OSTR, "Are you sure you want to|delete player %s?", cplr->name);
+			sprintf(OSTR, "Are you sure you want to|delete player %s?", cplr->name);
 			ConfirmedCall(OSTR, 0, &DeletePlrFromList, num);
 			break;
 		}
@@ -1149,7 +1148,7 @@ int InitScriptList(void)
 	//InitFileSearch("MISSION\\*.SCR");  Multi-file search
 	//while (SearchNextFile(fname))
 	//  {
-	//  sprintf_s(OSTR,"MISSION\\%s",fname);
+	//  sprintf(OSTR,"MISSION\\%s",fname);
 	//  if (ReadFile2NewScriptInfo(OSTR)) rnum++;
 	//  }
 
@@ -1188,7 +1187,7 @@ void DrawScriptListCell(int num, int tx, int ty, BYTE sel)
 	if (scr)
 	{
 		hide = (scr->idnum > BSA.NextMission); // PAM
-		sprintf_s(OSTR, "%d) %s", scr->idnum, scr->title);
+		sprintf(OSTR, "%d) %s", scr->idnum, scr->title);
 		SOutS(OSTR, tx + 1, ty + 1, hide ? CGray3 : CDGreen, CGray4);
 		SOut(scr->desc, tx + 1, ty + 8, hide ? CGray3 : CGray1);
 		SOutS(RuleSetName[scr->ruleset], tx + 170, ty + 1, hide ? CGray3 : RuleSetCol[scr->ruleset], CGray4, 2);
@@ -1562,7 +1561,7 @@ BYTE SetBSA4Mission(void)
 			}
 			else
 			{
-				sprintf_s(OSTR, "Error reading mission file|€%c%s", CDRed, MissionScript.fname); Message(OSTR, "Program file error");
+				sprintf(OSTR, "Error reading mission file|€%c%s", CDRed, MissionScript.fname); Message(OSTR, "Program file error");
 			}
 		}
 	}
@@ -1664,7 +1663,7 @@ int OpenUserPrefWindow(int ingame)
 	NewObject("Messages", FLAGBOX, 1, 0, 100, 15, 10, 10, 1, 0, 0, 0, 0, 0, 0, 0, NULL, &UserPref.GameMsgOn);
 	/*TextObject("Maussteuerung",5,95,CGray2);
 	NewFlagBox("Zwei-Button-Springen",5,105,&UserPref.TwoButtonJump);
-	sprintf_s(OSTR,"Angeschlossene Maus|hat %d Buttons.",MouseType);
+	sprintf(OSTR,"Angeschlossene Maus|hat %d Buttons.",MouseType);
 	TextObject(OSTR,5,117,CGray2);*/
 	TextObject("Dig double click", 5, 55, CGray2);
 	NewObject("Slow            Fast", HSCROLL, 1, 0, 5, 65 + 6, 80, 5, 1, 0, 0, 0, 100, 1, 10, 0, NULL, &UserPref.DoubleDigSpeed);
@@ -2019,7 +2018,7 @@ BYTE InitRosterMenuPages(void)
 
 	CTextObject(PrgInfoLine, 3, 154, CGray4);
 	/*if (Registered())
-	  sprintf_s(OSTR,"€%cThis CLONK game is registered for €%c%s",CGray3,CGray2,Config.RegName);
+	  sprintf(OSTR,"€%cThis CLONK game is registered for €%c%s",CGray3,CGray2,Config.RegName);
 	  else
 	  SCopy("This is an unregistered shareware version!",OSTR);
 	  TextObject(OSTR,3,154,CRed);*/
@@ -2048,14 +2047,14 @@ BYTE InitEndPrPage(DWORD modify)
 
 	winwdt = 95 * BSAPlrNum() + 10;
 
-	sprintf_s(OSTR, "Round %d:", BSA.Round);
+	sprintf(OSTR, "Round %d:", BSA.Round);
 	NewWindow(OSTR, STANDARD, 0, -1, 25, winwdt, 160, 1, 0, XRVCLOSE, "Contents");
 
 	switch (BSA.SMode)
 	{
 	case S_MISSION: SCopy(MissionScript.title, OSTR, 23); break;
-	case S_COOPERATE: sprintf_s(OSTR, "%s %lu", CGModeName[BSA.CoopGMode], modify); break;
-	case S_MELEE: sprintf_s(OSTR, "%s %lu", EliminationName[BSA.GPlrElm], modify); break;
+	case S_COOPERATE: sprintf(OSTR, "%s %lu", CGModeName[BSA.CoopGMode], modify); break;
+	case S_MELEE: sprintf(OSTR, "%s %lu", EliminationName[BSA.GPlrElm], modify); break;
 	}
 	TextObject(OSTR, winwdt / 2, 10, CGray2, -1, 1);
 
@@ -2071,25 +2070,25 @@ BYTE InitEndPrPage(DWORD modify)
 			CTextObject(PlrRankName(BSA.Plr[cnt].Info->rank), ctx + 43, cty + 55, CGray2, -1, 1);
 			CTextObject(BSA.Plr[cnt].Info->name, ctx + 43, cty + 61, CGray1, -1, 1);
 
-			sprintf_s(OSTR, "%lu Before", BSA.Plr[cnt].Info->score[BSA.SMode] - modify*(BSA.Plr[cnt].ScoreGain + 100 * (!BSA.Plr[cnt].Eliminate)) / 100);
+			sprintf(OSTR, "%lu Before", BSA.Plr[cnt].Info->score[BSA.SMode] - modify*(BSA.Plr[cnt].ScoreGain + 100 * (!BSA.Plr[cnt].Eliminate)) / 100);
 			TextObject(OSTR, ctx + 42, cty + 72, CGray2, -1, 1);
 
 			if (BSA.Plr[cnt].ScoreGain > 0)
 			{
-				sprintf_s(OSTR, "+%5d Round", modify*BSA.Plr[cnt].ScoreGain / 100); TextObject(OSTR, ctx + 42, cty + 80, CGray1, -1, 1);
+				sprintf(OSTR, "+%5d Round", modify*BSA.Plr[cnt].ScoreGain / 100); TextObject(OSTR, ctx + 42, cty + 80, CGray1, -1, 1);
 			}
 			TextObject("+00000 Round", ctx + 42, cty + 80, CGray4, -1, 1);
 
 			if (!BSA.Plr[cnt].Eliminate)
 			{
-				sprintf_s(OSTR, "+  %3d Bonus", modify); TextObject(OSTR, ctx + 42, cty + 86, CDRed, -1, 1);
+				sprintf(OSTR, "+  %3d Bonus", modify); TextObject(OSTR, ctx + 42, cty + 86, CDRed, -1, 1);
 			}
 			TextObject("+00000 Bonus", ctx + 42, cty + 86, CGray4, -1, 1);
 
 			NewObject("SumLine", FRAME, 0, 0, ctx + 15, cty + 92, 55, 1, 0, 0, 0, CGray2, -1, 0, 0, 0, NULL, NULL);
 			NewObject("SumLine", FRAME, 0, 0, ctx + 15, cty + 100, 55, 1, 0, 0, 0, CGray1, -1, 0, 0, 0, NULL, NULL);
 
-			sprintf_s(OSTR, "%lu Total", BSA.Plr[cnt].Info->score[BSA.SMode]);
+			sprintf(OSTR, "%lu Total", BSA.Plr[cnt].Info->score[BSA.SMode]);
 			TextObject(OSTR, ctx + 42, cty + 94, CGray1, -1, 1);
 
 			NewObject("Frame", FRAME, 0, 0, ctx, cty, 85, 125 - 10 * (BSA.Plr[cnt].Eliminate != 0), 0, 0, 0, 64 + BSA.Plr[cnt].Col, CGray5, 0, 0, 0, NULL, NULL);
@@ -2143,15 +2142,15 @@ int InRoundInfo(int dummy)
 
 	cwin = NewWindow("Round-Info", CARDBOX, 1, -1, -1, 200, 70, 1, 3, XRVCLOSE, "Contents");
 
-	sprintf_s(OSTR, " Rule set: €%c%s", CGray1, RuleSetName[BSA.RuleSet]);
+	sprintf(OSTR, " Rule set: €%c%s", CGray1, RuleSetName[BSA.RuleSet]);
 	TextObject(OSTR, 70, 5, CGray2);
-	sprintf_s(OSTR, "  Session: €%c%s", CGray1, SModeName[BSA.SMode]);
+	sprintf(OSTR, "  Session: €%c%s", CGray1, SModeName[BSA.SMode]);
 	TextObject(OSTR, 70, 12, CGray2);
 	switch (BSA.SMode)
 	{
-	case S_MISSION: sprintf_s(OSTR, "  Mission: €%c%.20s", CGray1, MissionScript.title); break;
-	case S_MELEE: sprintf_s(OSTR, "     Mode: €%c%s", CGray1, EliminationName[BSA.GPlrElm]); break;
-	case S_COOPERATE: sprintf_s(OSTR, "     Mode: €%c%s", CGray1, CGModeName[BSA.CoopGMode]); break;
+	case S_MISSION: sprintf(OSTR, "  Mission: €%c%.20s", CGray1, MissionScript.title); break;
+	case S_MELEE: sprintf(OSTR, "     Mode: €%c%s", CGray1, EliminationName[BSA.GPlrElm]); break;
+	case S_COOPERATE: sprintf(OSTR, "     Mode: €%c%s", CGray1, CGModeName[BSA.CoopGMode]); break;
 	}
 	TextObject(OSTR, 70, 19, CGray2);
 
@@ -2249,7 +2248,7 @@ void PlayerPromotionCheck(void)
 					else
 					{
 						cplr->quote[0] = 0;
-						sprintf_s(OSTR, "%s, please comment on your promotion:", cplr->name);
+						sprintf(OSTR, "%s, please comment on your promotion:", cplr->name);
 						LineInput(OSTR, cplr->quote, MaxQuoteLen, &DefaultQuote, Plr2PNum(cplr), "comment");
 					}
 				}
@@ -2687,7 +2686,7 @@ void MainGameLoop(void)
 	if (!InitCNameFile()) { InitMsg("Missing name file!", CGray4); WaitForInput(); }
 
 	InitMsgOpen("Searching script files... ");
-	sprintf_s(OSTR, "%d found", InitScriptList());
+	sprintf(OSTR, "%d found", InitScriptList());
 	InitMsg(OSTR);
 
 	// Run
@@ -2806,7 +2805,7 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		printf_s("RW\\D SVI Initialization failure\n\r");
+		printf("RW\\D SVI Initialization failure\n\r");
 		return 1;
 	}
 }

@@ -112,7 +112,7 @@ BYTE LoadMissionPreInitBSA(void)
 	if (MissionScript.idnum < 0) return 0;
 	//if (!(fhnd=fopen(MissionScript.fname,"r"))) return 0;
 	if (!(fhnd = fopen("MISSIONS.SCR", "r"))) return 0;
-	sprintf_s(OSTR, "[NewFile=%s]", MissionScript.fname);
+	sprintf(OSTR, "[NewFile=%s]", MissionScript.fname);
 	if (!LocateInFile(fhnd, OSTR)) { fclose(fhnd); return 0; }
 	if (!LocateInFile(fhnd, "[PreInit]")) { fclose(fhnd); return 0; }
 	AdvanceFileLine(fhnd);
@@ -173,7 +173,7 @@ BYTE OpenScriptFile(void)
 	{
 		RoundError("Script file not found,"); RoundError("in MISSIONS.SCR:"); RoundError(MissionScript.fname); return 0;
 	}
-	sprintf_s(OSTR, "[NewFile=%s]", MissionScript.fname);
+	sprintf(OSTR, "[NewFile=%s]", MissionScript.fname);
 	if (!LocateInFile(ScrFile, OSTR) || !LocateInFile(ScrFile, "[RoundScript]"))
 	{
 		CloseScriptFile(); RoundError("Error in script file (Init)"); return 0;
@@ -328,7 +328,7 @@ void ExecScript(void) // Every Tick1 in S_MISSION
 void ExecEventCall(int evnum)
 {
 	if (PrcEvtType == ET_EVENT) if (PrcEvtValue == evnum) ExecEvtAction();
-	//sprintf_s(OSTR,"event call: %d",evnum); SystemError(OSTR);
+	//sprintf(OSTR,"event call: %d",evnum); SystemError(OSTR);
 }
 
 BYTE MissionSuccess(void)

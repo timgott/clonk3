@@ -18,8 +18,6 @@
 
 //--------------------------- Include Headers --------------------------------
 
-#include <dos.h>
-#include <conio.h>
 #include <stdio.h>
 
 #include "standard.h"
@@ -31,6 +29,7 @@
 
 #include <SDL.h>
 #include "SDLmain.h"
+#include "UserInput.h"
 
 extern char OSTR[500]; // Use extern OSTR?
 
@@ -388,9 +387,7 @@ void SystemError(char *txt)
 	DFrame(160 - twdt * 2 - 10, 100 - thgt * 3 - 10, 160 + twdt * 2 + 10, 100 + thgt * 2 + 10, SVIRunning ? CRed : CGray1);
 	SOut("SVI 2.0 System Error", 160, 100 - thgt * 3 - 10 + 4, CGray2, -1, 1);
 	TOut(txt, 160, 100 - thgt * 3 - 10 + 14, CGray1, -1, 1);
-	while (Mousebut()); while (kbhit()) getch();
-	while (!Mousebut() && !kbhit());
-	while (Mousebut()); while (kbhit()) getch();
+	WaitForInput();
 	RedrawArea(160 - twdt * 2 - 10, 100 - thgt * 3 - 10, 160 + twdt * 2 + 10, 100 + thgt * 2 + 10);
 }
 
@@ -660,9 +657,9 @@ void DrawValBox(OBJECT *obj, BYTE update)
 {
 	int wx, wy; wx = obj->inwin->x; wy = obj->inwin->y;
 	if (!obj->VBLongU)
-		sprintf_s(OSTR, "%d%c", *obj->iptr, obj->VBUnit);
+		sprintf(OSTR, "%d%c", *obj->iptr, obj->VBUnit);
 	else
-		sprintf_s(OSTR, "%lu%c", *((DWORD*)obj->iptr), obj->VBUnit);
+		sprintf(OSTR, "%lu%c", *((DWORD*)obj->iptr), obj->VBUnit);
 	switch (obj->VBDesign)
 	{
 	case 0:
@@ -2174,16 +2171,16 @@ COMMAND InCom(BYTE wfm)
 			for (xcnt = 0; xcnt < 9; xcnt++)
 				msbk[ycnt * 9 + xcnt] = GPixF(mstat.x + xcnt - CBAX, mstat.y + ycnt - CBAY);
 		DrawMouse(mstat.x, mstat.y);
-		while ((MouseX() == mstat.x) && (MouseY() == mstat.y) && (!Mousebut()) && (!kbhit()));
+		while ((MouseX() == mstat.x) && (MouseY() == mstat.y) && !CheckKeyOrMouse());
 		for (ycnt = 0; ycnt < 9; ycnt++)
 			for (xcnt = 0; xcnt < 9; xcnt++)
 				SPixF(mstat.x + xcnt - CBAX, mstat.y + ycnt - CBAY, msbk[ycnt * 9 + xcnt]);
-	} while (!Mousebut() && !kbhit());
-	mstat.b = Mousebut();
+	} while (!CheckKeyOrMouse());
+	/*mstat.b = Mousebut(); // I used to know what cn and xn stood for, but this is useless anyway
 	if (!mstat.b)
 	{
 		mstat.cn = getch(); if (!mstat.cn) mstat.xn = getch();
-	}
+	}*/
 	if (wfm) while (Mousebut());
 	return mstat;
 }
@@ -2309,7 +2306,7 @@ BYTE RunSVI(void) // Error/No windows returns 0
 			break;
 
 			/*default:
-		  sprintf_s(OSTR,"keyboard code %d",inc.cn);
+		  sprintf(OSTR,"keyboard code %d",inc.cn);
 		  SystemError(OSTR);
 		  break;*/
 
@@ -2334,7 +2331,7 @@ BYTE RunSVI(void) // Error/No windows returns 0
 			/*default:
 		  if (inc.xn)
 			{
-			sprintf_s(OSTR,"extended keyboard code %d",inc.xn);
+			sprintf(OSTR,"extended keyboard code %d",inc.xn);
 			SystemError(OSTR);
 			}
 		  break;*/

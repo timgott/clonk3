@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL_filesystem.h>
-
+#include <unistd.h>
 #include "standard.h"
 
 //------------------------- Path & General Functions --------------------------------
@@ -100,10 +100,11 @@ BYTE PathProtected(char *path) // Was soll das eigentlich sein
 //--------------------------- DOS File Access --------------------------------
 // Nicht nur DOS inzwischen (Anm. d. Red.)
 
-BYTE DOSOpen(char *fname, FILE **stream, const char* mode)
+BYTE DOSOpen(char *fname, FILE **handle, const char* mode)
 {
 	//if (_dos_open(fname, _A_NORMAL, fhnd) == 0) return 1;
-	if (fopen_s(stream, fname, mode) == 0) return 1;
+	*handle = fopen(fname, mode);
+	if (*handle == 0) return 1;
 	return 0;
 }
 
@@ -127,7 +128,7 @@ BYTE DOSWrite(FILE *stream, void *fbuf, WORD fbtw)
 
 BYTE FileExists(char *fname)
 {
-	if (_access_s(fname, 0) == 0)
+	if (access(fname, 0) == 0)
 	{
 		return 1;
 	}
@@ -136,7 +137,11 @@ BYTE FileExists(char *fname)
 
 long FileSize(FILE* file)
 {
-	return _filelength(_fileno(file));
+	long pos = ftell(file);
+	fseek(file, 0, SEEK_END);
+	long size = ftell(file);
+	fseek(file, pos, SEEK_SET);
+	return size;
 }
 
 //------------------------- GROUP file definitions ---------------------------
