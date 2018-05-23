@@ -9,8 +9,6 @@
 
 #define _USE_MATH_DEFINES
 
-#include <dos.h>
-#include <conio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <SDL_timer.h>
@@ -272,7 +270,7 @@ BYTE RedWolfD(void) // Return 1 for full abort
 	}
 	DeInitStars();
 
-	while (kbhit()) { incom = getch(); if (!incom) incom = getch(); }
+	//while (kbhit()) { incom = getch(); if (!incom) incom = getch(); }
 
 	if (incom == 27) return 1;
 	return 0;

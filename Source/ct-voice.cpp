@@ -13,9 +13,6 @@
 
 // I N C L U D E S ///////////////////////////////////////////////////////////
 
-#include <dos.h>
-#include <conio.h>
-#include <io.h>
 #include <stdlib.h>
 #include <fcntl.h>
 #include <stdio.h>

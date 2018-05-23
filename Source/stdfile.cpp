@@ -9,10 +9,8 @@
 // Version: 1.0 May 1996 (DOSFileAccess,BFIO,PathFunctions,FileSearch)
 
 
-#include <dos.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <io.h>
 #include <SDL_filesystem.h>
 
 #include "standard.h"

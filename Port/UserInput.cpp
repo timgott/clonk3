@@ -1,7 +1,7 @@
 #include <time.h>
 #include <SDL.h>
 #include "SDLmain.h"
-#include "VGA4.H"
+#include "vga4.h"
 #include "UserInput.h"
 
 int WaitForInputTimeout(int maxSeconds)

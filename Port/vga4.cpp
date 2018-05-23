@@ -9,7 +9,7 @@
 #include <SDL.h>
 //#include "STANDARD.H"
 #include "SDLmain.h"
-#include "VGA4.H"
+#include "vga4.h"
 
 int MaxX = 319, MaxY = 199;
 

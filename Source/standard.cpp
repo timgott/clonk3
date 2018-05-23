@@ -18,8 +18,7 @@
 
 //------------------------------ Headers -------------------------------------
 
-#include <dos.h>
-#include "STANDARD.H"
+#include "standard.h"
 
 //----------------------- Basic Type Definitions -----------------------------
 

@@ -727,7 +727,7 @@ void DeathAnnounce(MANTYPE *mptr)
 	static char *datxt[2] = { "%s ist dead","%s|rests in peace" };
 	if (mptr->type != MNMAN) return;
 	if (DADelay > 0) return;
-	sprintf_s(OSTR, datxt[random(2)], mptr->mi->name);
+	snprintf(OSTR, datxt[random(2)], mptr->mi->name);
 	GameMessage(OSTR, 0, 0, CGray4, mptr);
 	DADelay = 30; // A second delay till next DA
 }
@@ -1757,7 +1757,7 @@ extern int ClonkRankExp(int crnk);
 void PromoteClonk(MANTYPE *cman, BYTE plr, BYTE regular)
 {
 	cman->mi->rank++;
-	sprintf_s(OSTR, "%s promoted|to %s!|%s", cman->mi->name, RankName[cman->mi->rank], regular ? "" : "|(Exception)");
+	snprintf(OSTR, "%s promoted|to %s!|%s", cman->mi->name, RankName[cman->mi->rank], regular ? "" : "|(Exception)");
 	GameMessage(OSTR, 0, 0, CYellow, cman);
 	GSTP = SNDTRUMPET;
 	if (!Crew[plr].Cursor) { cman->con = 1; CursorAdjust(plr); }
