@@ -256,7 +256,7 @@ typedef struct EXPLTYPE { int act, x, y; };
 
 typedef struct WEATHERTYPE { LIGHTNING LightN[MaxLightN];
 			     EXPLTYPE expln;
-			     DWRD climate,season;
+			     DWORD climate,season;
 			     int wind,wind2;
 			     int stdtemp,temp,lsttmp,tchcnt;
 			     int rfall;
@@ -264,7 +264,7 @@ typedef struct WEATHERTYPE { LIGHTNING LightN[MaxLightN];
 			     int thlprob;
 			   };
 
-const VBranchNum=20;
+const int VBranchNum=20;
 
 typedef struct VBRANCH { BYTE act; int x,y,dir,size; };
 
@@ -279,7 +279,7 @@ typedef struct GROUNDTYPE { VOLCANO volcano;
 			    int gconwait;
 			    int levell,levelr;
 			    int MaAcRun;
-			    DWRD MaAcGold,MaAcOil;
+			    DWORD MaAcGold,MaAcOil;
 			  };
 
 //------------------------- Game & System Constants --------------------------
@@ -290,7 +290,7 @@ const BYTE BackPage=3,GFXPage=2;
 //------------------------- Color/Material Constants -------------------------
 
 // Other
-const CSmoke=96,CZap=60,CLightning=88;
+const int CSmoke=96,CZap=60,CLightning=88;
 // Background
 const BYTE CSky1=128,CSky2=159,CTunnel1=160,CTunnel2=164;
 // Vehicle Mobile Solids

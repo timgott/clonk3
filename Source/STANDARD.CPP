@@ -19,73 +19,74 @@
 //------------------------------ Headers -------------------------------------
 
 #include <dos.h>
+#include "STANDARD.H"
 
 //----------------------- Basic Type Definitions -----------------------------
 
 typedef unsigned char     BYTE;
 typedef unsigned int      WORD;
-typedef unsigned long int DWRD;
+typedef unsigned long int DWORD;
 
 //------------------------- Standard Functions -------------------------------
 
 BYTE Inside(long ival, long lbound, long rbound)
-  {
-  if ((ival>=lbound) && (ival<=rbound)) return 1;
-  return 0;
-  }
+{
+	if ((ival >= lbound) && (ival <= rbound)) return 1;
+	return 0;
+}
 
 long BoundBy(long bval, long lbound, long rbound)
-  {
-  if (Inside(bval,lbound,rbound)) return bval;
-  if (bval<lbound) return lbound;
-  return rbound;
-  }
+{
+	if (Inside(bval, lbound, rbound)) return bval;
+	if (bval < lbound) return lbound;
+	return rbound;
+}
 
 void Swap(int &int1, int &int2)
-  {
-  int temp;
-  temp=int2; int2=int1; int1=temp;
-  }
+{
+	int temp;
+	temp = int2; int2 = int1; int1 = temp;
+}
 
 long Max(long val1, long val2)
-  {
-  if (val1>val2) return val1;
-  return val2;
-  }
+{
+	if (val1 > val2) return val1;
+	return val2;
+}
 
 long Min(long val1, long val2)
-  {
-  if (val1<val2) return val1;
-  return val2;
-  }
+{
+	if (val1 < val2) return val1;
+	return val2;
+}
 
 long Max3(long val1, long val2, long val3)
-  {
-  return Max(Max(val1,val2),val3);
-  }
+{
+	return Max(Max(val1, val2), val3);
+}
 
 long Min3(long val1, long val2, long val3)
-  {
-  return Min(Min(val1,val2),val3);
-  }
+{
+	return Min(Min(val1, val2), val3);
+}
 
 long Abs(long val)
-  {
-  if (val<0) return -val;
-  return val;
-  }
+{
+	if (val < 0) return -val;
+	return val;
+}
 
 int Sign(int val)
-  {
-  if (val<0) return -1;
-  if (val>0) return +1;
-  return 0;
-  }
+{
+	if (val < 0) return -1;
+	if (val > 0) return +1;
+	return 0;
+}
 
 void Toggle(BYTE &tbyte)
-  {
-  if (tbyte) tbyte=0; else tbyte=1;
-  }
+{
+	if (tbyte) tbyte = 0; else tbyte = 1;
+}
 
 /*void SetBit(BYTE &tbyte, BYTE bit)
   {
@@ -128,94 +129,95 @@ void ToggleBBit(BYTE *buf, WORD bitn)
   ToggleBit(buf[bitn/8],bitn%8);
   }*/
 
-void FillMem(BYTE *bptr, DWRD cnt, BYTE val)
-  {
-  while (cnt>0) { *bptr=val; cnt--; bptr++; }
-  }
+void FillMem(BYTE *bptr, DWORD cnt, BYTE val)
+{
+	while (cnt > 0) { *bptr = val; cnt--; bptr++; }
+}
 
-void ZeroMem(BYTE *bptr, DWRD cnt)
-  {
-  while (cnt>0) { *bptr=0; cnt--; bptr++; }
-  }
+void ZeroMem(BYTE *bptr, DWORD cnt)
+{
+	while (cnt > 0) { *bptr = 0; cnt--; bptr++; }
+}
 
-BYTE MemEqual(BYTE *ptr1, BYTE *ptr2, DWRD cnt)
-  {
-  while (cnt>0) { if (*ptr1!=*ptr2) return 0; cnt--; ptr1++; ptr2++; }
-  return 1;
-  }
+BYTE MemEqual(BYTE *ptr1, BYTE *ptr2, DWORD cnt)
+{
+	while (cnt > 0) { if (*ptr1 != *ptr2) return 0; cnt--; ptr1++; ptr2++; }
+	return 1;
+}
 
-void MemCopy(BYTE *fptr, BYTE *tptr, DWRD cnt)
-  {
-  if (tptr<fptr) // Downwards in mem
-    while (cnt>0) { *tptr=*fptr; tptr++; fptr++; cnt--; }
-  else // Upwards in mem
-    {
-    tptr+=cnt-1; fptr+=cnt-1;
-    while (cnt>0) { *tptr=*fptr; tptr--; fptr--; cnt--; }
-    }
-  }
+void MemCopy(BYTE *fptr, BYTE *tptr, DWORD cnt)
+{
+	if (tptr < fptr) // Downwards in mem
+		while (cnt > 0) { *tptr = *fptr; tptr++; fptr++; cnt--; }
+	else // Upwards in mem
+	{
+		tptr += cnt - 1; fptr += cnt - 1;
+		while (cnt > 0) { *tptr = *fptr; tptr--; fptr--; cnt--; }
+	}
+}
 
 float PathC(int fc, int tc, float pc)
-  {
-  return fc+(tc-fc)*pc;
-  }
+{
+	return fc + (tc - fc)*pc;
+}
 
 //---------------------------- String Functions ------------------------------
 
-const int MaxSLen=500;
+const int MaxSLen = 500;
 
 int SLen(char *sptr)
-  {
-  int slen=0;
-  if (!sptr) return 0;
-  while ((slen<MaxSLen) && *(sptr+slen)) slen++;
-  return slen;
-  }
+{
+	int slen = 0;
+	if (!sptr) return 0;
+	while ((slen < MaxSLen) && *(sptr + slen)) slen++;
+	return slen;
+}
 
-void SCopy(char *src, char *trg, int maxn=MaxSLen)
-  {
-  int cnt;
-  for (cnt=0; *src && (cnt<maxn); cnt++,src++,trg++) *trg=*src;
-  *trg=0;
-  }
+void SCopy(char *src, char *trg, int maxn)
+{
+	int cnt;
+	for (cnt = 0; *src && (cnt < maxn); cnt++, src++, trg++) *trg = *src;
+	*trg = 0;
+}
 
 BYTE SEqual(char *str1, char *str2)
-  {
-  int cnt;
-  for (cnt=0; *str1 && *str2 && (cnt<MaxSLen); cnt++,str1++,str2++)
-    if (*str1!=*str2) return 0;
-  return 1;
-  }
+{
+	int cnt;
+	for (cnt = 0; *str1 && *str2 && (cnt < MaxSLen); cnt++, str1++, str2++)
+		if (*str1 != *str2) return 0;
+	return 1;
+}
 
 BYTE SEqualL(char *str1, char *str2)
-  {
-  if (SEqual(str1,str2) && (SLen(str1)==SLen(str2))) return 1;
-  return 0;
-  }
+{
+	if (SEqual(str1, str2) && (SLen(str1) == SLen(str2))) return 1;
+	return 0;
+}
 
 int SCharPos(char tchar, char *istr)
-  {
-  int cpos;
-  if (!istr) return -1;
-  for (cpos=0; istr[cpos] && (istr[cpos]!=tchar) && (cpos<512); cpos++);
-  if (istr[cpos]!=tchar) cpos=-1;
-  return cpos;
-  }
+{
+	int cpos;
+	if (!istr) return -1;
+	for (cpos = 0; istr[cpos] && (istr[cpos] != tchar) && (cpos < 512); cpos++);
+	if (istr[cpos] != tchar) cpos = -1;
+	return cpos;
+}
 
 void Capitalize(char *str)
-  {
-  while (str && *str)
-    {
-    if (Inside(*str,97,122)) *str-=32;
-    if (*str=='„') *str='Ž';
-    if (*str=='”') *str='™';
-    if (*str=='') *str='š';
-    str++;
-    }
-  }
+{
+	while (str && *str)
+	{
+		if (Inside(*str, 97, 122)) *str -= 32;
+		if (*str == '„') *str = 'Ž';
+		if (*str == '”') *str = '™';
+		if (*str == '') *str = 'š';
+		str++;
+	}
+}
 
 //---------------------------------- RTC -------------------------------------
-
+// Real-time-clock. Wird durch time(NULL) ersetzt.
+/*
 BYTE RTCRead(BYTE address)
   {
   outp(0x70,address);
@@ -231,6 +233,6 @@ void RTCWrite(BYTE address, BYTE contents)
 BYTE RTCTime(BYTE address)
   {
   if (RTCRead(0x0B) & 2)
-    return((RTCRead(address) >> 4)*10+(RTCRead(address) & 15));
+	return((RTCRead(address) >> 4)*10+(RTCRead(address) & 15));
   else return(RTCRead(address));
-  }
+  }*/

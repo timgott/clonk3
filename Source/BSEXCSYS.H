@@ -13,7 +13,7 @@ extern BYTE Sec1,Sec5,Sec10,Sec20,Sec60;
 
 extern BYTE LowMem;
 
-extern DWRD RockCnt,PXSCnt,StructCnt,VehicCnt,LineCnt,ManCnt[3],AnimalCnt;
+extern DWORD RockCnt,PXSCnt,StructCnt,VehicCnt,LineCnt,ManCnt[3],AnimalCnt;
 
 extern long BackGrSize;
 

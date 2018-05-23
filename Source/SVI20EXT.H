@@ -19,7 +19,7 @@ extern void InitMsgOpen(char *msg, BYTE col=CIMsg);
 
 extern void SVISetExternFunctions(void(*dlbc)(int,int,int,int,BYTE),BYTE(*lbca)(int,int,int));
 
-extern OBJECT *NewObject(char *title, BYTE type, BYTE acc, BYTE hid, int x, int y, int wdt, int hgt, BYTE bd1, BYTE bd2, BYTE bd3, int id1, int id2, int id3, int id4, int id5, BYTE *bptr, int *dptr);
+extern OBJECT *NewObject(char *title, BYTE type, BYTE acc, BYTE hid, int x, int y, int wdt, int hgt, BYTE bd1, BYTE bd2, BYTE bd3, int id1, int id2, int id3, int id4, int id5, char *bptr, int *dptr);
 extern WINDOW *NewWindow(char *title, BYTE type, BYTE prior, int x, int y, int wdt, int hgt, int num, int outof, BYTE escxrv, char *hindex);
 extern ULINK  *NewULink(BYTE type, WINDOW *fwin, OBJECT *fobj, OBJECT *tobj, int (*exfunc)(int), int expar);
 
@@ -36,9 +36,9 @@ extern void SVIGCopy(BYTE fpge, int fx, int fy, BYTE tpge, int tx, int ty, int w
 extern void CloseWindow(WINDOW *win, BYTE noredr=0);
 
 extern BYTE RunSVI(void);
-extern BYTE ClearSVI(void);
+extern void ClearSVI(void);
 
-extern BYTE InitSVI(BYTE svipge, char *helpfname);
+BYTE InitSVI(int screenScale, BYTE svipge, char *helpfname);
 extern void CloseSVI(void);
 
 extern void InitSVIGrayMap(void);
@@ -57,6 +57,6 @@ extern void AdjustLBCellNum(int lid, int ncnum);
 extern void InitProcessB(char *msg, BYTE page=SVIPage);
 extern void ProcessB(int val);
 
-extern void OpenPowerHelp(BYTE *index);
+extern void OpenPowerHelp(char *index);
 
 extern BYTE MouseType;

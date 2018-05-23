@@ -1,0 +1,1162 @@
+# RedWolf Design CLONK 3 Radikal Missions-Script Datei
+
+# Diese Datei darf nicht verÑndert werden! Wenn diese Datei in irgendeiner
+# Form modifiziert wird, wird das Hauptprogramm nicht mehr funktionieren!
+
+[NewFile=CLONK.SCR]
+Head=Clonk3Script
+Title=Ein Clonk
+Desc=Grundlagen der Clonk-Steuerung
+IDNum=1
+RuleSet=0
+
+[PreInit]
+Clonks=1
+Wealth=0
+BackCurveAmp=0
+BackRandomAmp=25
+StartXPos=160
+
+[RoundScript]
+DL 0150 Message:Spielgeschwindigkeit anpassen mit F5 und F6.
+DL 0200 Message:Dies ist ein Clonk.
+DL 0100 Message:Mit diesen Tasten wird er gesteuert.
+DL 0001 CallFnc:KeyConDisplay(1)
+DL 0001 CallFnc:PlaySound(32)
+DL 0150 CallFnc:KeyConDisplay(2)
+DL 0050 Message:Er kann nach links gehen,|anhalten und nach rechts gehen.
+DL 0010 CallFnc:KeyConDisplay(3)
+DL 0100 CallFnc:KeyConDisplay(2)
+DL 0010 Message:Die Tasten sollten dabei nur kurz gedrÅckt|und nicht festgehalten werden.
+DL 0050 CallFnc:KeyConDisplay(3)
+DL 0050 CallFnc:KeyConDisplay(2)
+DL 0050 CallFnc:KeyConDisplay(3)
+DL 0050 CallFnc:KeyConDisplay(2)
+DL 0010 Message:Bitte steuere Deinen Clonk nach rechts.
+EV 0108 Continue
+DL 0030 Message:Jetzt halte Deinen Clonk an.
+EV 0107 Message:Sehr gut!
+DL 0070 Message:Bitte steuere Deinen Clonk nach links|und halte dann wieder an.
+EV 0106 Continue
+EV 0107 Message:Das wÑre geschafft.
+DL 0070 Message:Mit dieser Taste lÑsst Du|Deinen Clonk springen.
+DL 0001 CallFnc:KeyConDisplay(4)
+DL 0001 CallFnc:PlaySound(32)
+DL 0050 CallFnc:KeyConDisplay(5)
+DL 0050 CallFnc:KeyConDisplay(4)
+DL 0050 CallFnc:KeyConDisplay(5)
+EV 0104 Message:Yeeh!
+DL 0100 Message:Mit dieser Taste lÑsst Du|Deinen Clonk graben!
+DL 0001 CallFnc:KeyConDisplay(6)
+DL 0001 CallFnc:PlaySound(32)
+DL 0050 CallFnc:KeyConDisplay(7)
+DL 0050 CallFnc:KeyConDisplay(6)
+DL 0050 CallFnc:KeyConDisplay(7)
+EV 0105 Message:Auf 'Stop' hîrt er wieder auf zu graben.
+DL 0300 Message:WÑhrend der Clonk grÑbt, kannst Du|mit 'Rechts' und 'Links' die|Richtung bestimmen.
+DL 0001 CallFnc:KeyConDisplay(3)
+DL 0050 CallFnc:KeyConDisplay(2)
+DL 0050 CallFnc:KeyConDisplay(3)
+DL 0050 CallFnc:KeyConDisplay(2)
+DL 0050 CallFnc:KeyConDisplay(7)
+DL 0200 Message:Versuche nun, einen Stein|aus dem Boden zu graben.
+DL 0200 Continue
+IF 0100 Message:Mit dieser Taste lÑsst Du|Deinen Clonk den Stein werfen!
+DL 0001 CallFnc:KeyConDisplay(8)
+DL 0001 CallFnc:PlaySound(32)
+DL 0050 CallFnc:KeyConDisplay(9)
+DL 0050 CallFnc:KeyConDisplay(8)
+DL 0050 CallFnc:KeyConDisplay(9)
+EV 0103 Message:Okay, nun hast Du Zeit,|noch ein wenig zu Åben.
+DL 0050 CallFnc:KeyConDisplay(10)
+DL 0400 Message:Die Mission ist nun, 5 Steine|ganz an den rechten Bildrand zu werfen.
+IF 0200 Message:Bravo, damit hast Du die|erste Mission erfÅllt!
+DL 0001 CallFnc:KeyConDisplay(0)
+DL 0001 CallFnc:PlaySound(24)
+DL 0001 Success[NewFile=WIPFS.SCR]
+Head=Clonk3Script
+Title=Wipfe retten
+Desc=Kleine fluffige Pelzwesen
+IDNum=10
+RuleSet=0
+
+[PreInit]
+Clonks=4
+Wealth=0
+Lorry=1
+Castle=1
+BRockMode=1
+Lightning=5
+Wipfs=7
+
+[RoundScript]
+DL 150 Message:Wipfe sind kleine Pelztiere.
+DL 200 Message:Voller Lebensfreude laufen|und springen sie durch die Welt...
+DL 300 Message:...immer auf der Suche nach etwas zu essen.
+DL 300 Message:(Leider gibt es im einfachen Regelwerk|noch keine Pflanzen zum Fressen.)
+DL 300 Message:Mit der Lore kînnen die Wipfe|eingefangen und in die Burg gebracht werden.
+DL 350 Message:FÅr jeden geretteten Wipf|gibt es 10 Geldpunkte.
+DL 300 Message:Um diese Mission zu erfÅllen,|mÅssen 5 Wipfe in Sicherheit gebracht werden.
+DL 350 Message:Um Wipfe aus tiefen Tunneln zu retten,|mÅssen geschickt mit LehmbrÅcken Barrieren gebaut werden.
+DL 350 Continue
+IF 203 Message:Sehr gut!
+DL 001 CallFnc:PlaySound(24)
+DL 100 Success[NewFile=MONSTER.SCR]
+Head=Clonk3Script
+Title=Monsterattacke
+Desc=Sie wollen nichts bîses
+IDNum=11
+RuleSet=0
+
+[PreInit]
+Clonks=3
+Wealth=0
+Castle=1
+BRockMode=1
+Monsters=1
+BCurveAmp=0
+BRandomAmp=60
+
+[RoundScript]
+DL 150 Message:Oh, oh!
+DL 200 Message:Nun heisst es aufpassen und ausweichen!
+DL 400 Message:Versuche, das Monster durch geschicktes|Graben von Gruben einzusperren.
+DL 500 Message:Deine Aufgabe ist es, das Monster mit|Stein- und Feuersteintreffern auszuschalten.
+DL 600 Message:Denke daran, immer rechtzeitig|in der Burg Energie aufzutanken.
+DL 600 Message:Monster sind die widerstandsfÑhigsten|Lebewesen in CLONK.
+IF 204 Message:Sehr gut!
+DL 001 CallFnc:PlaySound(24)
+DL 100 Success[NewFile=XMAS.SCR]
+Head=Clonk3Script
+Title=Frîhliche Weihnachten!
+Desc=Jeden Tag eine gute Tat
+IDNum=12
+RuleSet=0
+
+[PreInit]
+Clonks=3
+Wealth=0
+Lorry=1
+Castle=1
+BRockMode=1
+Wipfs=7
+Rain=50
+Environment=2
+Monsters=1
+Climate=900
+Season=0
+
+[RoundScript]
+DL 150 Message:Stille Nacht, heilige Nacht...
+DL 300 Message:Bitte bring doch die armen Wipfe|nach hause, bevor sie erfrieren.
+DL 800 Message:Das Monster mîchte auch gerne mitkommen,|darf aber leider nicht.
+IF 203 Message:Ho, ho, das hast Du sehr gut gemacht!
+DL 001 CallFnc:PlaySound(24)
+DL 250 Message:Du hast alle Missionen|im einfachen Regelwerk erfÅllt!
+DL 300 Success[NewFile=MINE2.SCR]
+Head=Clonk3Script
+Title=Fortgeschrittener Bergbau
+Desc=Sprengen im Erdreich
+IDNum=13
+RuleSet=1;
+
+[PreInit]
+Clonks=1
+Wealth=0
+Castle=1
+BRockMode=4
+Climate=900
+Season=1000
+YearSpeed=0
+
+[RoundScript]
+DL 150 Message:Nun wird die Sache schon|etwas komplizierter.
+DL 300 Message:Steine und Gold liegen nicht mehr lose in der Erde,|sondern in festen Gesteinsschichten.
+DL 400 Message:Versuche nun, einen Feuerstein auszugraben.
+DL 300 Message:Grabe Dich dann an eine feste Goldschicht heran|und versuche, ein paar Goldklumpen freizusprengen.
+EV 204 Message:Sehr gut!
+DL 150 Message:Sammle auf diese Weise 30 Geldpunkte.
+DL 700 Message:Da man nicht durch feste Schichten graben kann,|ist nun beim Minen bauen erhîhte Vorsicht geboten.
+DL 800 Message:Im mittleren Regelwerk kostet ausserdem|die Lebensenergie in der Burg Geldpunkte.
+IF 330 Message:Mission erfÅllt!
+DL 001 CallFnc:PlaySound(24)
+DL 100 Success[NewFile=FLINT.SCR]
+Head=Clonk3Script
+Title=Lehm und Feuerstein
+Desc=Mehr als nur Steine
+IDNum=2
+RuleSet=0
+
+[PreInit]
+Clonks=1
+Wealth=0
+BackCurveAmp=0
+BackRandomAmp=25
+StartXPos=160
+BRockMode=1;
+
+[RoundScript]
+FP 0150 Message:Es gibt mehr als nur normale Steine.
+DL 0200 Message:Versuche einen der roten|Feuersteine auszugraben.
+DL 0001 CallFnc:KeyConDisplay(15)
+DL 0050 CallFnc:KeyConDisplay(10)
+DL 0050 CallFnc:KeyConDisplay(15)
+DL 0050 CallFnc:KeyConDisplay(10)
+IF 0102 Message:Sei vorsichtig, wenn Du ihn wirfst!
+EV 0200 Message:Ein Feuerstein kann eine gefÑhrliche Waffe sein.
+DL 0200 Message:Wirf einen weiteren Feuerstein.
+EV 0200 Continue
+DL 0100 Message:Nun zu etwas Konstruktiverem:
+DL 0150 Message:Bitte grab einen der braunen Lehmklumpen aus.
+IF 0112 Message:Mit Lehmklumpen lassen sich|BrÅcken und WÑnde bauen.
+DL 0200 Continue
+IF 0112 Message:DrÅcke zweimal schnell|hintereinander auf 'Graben'.
+EV 0305 Message:Damit hast Du das BrÅckenbau-MenÅ aktiviert.
+DL 0200 Message:Die sechs Buttons in diesem MenÅ|entsprechen den sechs unteren Steuerungstasten.
+DL 0001 CallFnc:KeyConDisplay(15)
+DL 0050 CallFnc:KeyConDisplay(10)
+DL 0050 CallFnc:KeyConDisplay(15)
+DL 0050 CallFnc:KeyConDisplay(10)
+DL 0050 CallFnc:KeyConDisplay(15)
+DL 0050 CallFnc:KeyConDisplay(10)
+DL 0050 Message:Durch das DrÅcken der entsprechenden Taste|kann die Richtung der LehmbrÅcke bestimmt werden.
+DL 0300 Message:Baue nun mit Lehm eine senkrechte Wand.
+EV 0250 Continue
+DL 0030 Message:Sehr gut!
+DL 0100 Message:Baue eine waagerechte LehmbrÅcke.
+EV 0252 Continue
+DL 0030 Message:Mit Lehm lassen sich Lîcher verschliessen,|Barrieren errichten und hochgelegene Punkte erreichen.
+DL 0300 Message:Baue nun noch eine BrÅcke schrÑg nach oben.
+EV 0251 Message:Damit wÑre auch diese Lektion abgeschlossen.
+DL 0001 CallFnc:KeyConDisplay(0)
+DL 0001 CallFnc:PlaySound(24)
+DL 0100 Success[NewFile=LORRY.SCR]
+Head=Clonk3Script
+Title=Die Lore
+Desc=Ein erstes Fahrzeug
+IDNum=6
+RuleSet=0
+
+[PreInit]
+Clonks=1
+Wealth=0
+Lorry=1
+Castle=1
+BRockMode=3
+
+[RoundScript]
+DL 0150 Message:Die Lore ermîglicht den Transport|von grîsseren Mengen Gold oder Stein.
+DL 0200 Message:Wenn ein Clonk vor einem Fahrzeug anhÑlt,|fasst er es automatisch an.
+DL 0250 Continue
+IF 0202 Message:Schiebe nun die Lore nach links.
+EV 0106 Continue
+DL 0050 Message:Nun wieder nach rechts.
+EV 0108 Continue
+DL 0050 Message:DrÅcke einmal auf 'Stop'|um die Lore anzuhalten.
+EV 0107 Continue
+DL 0100 Message:DrÅcke noch einmal auf 'Stop'|um die Lore loszulassen.
+EV 0107 Message:Bewege nun Deinen Clonk nach links|und halte dann an.
+EV 0106 Continue
+EV 0107 Message:Sehr gut.
+DL 0100 Message:Wenn Du nun den Clonk vor die Lore bewegst|und anhÑltst, fasst er das Fahrzeug wieder an.
+IF 0202 Message:Jetzt kann der Clonk die Lore wieder schieben.
+DL 0250 Message:Einmal auf 'Stop',|um die fahrende Lore anzuhalten...
+DL 0200 Message:...und noch einmal auf 'Stop'|um sie wieder loszulassen.
+DL 0400 Message:Wirf nun 3 Goldklumpen in die Lore.
+IF 0403 Message:Schiebe nun die Lore zurÅck zur Burg.
+DL 0200 Message:Manchmal muss man mit Lehm Rampen bauen, um die Lore|an eine bestimmte Stelle schieben zu kînnen.
+DL 0350 Message:Schiebe die Lore genau vor das Tor und|gehe dann mit dem Clonk in die Burg (Springen).
+EV 0202 Message:Gut! Auf diese Weise wird der Inhalt|der Lore in die Burg geschafft!
+DL 0050 CallFnc:PlaySound(24)
+DL 0250 Message:Manchmal mÅssen mehrere Clonks die Lore schieben,|um eine starke Steigung zu bewÑltigen.
+DL 0250 Message:Doch nun zur nÑchsten Runde mit einem neuen Fahrzeug!
+DL 0100 Success[NewFile=MENU.SCR]
+Head=Clonk3Script
+Title=Das SpezialmenÅ
+Desc=Bestellungen von der Basis
+IDNum=14
+RuleSet=1;
+
+[PreInit]
+Clonks=1
+Wealth=100
+Castle=1
+BRockMode=5
+Climate=900
+Season=1000
+YearSpeed=0
+
+[RoundScript]
+DL 150 Message:Im mittleren Regelwerk gibt es|eine grundlegende Neuerung:
+DL 250 Message:Das SpezialmenÅ!
+DL 100 Message:Das SpezialmenÅ wird durch|diese MenÅ-Taste ein- und ausgeblendet.
+DL 001 CallFnc:PlaySound(32)
+DL 001 CallFnc:KeyConDisplay(16)
+DL 050 CallFnc:KeyConDisplay(17)
+DL 050 CallFnc:KeyConDisplay(16)
+DL 050 CallFnc:KeyConDisplay(17)
+DL 050 CallFnc:KeyConDisplay(16)
+DL 050 Message:Schalte nun das HauptmenÅ ein.
+DL 050 Continue
+EV 301 Message:Sehr gut.
+DL 100 Message:Wie beim BrÅckenbau-MenÅ entsprechen hier|die sechs MenÅknîpfe den sechs unteren Steuerungstasten.
+DL 001 CallFnc:KeyConDisplay(15)
+DL 250 Message:Die drei oberen Knîpfe stehen fÅr:|Material-Bestellung, GerÑte-Bestellung und AngriffsmenÅ
+DL 400 Message:Aktiviere nun die Material-Bestellung.
+DL 050 Continue
+EV 302 Message:Gut.
+DL 050 Message:Mit den unteren drei Tasten kann|durch die Bestell-Liste gescrollt|und das MenÅ verlassen werden.
+DL 300 Message:Mit den oberen drei Tasten kînnen|Objekte bestellt werden.
+DL 250 Message:Eine öbersicht Åber alle Objekte gibt es in der OnLine-Hilfe.
+DL 300 Message:Aber vorsicht, alles kostet Geld und ist nur|in begrenzten Mengen vorhanden!
+DL 300 Message:Wenn Du kein Geld mehr hast, musst Du|erst noch mehr Gold in die Burg schaffen.
+DL 350 Message:Bestelle nun einen roten Feuerstein!
+EV 402 Message:Sehr gut!
+DL 100 Message:Nun kannst Du erstmal die vielen neuen|Objekte in Augenschein nehmen.
+DL 300 Message:Was man mit den einzelnen Objekten machen kann,|wird in den nÑchsten Missionen erklÑrt.
+DL 400 Message:Alle Objekte kînnen auch wieder|in der Burg umgetauscht werden.
+DL 400 Message:Wenn Du mit der Mission fortfahren willst,|aktiviere die GerÑte-Bestellung (Lore + Clonk).
+EV 303 Message:Dies ist die GerÑte-Bestellung.
+DL 250 Message:Wieder kann mit den unteren Tasten|gescrollt und das MenÅ verlassen werden...
+DL 350 Message:...und mit den oberen Tasten bestellt werden.
+DL 300 Message:Im mittleren Regelwerk kînnen|Clonks, Loren, Katapulte und Boote|bestellt werden.
+DL 600 Message:Auch Fahrzeuge kînnen wieder verkauft werden.
+DL 800 Message:Wenn Du weitermachen willst, aktiviere das AngriffsmenÅ.
+EV 304 Message:Das AngriffsmenÅ wird nur benîtigt, wenn man gegen|mehrere Gegner gleichzeitig spielt.
+DL 350 Message:Dann kann hier eingestellt werden,|gegen wen die eigenen Clonks kÑmpfen sollen.
+DL 350 Message:Ausserdem gibt es hier die Funktion 'Aufgeben'.|(Jetzt nicht ausprobieren!)
+DL 700 Message:In den nÑchsten Missionen lernst Du|weitere GebÑude kennen...
+DL 300 Message:...und kannst weiter die Funktionen|des SpezialmenÅs ausprobieren.
+DL 500 Success[NewFile=CASTLE.SCR]
+Head=Clonk3Script
+Title=Die Burg
+Desc=Steine zu Clonks
+IDNum=4
+RuleSet=0;
+
+[PreInit]
+Clonks=1;
+Wealth=7;
+Castle=1;
+
+[RoundScript]
+DL 0150 Message:Eine Burg ist eine feine Sache.
+DL 0200 Message:In der Burg kînnen zum Beispiel|Clonks verlorene Lebensenergie aufladen.
+DL 0250 Message:Um die Burg zu betreten, muss ein Clonk|vor den Eingang gehen und dann springen.
+DL 0050 CallFnc:KeyConDisplay(10)
+EV 0201 Message:Genau so.
+DL 0100 Message:Ein Clonk bleibt so lange in der Burg,|bis seine Lebensenergie wieder voll ist.
+DL 0250 Message:Ausserdem kînnen Steine in der Burg|eingetauscht werden.
+DL 0250 Message:Trage nun drei Steine in die Burg.
+IF 0308 Message:FÅr jeden Stein wird Dir|ein Geldpunkt gutgeschrieben.
+IF 0152 Message:FÅr zehn Geldpunkte gibt es einen neuen Clonk!
+DL 0001 CallFnc:KeyConDisplay(13)
+DL 0350 Message:Bringe nun zehn weitere Steine in die Burg.
+DL 0350 Message:Dabei sollten natÅrlich beide Clonks|zum Tragen eingesetzt werden.
+IF 0153 Message:Sehr gut!
+DL 0001 CallFnc:KeyConDisplay(0)
+DL 0001 CallFnc:PlaySound(24)
+DL 0100 Success[NewFile=ELEVATOR.SCR]
+Head=Clonk3Script
+Title=Der Fahrstuhl
+Desc=Neue Strukturen
+IDNum=15
+RuleSet=1;
+
+[PreInit]
+Clonks=1
+Wealth=50
+Castle=1
+BRockMode=5
+Climate=900
+Elevator=1
+Season=1000
+YearSpeed=0
+
+[RoundScript]
+DL 150 Message:Ein neues GebÑude.
+DL 200 Message:Der Fahrstuhl erleichtert den Bergbau.
+DL 200 Message:ZunÑchst braucht der Fahrstuhl noch einen Schacht.
+DL 200 Message:Gehe dazu mit Deinem Captain|in den Fahrstuhlkorb...
+DL 150 CallFnc:KeyConDisplay(6)
+DL 050 CallFnc:KeyConDisplay(7)
+DL 050 Message:...und aktiviere einen schnellen Doppelklick auf 'Graben'.
+EV 205 Message:KeyConDisplay(6)
+DL 020 Message:Mit 'Stop' kann man die Schachtbohrung anhalten.
+DL 100 CallFnc:KeyConDisplay(0)
+DL 200 Message:Von nun an fÑhrt der Fahrstuhl automatisch.
+DL 500 Message:Du solltest Dir weitere Clonks|und eine Lore bestellen.
+DL 500 Message:Wieder ist es Dein Ziel, 99 Geldpunkte zu sammeln.
+DL 900 Message:Steht ein Clonk im Fahrstuhl,|kann er mit 'Stop' die Richtung bestimmen.
+IF 399 Message:Auch das wÑre geschafft.
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success[NewFile=GOLD.SCR]
+Head=Clonk3Script
+Title=Goldrausch
+Desc=Wertvolle Klumpen
+IDNum=5
+RuleSet=0;
+
+[PreInit]
+Clonks=6;
+Wealth=0;
+Castle=1;
+BRockMode=2;
+
+[RoundScript]
+DL 0150 Message:Es schimmert im Erdreich...
+DL 0150 Message:Ab in die Burg damit!
+DL 0300 Message:Ein Goldklumpen ist fÅnf Geldpunkte wert.
+DL 0200 Message:Sammle 99 Geldpunkte.
+DL 0100 Continue
+IF 0310 Message:Es gibt leider keine neuen Clonks,|da ein FÑhnrich nur fÅnf Clonks befehligen kann.
+IF 0350 Message:In einem Spiel gegen einen anderen Spieler|sollte man vor allem mehr Clonks im Einsatz haben.
+IF 0399 Message:Auch diese Aufgabe wÑre bewÑltigt.
+DL 0001 CallFnc:KeyConDisplay(0)
+DL 0001 CallFnc:PlaySound(24)
+DL 0100 Success[NewFile=CATAPULT.SCR]
+Head=Clonk3Script
+Title=Das Katapult
+Desc=Eine Langstreckenwaffe
+IDNum=7
+RuleSet=0
+
+[PreInit]
+Clonks=1
+Wealth=0
+Catapult=1
+BRockMode=1
+StartXPos=160
+BackCurveAmp=0
+
+[RoundScript]
+FP 150 Message:Das Katapult ist natÅrlich nur sinnvoll,|wenn zwei Spieler in einem 'Melee' gegeneinander spielen.
+DL 250 Message:Es kann genauso wie die Lore|hin- und hergeschoben werden.
+DL 200 Message:Halte mit Deinem Clonk vor dem Katapult an.
+DL 150 Continue
+IF 202 Message:Schiebe nun das Katapult ganz nach links.
+EV 106 Continue
+DL 200 Message:Drehe nun das Katapult nach rechts um und halte an.
+EV 108 Continue
+EV 107 Message:DrÅcke nochmal auf 'Stop',|damit der Clonk das Katapult loslÑsst.
+EV 107 Message:Grabe nun ein paar Steine aus.
+DL 100 Continue
+IF 099 Message:Lass den Clonk nun das Katapult anfassen.
+IF 202 Message:Mit 'Werfen' wird das Katapult abgefeuert.
+DL 001 CallFnc:KeyConDisplay(8)
+EV 203 Message:Woa!
+DL 050 CallFnc:KeyConDisplay(0)
+DL 100 Message:Lass nun das Katapult los|und grabe einen weiteren Stein aus,|vorzugsweise einen Feuerstein.
+IF 099 Message:Gehe zurÅck zum Katapult.
+IF 202 Message:Die Schleuder-Entfernung kann bestimmt werden,...
+DL 100 Message:...indem man in der Ladephase ein weiteres Mal|schnell auf 'Werfen' drÅckt.
+EV 203 Message:Sehr gut, öbe nun noch ein wenig Zielschiessen.
+EV 203 Message:Versuche, Steine in verschiedene Richtungen|und verschiedene Entfernungen zu schleudern.
+EV 203 Continue
+EV 203 Message:Nun wÑre ein 'Melee' gegen einen|menschlichen Gegenspieler angebracht.
+DL 250 Message:Diese Lektion wÑre damit abgeschlossen.
+DL 200 Success
+
+[NewFile=RAIN.SCR]
+Head=Clonk3Script
+Title=Regen und Gewitter
+Desc=Erschwerende Naturgewalten
+IDNum=8
+RuleSet=0;
+
+[PreInit]
+Clonks=6;
+Wealth=0;
+Castle=1;
+BRockMode=2;
+Rain=70;
+Lightning=30;
+
+[RoundScript]
+DL 150 Message:Minen bauen unter erschwerten Bedingungen...
+DL 200 Message:Deine Aufgabe ist es, 99 Geldpunkte zu sammeln.
+DL 800 Message:Durch geschicktes Graben lassen sich Tunnel bauen,|in die kein Wasser hineinlÑuft.
+DL 800 Message:Mit einem Gang an den linken oder rechten Bildrand|lassen sich unterirdische AbflÅsse schaffen.
+DL 800 Message:Wenn ein Clonk schwimmt, kann man ihn|mit 'Stop' untertauchen lassen.
+IF 399 Message:Mission erfÅllt
+DL 001 CallFnc:PlaySound(24)
+DL 001 Success
+[NewFile=SNOW.SCR]
+Head=Clonk3Script
+Title=Schnee
+Desc=Immer schîn schaufeln
+IDNum=9
+RuleSet=0;
+
+[PreInit]
+Clonks=6;
+Wealth=0;
+Castle=1;
+BRockMode=2;
+Rain=70;
+Climate=900;
+Season=0;
+
+[RoundScript]
+DL 150 Message:Dann wurde es Winter...
+DL 200 Message:Wieder gilt es, 99 Geldpunkte zu sammeln.
+DL 800 Message:TunneleingÑnge mÅssen regelmÑssig|freigeschaufelt werden.
+IF 399 Message:Mission erfÅllt
+DL 001 CallFnc:PlaySound(24)
+DL 001 Success
+[NewFile=TOWER.SCR]
+Head=Clonk3Script
+Title=Der Wachturm
+Desc=Schutz gegen ungebetene GÑste
+IDNum=16
+RuleSet=1;
+
+[PreInit]
+Clonks=1
+Wealth=50
+Castle=1
+StartXPos=160
+BRockMode=5
+Climate=900
+Elevator=1
+Tower=1
+Season=1000
+YearSpeed=0
+Monsters=2
+BackCurveAmp=10
+BackRandomAmp=20
+
+[RoundScript]
+DL 150 Message:WachtÅrme bieten Schutz.
+DL 150 Message:Gehe mit Deinem Clonk in einen Turm|und drÅcke 'Springen'.
+EV 206 Message:Eine gute Verteidigungsposition...
+DL 200 Message:Wenn ein Clonk in oder auf einem Turm steht,|kann er mit 'Stop' das Tor des Turmes bedienen.
+EV 207 Message:Siehe da.
+DL 300 Message:Auf diese Weise lassen sich die Monster aussperren,...
+DL 200 Message:...so dass in Ruhe Bergbau betrieben werden kann.
+DL 400 Message:NatÅrlich darf man sich nicht selbst aussperren...
+DL 600 Message:Deine Aufgabe ist es nun,|die beiden Monster auszuschalten.
+DL 400 Message:Zu diesem Zweck kannst Du Dir|zusÑtzliche Clonks und Feuersteine bestellen.
+DL 800 Message:Auch der Wachturm erfÅllt seinen wahren Zweck|natÅrlich erst in einem 'Melee'.
+IF 204 Message:Gute Arbeit.
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success[NewFile=CONSTRUC.SCR]
+Head=Clonk3Script
+Title=BausÑtze
+Desc=Strukturen selber bauen
+IDNum=17
+RuleSet=1;
+
+[PreInit]
+Clonks=6
+Wealth=100
+StartXPos=160
+BRockMode=5
+Climate=900
+Season=1000
+YearSpeed=0
+BackCurveAmp=10
+BackRandomAmp=20
+
+[RoundScript]
+DL 150 Message:Keine Burg...
+DL 100 Message:...aber dafÅr hat einer der Clonks einen Bausatz dabei!
+DL 200 Message:Mit einem solchen Bausatz kînnen|eigene Strukturen gebaut werden.
+DL 250 Message:Der Captain sollte mit dem Bausatz|einen ebenen Untergrund suchen...
+DL 200 Message:...und dann mit einem Doppelklick auf Graben|die Konstruktion aktivieren.
+EV 306 Message:Baue zunÑchst eine Burg (oben links).
+EV 208 Continue
+DL 100 Message:Bewege Deine Clonks auf die Baustelle|und lasse sie dort anhalten.
+EV 209 Message:Damit hast Du Dein erstes eigenes GebÑude gebaut!
+DL 300 Message:Wenn Du eine Burg gebaut hast,|kannst Du Dir nun mit dem SpezialmenÅ|weitere BausÑtze bestellen.
+DL 500 Message:Um diese Mission zu erfÅllen|musst Du zwei weitere GebÑude bauen.
+DL 400 Message:Zum Beispiel einen Wachturm und einen Fahrstuhl...
+EV 209 Message:Sehr gute Arbeit. Nun noch ein weiteres GebÑude.
+EV 209 Message:Aufgabe erfÅllt.
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success[NewFile=SHARKS.SCR]
+Head=Clonk3Script
+Title=Haie und Boote
+Desc=Eine Seefahrt, die ist lustig
+IDNum=18
+RuleSet=1;
+
+[PreInit]
+Clonks=1
+Wealth=100
+StartXPos=20
+Castle=1
+BRockMode=0
+Climate=700
+Season=1000
+YearSpeed=0
+BackCurveAmp=100
+BackRandomAmp=25
+BackPhase=66
+WaterLevel=90
+Sharks=5
+
+[RoundScript]
+DL 150 Message:Oha.
+DL 200 Message:Deine Aufgabe ist es zunÑchst, fÅnf Steine|ganz an den rechten Bildrand zu bringen.
+DL 800 Message:Die Haie sind leider etwas hungrig...
+DL 400 Message:Wie wÑr's also mit einem Boot?!
+DL 400 Message:Das Boot einfach mit dem SpezialmenÅ bestellen|und ins Wasser schieben.
+IF 200 Message:Damit wÑre Deine erste Aufgabe erfÅllt.
+DL 300 Message:Deine zweite Aufgabe ist es nun,|eine Lore an den rechten Bildrand zu schaffen.
+DL 800 Message:Sei vorsichtig, wenn Du die Lore ins Boot schiebst.
+DL 250 Message:Lass die Lore loss, bevor Du|mit Deinem Clonk ins Boot steigst.
+IF 205 Message:Bravo!
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success[NewFile=VOLCANO.SCR]
+Head=Clonk3Script
+Title=Vulkane und Erdbeben
+Desc=Wundersame Tektonik
+IDNum=19
+RuleSet=1;
+
+[PreInit]
+Clonks=6
+Wealth=20
+Castle=1
+Elevator=1
+BRockMode=5
+Climate=900
+Season=1000
+YearSpeed=0
+Volcano=100
+Earthquake=30
+
+[RoundScript]
+DL 150 Message:Wieder so eine ganz normale Bergbau-Mission...?
+DL 250 Message:Vielleicht nicht so ganz.
+DL 250 Message:Sammle 99 Geldpunkte.
+IF 399 Message:Wie's aussieht, hast Du es trotz der|erschwerten Bedingungen geschafft.
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success[NewFile=DESERT.SCR]
+Head=Clonk3Script
+Title=Durch die WÅste
+Desc=Auf den Spuren Kara Ben Nemsi's
+IDNum=20
+RuleSet=1;
+
+[PreInit]
+Clonks=4
+Wealth=20
+Castle=1
+Elevator=0
+BRockMode=1
+Climate=100
+Season=1000
+YearSpeed=0
+StartXPos=250
+
+[RoundScript]
+DL 150 Message:Heiss und sandig...
+DL 250 Message:In den Tiefen unter den DÅnen|schlummert das schwarze Gold...
+DL 300 Message:Mit der Material-Bestellung|kannst Du Dir leere FÑsser kaufen.
+DL 250 Message:Wenn Deine Clonks mit diesen ins ôl tauchen,|fÅllen sie die FÑsser.
+DL 300 Message:Verkaufe das ôl und sammle 99 Geldpunkte.
+DL 800 Message:In der WÅste muss man etwas vorsichtiger graben,|der Sand rutscht leicht ab...
+IF 399 Message:Nicht schlecht, auch diese Aufgabe hast Du erfÅllt.
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success[NewFile=SEASONS.SCR]
+Head=Clonk3Script
+Title=Die Jahreszeiten
+Desc=Wie die Zeit vergeht...
+IDNum=21
+RuleSet=1;
+
+[PreInit]
+Clonks=6
+Wealth=50
+Castle=1
+Elevator=1
+StartXPos=70
+BRockMode=5
+Climate=600
+Rain=40
+Lightning=10
+Season=1000
+YearSpeed=100
+WaterLevel=80
+BackRandomAmp=40
+BackCurveAmp=80
+Monsters=1
+Wipfs=8
+Sharks=2
+
+[RoundScript]
+DL 150 Message:Gut was los.
+DL 200 Message:Rette die Wipfe!
+DL 400 Message:War's bis jetzt immer bestÑndiges Wetter...
+DL 250 Message:...so lernst Du nun den Wechsel der Jahreszeiten kennen.
+DL 400 Message:Um die Mission zu erfÅllen, musst Du|mindestens fÅnf Wipfe retten.
+IF 203 Message:Das wÑre geschafft,...
+DL 200 Message:...doch nun musst Du noch|das Monster ausschalten.
+DL 250 Continue
+IF 204 Message:Mission erfÅllt.
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success[NewFile=ACID.SCR]
+Head=Clonk3Script
+Title=Heimat der Monster
+Desc=Unfreundliche Umgebung
+IDNum=22
+RuleSet=1;
+
+[PreInit]
+Clonks=6
+Wealth=100
+Castle=1
+Elevator=1
+Tower=1
+Climate=600
+Rain=-20
+Lightning=10
+Season=1000
+YearSpeed=0
+WaterLevel=30
+BackRandomAmp=90
+BackCurveAmp=5
+Monsters=1
+Environment=1
+BRockMode=4
+
+[RoundScript]
+DL 150 Message:GefÑhrliche Umgebung...
+DL 250 Message:Schalte das Monster aus.
+IF 204 Message:Aufgabe erfÅllt.
+DL 050 CallFnc:PlaySound(24)
+DL 300 Message:Du hast alle mittleren Missionen erfÅllt.
+DL 250 Message:Du hast viele neue Spielelemente kennengelernt.
+DL 250 Message:Alle diese Spielelemente|kannst Du frei einstellen und verÑndern...
+DL 250 Message:...wenn Du Dich registrieren lÑsst.
+DL 250 Message:Unbegrenzte Kooperativ- und Melee-Runden|im mittleren und radikalen Regelwerk!
+DL 250 Message:Nur so erhÑltst Du den vollen CLONK-Spielspass!
+DL 250 Success
+
+[NewFile=BALLOON.SCR]
+Head=Clonk3Script
+Title=Der Ballon
+Desc=Eine neue Heimatbasis
+IDNum=23
+RuleSet=2;
+
+[PreInit]
+Clonks=6
+Wealth=50
+Castle=0
+Elevator=0
+Tower=0
+Climate=500
+Rain=-50
+Lightning=-50
+Season=1000
+YearSpeed=10
+WaterLevel=0
+BackRandomAmp=50
+BackCurveAmp=20
+Monsters=0
+Environment=0
+Balloon=1
+BRockMode=5
+Wipfs=7
+
+[RoundScript]
+DL 150 Message:Eine grundlegende Neuerung...
+DL 200 Message:Die Heimatbasis ist nicht mehr in der Burg...
+DL 200 Message:...sondern kann nur noch auf|dem Luftweg erreicht werden.
+DL 250 Message:Bestelle einen Bausatz.
+EV 302 Continue
+DL 100 Message:Die Bestellung kommt mit dem nÑchsten Ballon.
+DL 400 Message:Baue eine Burg.
+EV 209 Message:Eine Burg dient als Landeplattform|und erleichtert das Verladen in den Ballon.
+DL 300 Message:Bestelle eine Lore.
+DL 300 Message:Fange fÅnf Wipfe und schicke sie zur Basis.
+DL 500 Message:Um etwas in den Ballon zu laden,|muss man es einfach in die Burg schaffen.
+DL 600 Message:Auch Lebensenergie kann nur noch|in der neuen Basis erneuert werden.
+IF 203 Message:Du hast Deine Aufgabe erfÅllt.
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=ENERGY.SCR]
+Head=Clonk3Script
+Title=WindmÅhlen
+Desc=Energiegewinnung
+IDNum=24
+RuleSet=2;
+
+[PreInit]
+Clonks=6
+Wealth=50
+Castle=1
+Elevator=1
+Tower=0
+Climate=900
+Rain=-50
+Lightning=-50
+Season=1400
+YearSpeed=0
+WaterLevel=0
+BackRandomAmp=50
+BackCurveAmp=70
+Monsters=0
+Environment=0
+Balloon=1
+BRockMode=5
+Wipfs=0
+StartXPos=240
+
+[RoundScript]
+DL 300 Message:Der Fahrstuhl steht still.
+DL 200 Message:Im radikalen Regelwerk mÅssen Strukturen|erst mit Energie versorgt werden.
+DL 250 Message:Bestelle einen Bausatz.|(Brauner Kasten)
+EV 417 Continue
+DL 600 Message:Suche mit dem Bausatz einen|hochgelegenen Platz und aktiviere die Konstruktion.
+EV 306 Message:Baue eine WindmÅhle.|(In der Auswahl scroll rechts, oben links)
+EV 209 Continue
+DL 200 Message:Nun muss noch eine Energieleitung von der WindmÅhle|zum Fahrstuhl gelegt werden.
+DL 250 Message:Bestelle dazu einen Leitungsbausatz.|(Grauer Kasten)
+EV 418 Continue
+DL 600 Message:Nimm mit dem Captain den Leitungsbausatz|und gehe vor die WindmÅhle.
+DL 250 Message:Aktiviere einen schnellen Doppelklick auf 'Graben'.
+EV 210 Continue
+DL 100 Message:So baust Du eine neue Energieleitung.
+DL 200 Message:Gehe nun vor den Fahrstuhl|und verbinde die Leitung|mit einem weiteren Doppelklick auf 'Graben'.
+EV 210 Continue
+DL 100 Message:Sehr gut. Nun hat der Fahrstuhl Energie.
+DL 250 Message:Aktiviere die Fahrstuhl-Schachtbohrung|mit einem weiteren Grab-Doppelklick|im Fahrstuhlkorb.
+DL 500 Message:Sammle nun 99 Geldpunkte|durch den Abbau von Gold.
+DL 800 Message:Leitungen kînnen auch wieder aufgenommen werden...
+DL 200 Message:...indem man an ihrem Ende (unten links am ZielgebÑude)|einen Grab-Doppelklick aktiviert.
+DL 300 Message:Leitungen kînnen auch in freier Natur abgelegt werden.
+DL 300 Message:TrÑgt der Captain eine Leitung,|wenn das SpezialmenÅ aktiviert wird...
+DL 200 Message:...wird der Bau abgebrochen und|der Bausatzist wieder erhÑltlich.
+IF 399 Message:Das wÑr's fÅr diese Runde.
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=CREW.SCR]
+Head=Clonk3Script
+Title=Eine ganze Mannschaft
+Desc=Ein Clonk kommt selten allein
+IDNum=3
+RuleSet=0
+
+[PreInit]
+Clonks=3
+Wealth=0
+BackCurveAmp=0
+BackRandomAmp=25
+StartXPos=160
+
+[RoundScript]
+FP 0150 Message:Jetzt sind es sogar drei Clonks.
+DL 0150 Message:Sie kînnen getrennt oder|alle zusammen gesteuert werden.
+DL 0250 Message:Bewege nun Deinen ersten Clonk|nach links und halte dann an.
+DL 0001 CallFnc:KeyConDisplay(10);
+EV 0106 Continue
+EV 0107 Continue
+DL 0050 Message:Mit diesen Tasten wÑhlt man die Clonks aus,|die gesteuert werden sollen.
+DL 0001 CallFnc:KeyConDisplay(11);
+DL 0001 CallFnc:PlaySound(32);
+DL 0070 CallFnc:KeyConDisplay(12);
+DL 0050 CallFnc:KeyConDisplay(11);
+DL 0050 CallFnc:KeyConDisplay(12);
+DL 0150 Message:WÑhle nun mit der Taste 'Auswahl rechts'|einen anderen Clonk aus.
+EV 0102 Continue
+DL 0100 Message:Steuere diesen Clonk nach rechts|und halte dann an.
+EV 0108 Continue
+EV 0107 Message:Sehr gut.
+DL 0100 Message:Dies ist die 'Auswahl Toggle'-Taste.
+DL 0001 CallFnc:KeyConDisplay(13);
+DL 0001 CallFnc:PlaySound(32);
+DL 0070 CallFnc:KeyConDisplay(14);
+DL 0050 CallFnc:KeyConDisplay(13);
+DL 0050 CallFnc:KeyConDisplay(14);
+DL 0001 Message:BetÑtige noch einmal die 'Stop'-Taste.
+EV 0107 Message:Mit der 'Toggle'-Taste schaltet man nun von einem Clonk|auf jeweils alle anderen um.
+EV 0101 Continue
+DL 0250 Message:Suche mit 'Auswahl links' einen Clonk aus.
+EV 0100 Message:BetÑtige nun die 'Toggle'-Taste,|so wird dieser zur Auswahl dazu- oder abgeschaltet.
+EV 0101 Continue
+DL 0300 Message:Auf diese Weise lÑsst sich jede beliebige|Kombination von Clonks steuern.
+DL 0001 CallFnc:KeyConDisplay(13)
+DL 0450 Message:Die Details zur Steuerung finden sich im|Hilfesystem unter 'Steuerung'.
+DL 0350 Message:Die Mission ist nun, 15 Steine ganz|an den rechten Bildrand zu werfen.
+DL 0450 Message:Es kann zwar nur der Captain graben,|aber beim Tragen und Werfen sollten alle mithelfen.
+DL 0700 Message:Die Einzelheiten Åber die Steuerung|solltest Du noch einmal in der OnLine-Hilfe nachlesen.
+IF 0201 Message:Mission erfÅllt.
+DL 0001 CallFnc:PlaySound(24)
+DL 0001 Success
+[NewFile=CROSSBOW.SCR]
+Head=Clonk3Script
+Title=Die Armbrust
+Desc=Eine Waffe gegen Luftangriffe
+IDNum=25
+RuleSet=2;
+
+[PreInit]
+Clonks=1
+Wealth=100
+Castle=1
+Elevator=0
+Tower=1
+Climate=500
+Rain=-50
+Lightning=-50
+Season=1000
+YearSpeed=10
+WaterLevel=0
+BackRandomAmp=25
+BackCurveAmp=10
+Monsters=0
+Environment=0
+Balloon=1
+BRockMode=5
+Wipfs=0
+Crossbow=1
+
+[RoundScript]
+DL 150 Message:In dieser Runde soll nur kurz|eine neue Fernwaffe vorgestellt werden.
+DL 250 Message:Da man auch den Ballon mit 'Stop'|in vertikaler Richtung steuern kann...
+DL 250 Message:...eignet er sich in einem Melee prima|fÅr Luftangriffe auf die gegnerische Festung.
+DL 300 Message:Dagegen gibt es ein Gegenmittel.
+DL 150 Message:Es ist gerade mit Deinem Clonk gelandet.
+DL 200 Message:Schiebe die Armbrust in freies GelÑnde.
+DL 200 Message:Da Du mit 'Rechts' und 'Links' zunÑchst|die Zielrichtung einstellst...
+DL 250 Message:...musst Du sie durch mehrfaches Klicken|erst bis zum Anschlag drehen, bevor Du sie schieben kannst.
+DL 500 Message:Bestelle nun ein paar Pfeile.
+EV 419 Continue
+DL 500 Message:Nimm die Pfeile und gehe zur Armbrust.
+IF 202 Message:DrÅcke 'Werfen', um die Armbrust zu laden.
+DL 200 Message:Sodann kannst Du zielen und feuern.
+EV 203 Message:Zack.
+DL 300 Message:Sammle nun die Pfeile wieder ein|und versuche es erneut.
+DL 250 Message:Ein Clonk kann bis zu fÅnf|Pfeile gleichzeitg tragen.
+IF 202 Message:Und feuer frei!
+EV 203 Continue
+DL 800 Message:Schiebe nun die Armbrust in den Wachturm.
+DL 400 Message:Aktiviere 'Springen' im Wachturm.
+EV 206 Message:So kannst Du die Armbrust auf den Turm bringen.
+DL 250 Message:In einem Melee ist dies|die beste Position zur Luftabwehr.
+DL 300 Message:In der registrierten Version von Clonk|gibt es Brandpfeile und Explosivpfeile!
+DL 500 Message:So weit zur Armbrust...
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=PUMP.SCR]
+Head=Clonk3Script
+Title=Pumpen und Wasserleitungen
+Desc=Neue Methoden
+IDNum=26
+RuleSet=2;
+
+[PreInit]
+Clonks=6
+Wealth=100
+Castle=1
+Elevator=1
+Tower=0
+Windmill=1
+Climate=700
+Rain=+10
+Lightning=-50
+Season=1000
+YearSpeed=0
+WaterLevel=50
+StartXPos=70
+BackRandomAmp=20
+BackCurveAmp=60
+Balloon=1
+BRockMode=5
+
+[RoundScript]
+DL 150 Message:Bekanntlich regnet es in Goldminen hinein.
+DL 200 Message:Im radikalen Regelwerk gibt es|keinen Abfluss am Bildrand mehr.
+DL 250 Message:Aber es gibt eine Methode, das Wasser|wieder aus den Tunneln herauszubekommen.
+DL 250 Message:Bestelle einen Bausatz.
+EV 417 Continue
+DL 500 Message:Baue eine Pumpe.|(In der Auswahl scroll rechts, oben rechts)
+EV 209 Message:Bestelle nun drei LeitungsbaukÑsten.
+EV 418 Continue
+DL 250 Message:Mit dem ersten solltest Du eine Energieleitung|von der WindmÅhle zur Pumpe legen.
+DL 250 Message:Wichtig: Immer vom Energieverorger zum Verbraucher bauen!
+EV 210 Continue
+EV 210 Message:Hole nun den zweiten Leitungsbausatz...
+DL 250 Message:...und schliesse diesen an die Pumpe an.
+EV 210 Message:Lege den Zufluss im Wasser ab.
+DL 200 Message:Wichtig: Wenn ein Clonk schwimmt oder springt,|reicht ein einfacher Grabklick zum Leitungsbau!
+DL 300 Message:Schliesse auch den dritten Bausatz|an die Pumpe an.
+EV 210 Message:Wenn alles richtig angeschlossen ist,|kann die Pumpe ihre Arbeit aufnehmen.
+DL 300 Message:Lege den Abfluss so ab, dass|das Wasser abfliessen kann.
+DL 300 Message:Eine Pumpe pumpt nur, wenn sie Energie hat|und Zufluss und Abfluss frei sind.
+DL 400 Continue
+EV 211 Message:Gut, auch das hat geklappt.
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=OIL.SCR]
+Head=Clonk3Script
+Title=Mc ôl
+Desc=Das schwarze Gold
+IDNum=27
+RuleSet=2;
+
+[PreInit]
+Clonks=1
+Wealth=50
+Castle=1
+Elevator=1
+Pump=1
+Windmill=1
+Climate=100
+Season=1000
+YearSpeed=0
+WaterLevel=0
+StartXPos=160
+BackRandomAmp=40
+BackCurveAmp=0
+Balloon=1
+BRockMode=1
+
+[RoundScript]
+DL 150 Message:Mit Pumpen lÑsst sich auch ôl|sehr viel effizienter fîrdern.
+DL 250 Message:Bestelle Dir zwei LeitungsbaukÑsten.
+DL 200 Message:Zapfe mit dem Zufluss ein ôlfeld an.
+DL 200 Message:Und verbinde den Abfluss mit der Burg!
+DL 800 Message:Es reicht, wenn Du Dich mit dem Zufluss|Åber das ôlfeld grÑbst und die Zufluss-Bohrung aktivierst.
+DL 800 Message:Ziel ist es, durch ôlverkauf 99 Geldpunkte zu sammeln.
+DL 300 Continue
+EV 212 Message:Wie Du siehst, geschieht der Rest|voll automatisch.
+IF 399 Message:Okay, das wÑr's.
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=OILPOWER.SCR]
+Head=Clonk3Script
+Title=Der ôlofen
+Desc=Energie ohne Wind
+IDNum=28
+RuleSet=2;
+
+[PreInit]
+Clonks=6
+Wealth=100
+Castle=1
+Elevator=1
+Pump=1
+Windmill=1
+Climate=100
+Season=1000
+YearSpeed=20
+StartXPos=160
+BackRandomAmp=40
+BackCurveAmp=0
+Balloon=1
+BRockMode=1
+
+[RoundScript]
+DL 150 Message:Manchmal weht kein Wind...
+DL 200 Message:...dann hat man keine Energie.
+DL 200 Message:Es sei denn, man baut sich einen ôlofen.
+DL 200 Message:Das kannst Du in dieser Runde ausprobieren.
+DL 250 Message:Bestelle einen Bausatz.
+EV 417 Continue
+DL 400 Message:Baue einen ôlofen.|(In der Auswahl scroll rechts, oben mitte)
+EV 209 Message:Bestelle einen Leitungsbaukasten.
+EV 418 Continue
+DL 250 Message:Die Leitung solltest Du vom ôlofen|zur WindmÅhle ziehen.
+EV 210 Continue
+DL 400 Message:Wenn Du nun mit den zwei weiteren LeitungsbausÑtzen|ôl aus dem Boden in den ôlofen pumpst...
+DL 250 Message:...bist Du fast unabhÑngig vom Wind.
+EV 210 Continue
+EV 210 Continue
+DL 300 Message:Der ôlofen produziert automatisch Energie,|wenn kein Wind weht.
+EV 213 Continue
+DL 300 Message:Prima, auch diese Konstruktion funktioniert!
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=PARTY1.SCR]
+Head=Clonk3Script
+Title=Kleine Party
+Desc=Radikal
+IDNum=29
+RuleSet=2;
+
+[PreInit]
+Clonks=6
+Wealth=50
+Castle=1
+Elevator=1
+Windmill=1
+Climate=900
+Season=1000
+YearSpeed=50
+BackRandomAmp=100
+BackCurveAmp=10
+Balloon=1
+BRockMode=5
+Sharks=3
+Wipfs=10
+Monsters=2
+Rain=0
+Lightning=0
+Comet=30
+WaterLevel=40
+
+[RoundScript]
+DL 150 Message:Buntes Durcheinander.
+DL 300 Message:Rette fÅnf Wipfe und erledige die Monster.
+IF 203 Continue
+IF 204 Message:Wow, Du hast es tatsÑchlich geschafft!
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=PARTY2.SCR]
+Head=Clonk3Script
+Title=Grosse Party
+Desc=Ausgesprochen Radikal
+IDNum=30
+RuleSet=2;
+
+[PreInit]
+Clonks=6
+Wealth=100
+Castle=1
+Elevator=1
+Windmill=1
+Climate=600
+Season=1000
+YearSpeed=100
+BackRandomAmp=100
+BackCurveAmp=40
+Balloon=1
+BRockMode=5
+Sharks=4
+Wipfs=12
+Monsters=3
+Rain=10
+Lightning=10
+Comet=60
+Volcano=80
+Earthquake=30
+WaterLevel=50
+
+[RoundScript]
+DL 150 Message:Noch ein letztes Mal...
+DL 300 Message:Rette fÅnf Wipfe und erledige die Monster.
+IF 203 Continue
+IF 204 Continue
+DL 100 CallFnc:PlaySound(24)
+DL 050 Message:Herzlichen GlÅckwunsch!
+DL 100 Message:Du hast alle Lernrunden durchgespielt.
+DL 300 Message:Da Du Dich tatsÑchlich|bis hier her durchgekÑmpfst hast...
+DL 200 Message:...scheinst Du auf den Geschmack gekommen zu sein.
+DL 300 Message:Wenn Du es noch nicht bist, wÑre es definitiv|an der Zeit, sich registrieren zu lassen!
+DL 500 Message:In jedem Fall wÅnsche ich Dir|viel Spass beim weiteren Clonken.
+DL 300 Continue
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+

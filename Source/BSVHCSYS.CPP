@@ -6,7 +6,7 @@
 
 // RedWolf Design CLONK Battle Sequence Vehicle Control System
 
-#include <standard.h>
+#include "standard.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -18,6 +18,8 @@
 #include "bspxssys.h"
 #include "bsstrsys.h"
 #include "bsweasys.h"
+
+#include "RandomWrapper.h"
 
 extern MANTYPE *NewAnimal(MANTYPE **firstman, BYTE type, int x, int y, int tx, BYTE act, int phase, int strn, int ydir, int xdir, int carr, void *tptr);
 
@@ -635,7 +637,7 @@ void ConBalloon(VEHICTYPE *vhc)
 
 //-------------------------------- RVehics --------------------------------------
 
-extern DWRD WipfResc;
+extern DWORD WipfResc;
 
 void HomeRVehic(VEHICTYPE *vhc, void *htptr, int homeat)
   {

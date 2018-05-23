@@ -34,10 +34,10 @@ typedef struct CONFIG {
 
 		      char KCom[3][10];
 
-		      DWRD RegVal;
-		      BYTE RegName[30+1];
+		      DWORD RegVal;
+		      char RegName[30+1];
 
-		      DWRD RoundStartCount,RoundEndCount;
+		      DWORD RoundStartCount,RoundEndCount;
 
 		      BYTE futurebuf[100]; // new in 3.1
 		      };
@@ -79,8 +79,8 @@ typedef struct PLAYERINFO {
 			  char name[MaxPlayerName+1],nick[MaxNickName+1];
 			  char quote[MaxQuoteLen+1];
 			  int rank;
-			  int rnds[3],won[3]; DWRD score[3],scorepot;
-			  DWRD playsec;
+			  int rnds[3],won[3]; DWORD score[3],scorepot;
+			  DWORD playsec;
 			  int face;
 			  int pfcol,pfcon;
 			  BYTE inses,inrnd;

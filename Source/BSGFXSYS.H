@@ -15,7 +15,7 @@ extern void DrawScreen(void);
 extern void AdjustBackVPos(int *nvy);
 
 extern void SystemMsg(char *msg);
-extern InitGameMessage();
+extern void InitGameMessage();
 extern void GameMessage(char *msg, int tx, int ty, int col, MANTYPE *tman);
 extern void ClearGMsgTPtr(MANTYPE *tman);
 
