@@ -1,0 +1,75 @@
+/* Copyright (C) 1994-2002  Matthes Bender  RedWolf Design GmbH */
+
+/* Clonk 3.0 Radikal Source Code */
+
+/* This is purely nostalgic. Use at your own risk. No support. */
+
+
+              		      RedWolf Design
+
+                     Clonk 3.5 Radikal - Full Version
+                     ________________________________
+
+
+                       by Matthes Bender, April 1997
+
+
+Please read the license agreement at the end of this document prior to using
+this software.
+
+
+                                  Welcome
+                                  _______
+
+Clonk is a multiplayer game of action, tactics and skill. This version can
+be played by up to three players at a time. The game will be played in real
+time. Each player will be able to control his crew of clonks in the randomly
+generated or user defined worlds, fighting his human opponents and/or the
+forces of nature. There are numerous modes and options to provide an almost
+unlimited variety of rounds to be challenged.
+
+Start out by playing the tutorial missions to learn how to play the game.
+Check the on-line help system of Clonk for more information.
+
+
+
+                       How to contact RedWolf Design
+                       _____________________________
+
+
+                  Homepage: http://members.aol.com/RedWolfD
+
+                     EMail: RedWolfD@aol.com
+
+              Mail address: Matthes Bender          
+                            RedWolf Design          
+                            Am Barkhof 20           
+                            28209 Bremen
+                            Germany
+
+
+
+
+              Clonk 3.5 Radikal Full Version License Agreement
+              ________________________________________________
+
+
+By using this CD Rom in your computer system you admit to the agreement with
+the following terms:  You may use this program on one computer only.  You are
+prohibited from installing this program on a network server, or running it on
+more than one computer at the same time.  You are prohibited from making
+copies of this CD Rom, renting, disassembling or modifying the software
+without written permission from Magicom Multimedia Corp. Magicom Multimedia
+Corp. warrants this disk to be readable and the program to function properly
+on all properly functioning computers meeting the system requirements as
+stated on the back of this package for a period of 30 days after the date of
+purchase.  If you find this disk to be defective or have questions about this
+agreement, feel free to call our number on the back of this package for
+support. Magicom Multimedia Corp., its developers, its distributors and its
+retailers hereby disclaim themselves from all other liabilities, express or
+implied, including loss of data, lost profits, or any other losses, financial
+or otherwise that may result from the direct or indirect use or inability to
+use this product.  To protect against data loss, remember to make backup
+copies of important information and store them in a safe location.  
+
+

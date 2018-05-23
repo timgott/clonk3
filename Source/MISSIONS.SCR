@@ -1,0 +1,1187 @@
+# RedWolf Design CLONK 3 Radikal Mission Script File
+
+# This file must not be modified in any way. The main program will abort
+# process if the file integrity check on this file fails.
+
+[NewFile=CLONK.SCR]
+Head=Clonk3Script
+Title=A Clonk
+Desc=Fundamentals on Clonk control
+IDNum=1
+RuleSet=0
+
+[PreInit]
+Clonks=1
+Wealth=0
+BackCurveAmp=0
+BackRandomAmp=25
+StartXPos=160
+
+[RoundScript]
+DL 0150 Message:Adjust game speed with F5 and F6.
+DL 0200 Message:This is a clonk.
+DL 0100 Message:These are the keys to control him with.
+DL 0001 CallFnc:KeyConDisplay(1)
+DL 0001 CallFnc:PlaySound(32)
+DL 0150 CallFnc:KeyConDisplay(2)
+DL 0050 Message:He can walk to the left,|halt, and walk to the right.
+DL 0010 CallFnc:KeyConDisplay(3)
+DL 0100 CallFnc:KeyConDisplay(2)
+DL 0010 Message:Don't hold down the keys,|press once only.
+DL 0050 CallFnc:KeyConDisplay(3)
+DL 0050 CallFnc:KeyConDisplay(2)
+DL 0050 CallFnc:KeyConDisplay(3)
+DL 0050 CallFnc:KeyConDisplay(2)
+DL 0010 Message:Please move your clonk to the right.
+EV 0108 Continue
+DL 0030 Message:Now hit 'stop'.
+EV 0107 Message:Very good.
+DL 0070 Message:Please move your clonk to the left|and make him stop again.
+EV 0106 Continue
+EV 0107 Message:Got that one.
+DL 0070 Message:With this key you can|make your clonk jump.
+DL 0001 CallFnc:KeyConDisplay(4)
+DL 0001 CallFnc:PlaySound(32)
+DL 0050 CallFnc:KeyConDisplay(5)
+DL 0050 CallFnc:KeyConDisplay(4)
+DL 0050 CallFnc:KeyConDisplay(5)
+DL 0001 Message:Do some more jumping.
+EV 0104 Message:Yeeh!
+DL 0100 Message:With this key you can make your clonk|dig a hole in the ground.
+DL 0001 CallFnc:KeyConDisplay(6)
+DL 0001 CallFnc:PlaySound(32)
+DL 0050 CallFnc:KeyConDisplay(7)
+DL 0050 CallFnc:KeyConDisplay(6)
+DL 0050 CallFnc:KeyConDisplay(7)
+EV 0105 Message:Hit 'stop' to make him stop.
+DL 0300 Message:While the clonk is digging,|you can adjust the direction using|the 'left' and 'right' keys.
+DL 0001 CallFnc:KeyConDisplay(3)
+DL 0050 CallFnc:KeyConDisplay(2)
+DL 0050 CallFnc:KeyConDisplay(3)
+DL 0050 CallFnc:KeyConDisplay(2)
+DL 0050 CallFnc:KeyConDisplay(7)
+DL 0200 Message:Now try to dig a rock|out of the ground.
+DL 0200 Continue
+IF 0100 Message:With this key you have your clonk throw.
+DL 0001 CallFnc:KeyConDisplay(8)
+DL 0001 CallFnc:PlaySound(32)
+DL 0050 CallFnc:KeyConDisplay(9)
+DL 0050 CallFnc:KeyConDisplay(8)
+DL 0050 CallFnc:KeyConDisplay(9)
+EV 0103 Message:Okay, now you might want to practice a bit.
+DL 0050 CallFnc:KeyConDisplay(10)
+DL 0400 Message:Your objective is to move 5 rocks|to the very right border of the screen.
+IF 0200 Message:You've completed your first mission!
+DL 0001 CallFnc:KeyConDisplay(0)
+DL 0001 CallFnc:PlaySound(24)
+DL 0001 Success
+
+[NewFile=WIPFS.SCR]
+Head=Clonk3Script
+Title=Wipf rescue
+Desc=Cute fluffy furry animals
+IDNum=10
+RuleSet=0
+
+[PreInit]
+Clonks=4
+Wealth=0
+Lorry=1
+Castle=1
+BRockMode=1
+Lightning=5
+Wipfs=7
+
+[RoundScript]
+DL 150 Message:Wipfs are small furry animals.
+DL 200 Message:Full of zest, they run|jumping all over the place...
+DL 300 Message:...always in pursuit of something to eat.
+DL 300 Message:(In the EASY rule set, there are|no plants to be eaten yet.)
+DL 300 Message:Using the lorry, you can catch them|and bring them savely home to your castle.
+DL 350 Message:There's a reward of 10 gold points|for each wipf saved.
+DL 300 Message:This complete this mission,|you need to save five of the wipfs.
+DL 350 Message:To get wipfs to move out of deep tunnels,|you may have to build loam bridges|in the right spots.
+DL 350 Continue
+IF 203 Message:Very good!
+DL 001 CallFnc:PlaySound(24)
+DL 100 Success
+
+[NewFile=MONSTER.SCR]
+Head=Clonk3Script
+Title=Monster attack
+Desc=They mean no harm
+IDNum=11
+RuleSet=0
+
+[PreInit]
+Clonks=3
+Wealth=0
+Castle=1
+BRockMode=1
+Monsters=1
+BCurveAmp=0
+BRandomAmp=60
+
+[RoundScript]
+DL 150 Message:Uh, oh!
+DL 200 Message:Now watch and dodge!
+DL 400 Message:Try to trap the monster by|digging holes in the ground.
+DL 500 Message:Your goal is to eliminate the monster|using rocks and flintstones.
+DL 600 Message:Don't forget to refill energy|at your base.
+DL 600 Message:Monsters are the toughest of|all the beings in Clonk.
+IF 204 Message:Very good!
+DL 001 CallFnc:PlaySound(24)
+DL 100 Success
+
+[NewFile=XMAS.SCR]
+Head=Clonk3Script
+Title=Merry christmas!
+Desc=A good deed every day
+IDNum=12
+RuleSet=0
+
+[PreInit]
+Clonks=3
+Wealth=0
+Lorry=1
+Castle=1
+BRockMode=1
+Wipfs=7
+Rain=50
+Environment=2
+Monsters=1
+Climate=900
+Season=0
+
+[RoundScript]
+DL 150 Message:Stille Nacht, heilige Nacht...
+DL 150 Message:(Silent night, holy night, that is.)
+DL 300 Message:Would you please take them poor wipfs home|before they freeze to death.
+DL 800 Message:The monster would like to come also|but is not allowed to.
+IF 203 Message:Ho, ho, that was well done!
+DL 001 CallFnc:PlaySound(24)
+DL 250 Message:You have completed all the missions|in the easy rule set!
+DL 300 Success
+
+[NewFile=MINE2.SCR]
+Head=Clonk3Script
+Title=Advanced mining
+Desc=Using explosives
+IDNum=13
+RuleSet=1;
+
+[PreInit]
+Clonks=1
+Wealth=0
+Castle=1
+BRockMode=4
+Climate=900
+Season=1000
+YearSpeed=0
+
+[RoundScript]
+DL 150 Message:Now the whole thing is|getting more tricky.
+DL 300 Message:Rocks and gold are now out there|in solid layers.
+DL 400 Message:Try to dig out a flintstone.
+DL 300 Message:Now try to dig your way to solid layer of gold|and blast some of it.
+EV 204 Message:Very good!
+DL 150 Message:Collect 30 gold points this way.
+DL 700 Message:Since you can't dig through solid layers|dig more carefully in order not to get stuck.
+DL 800 Message:In the medium rule set, refilling energy|also costs you gold points.
+IF 330 Message:Mission completed!
+DL 001 CallFnc:PlaySound(24)
+DL 100 Success
+
+[NewFile=FLINT.SCR]
+Head=Clonk3Script
+Title=Loam and flintstone
+Desc=More than just rocks
+IDNum=2
+RuleSet=0
+
+[PreInit]
+Clonks=1
+Wealth=0
+BackCurveAmp=0
+BackRandomAmp=25
+StartXPos=160
+BRockMode=1;
+
+[RoundScript]
+FP 0150 Message:There's more in Clonk than just plain rocks.
+DL 0200 Message:Try to dig out one of the red flintstones.
+DL 0001 CallFnc:KeyConDisplay(15)
+DL 0050 CallFnc:KeyConDisplay(10)
+DL 0050 CallFnc:KeyConDisplay(15)
+DL 0050 CallFnc:KeyConDisplay(10)
+IF 0102 Message:Be careful when you throw it.
+EV 0200 Message:A flintstone can be a powerful weapon.
+DL 0200 Message:Throw another flintstone.
+EV 0200 Continue
+DL 0100 Message:Now for something more constructive:
+DL 0150 Message:Please dig out one of the light brown loam pieces.
+IF 0112 Message:With loam you can build walls and bridges.
+DL 0200 Continue
+IF 0112 Message:Hit 'dig' twice quickly.
+EV 0305 Message:You have activated the loam construction menu.
+DL 0200 Message:The six menu buttons represent the|lower six control buttons.
+DL 0001 CallFnc:KeyConDisplay(15)
+DL 0050 CallFnc:KeyConDisplay(10)
+DL 0050 CallFnc:KeyConDisplay(15)
+DL 0050 CallFnc:KeyConDisplay(10)
+DL 0050 CallFnc:KeyConDisplay(15)
+DL 0050 CallFnc:KeyConDisplay(10)
+DL 0050 Message:With the menu buttons you can|indicate the direction of the bridge to build.
+DL 0300 Message:Build a vertical loam wall.
+EV 0250 Continue
+DL 0030 Message:Very good!
+DL 0100 Message:Now build a horizontal loam bridge.
+EV 0252 Continue
+DL 0030 Message:With loam, you can close holes, build barriers,|and reach high up points.
+DL 0300 Message:Now build a diagonal bridge.
+EV 0251 Message:That'll be enough for this round.
+DL 0001 CallFnc:KeyConDisplay(0)
+DL 0001 CallFnc:PlaySound(24)
+DL 0100 Success
+
+[NewFile=LORRY.SCR]
+Head=Clonk3Script
+Title=The tipper
+Desc=First vehicle
+IDNum=6
+RuleSet=0
+
+[PreInit]
+Clonks=1
+Wealth=0
+Lorry=1
+Castle=1
+BRockMode=3
+
+[RoundScript]
+DL 0150 Message:The lorry enables you to move|large amounts of rock and gold at a time.
+DL 0200 Message:If a clonk stops in front of a vehicle,|he will automatically grab it.
+DL 0250 Continue
+IF 0202 Message:Now push the lorry to the left.
+EV 0106 Continue
+DL 0050 Message:Now back to the right.
+EV 0108 Continue
+DL 0050 Message:Hit 'stop' once to stop the vehicle.
+EV 0107 Continue
+DL 0100 Message:Hit 'stop' once more to let go of it.
+EV 0107 Message:Now move your clonk to the left and stop there.
+EV 0106 Continue
+EV 0107 Message:Very good.
+DL 0100 Message:If you now move your clonk back to the lorry and stop,|he will again grab it.
+IF 0202 Message:Now he can push it again.
+DL 0250 Message:Hit 'stop' once to bring the lorry to a halt...
+DL 0200 Message:...hit 'stop' a second time to let go of it.
+DL 0400 Message:Now throw three pieces of gold into the lorry.
+IF 0403 Message:Push the lorry back to the castle.
+DL 0200 Message:Sometimes you might have to build loam bridges|in order to overcome obstacles.
+DL 0350 Message:Push the lorry exactly in front of the gate|and then enter the castle with your clonk (jump).
+EV 0202 Message:Good. In this manner you move the contents|of the car to your base.
+DL 0050 CallFnc:PlaySound(24)
+DL 0250 Message:Sometimes you might have to have more than one clonk|push the lorry to move it up steep slopes.
+DL 0250 Message:There will be a new vehicle in the next round.
+DL 0100 Success
+
+[NewFile=MENU.SCR]
+Head=Clonk3Script
+Title=The special menu
+Desc=Order stuff from your home base
+IDNum=14
+RuleSet=1;
+
+[PreInit]
+Clonks=1
+Wealth=100
+Castle=1
+BRockMode=5
+Climate=900
+Season=1000
+YearSpeed=0
+
+[RoundScript]
+DL 150 Message:In the medium rule set|there's a basic novelty.
+DL 250 Message:The special menu!
+DL 100 Message:You can activate and deactivate the special menu|using this menu key.
+DL 001 CallFnc:PlaySound(32)
+DL 001 CallFnc:KeyConDisplay(16)
+DL 050 CallFnc:KeyConDisplay(17)
+DL 050 CallFnc:KeyConDisplay(16)
+DL 050 CallFnc:KeyConDisplay(17)
+DL 050 CallFnc:KeyConDisplay(16)
+DL 050 Message:Now activate the menu.
+DL 050 Continue
+EV 301 Message:Okay.
+DL 100 Message:As in the loam construction menu,|the six buttons represent the|lower six of your control keys.
+DL 001 CallFnc:KeyConDisplay(15)
+DL 250 Message:The three options in the top line are:|Order material, order vehicles, and command menu.
+DL 400 Message:Hit order material now.
+DL 050 Continue
+EV 302 Message:Gut.
+DL 050 Message:Use the bottom three buttons to|scroll through the list and exit the menu.
+DL 300 Message:Order new objects using the top three buttons.
+DL 250 Message:There's a table of all available objects|in the OnLine-help.
+DL 300 Message:Keep in mind there's a price|and limited stock to everything.
+DL 300 Message:If you run out of money,|mine more gold.
+DL 350 Message:Now order a red flintstone!
+EV 402 Message:Very good!
+DL 100 Message:Now try out some of the many new objects.
+DL 300 Message:The functioning of the different objects|will be explained in the rounds coming up.
+DL 400 Message:All objects can also be|redeemed at the castle.
+DL 400 Message:If you want to continue,|activate the vehicle order menu.|(Lorry + Clonk)
+EV 303 Message:Here you can order clonks and vehicles.
+DL 250 Message:Again, use the bottom three buttons to|scroll through the list and exit the menu...
+DL 350 Message:...and order stuff using the other buttons.
+DL 300 Message:In the medium rule set you can order|clonks, lorries, catapults and sail boats.
+DL 600 Message:The vehicles can be turned|back in at the castle as well.
+DL 700 Message:In the rounds coming up you'll get to know new structures...
+DL 300 Message:...and you'll be able to make|more use of the special menu.
+DL 500 Success
+
+[NewFile=CASTLE.SCR]
+Head=Clonk3Script
+Title=The castle
+Desc=Home base
+IDNum=4
+RuleSet=0;
+
+[PreInit]
+Clonks=1;
+Wealth=7;
+Castle=1;
+
+[RoundScript]
+DL 0150 Message:My castle is my home.
+DL 0200 Message:In a castle, clonks can refill energy.
+DL 0250 Message:To enter the castle, move your clonk|to the gate and hit 'jump'.
+DL 0050 CallFnc:KeyConDisplay(10)
+EV 0201 Message:Right so.
+DL 0100 Message:A clonk stays inside the castle|until his energy level is fully restored.
+DL 0250 Message:Furthermore you can trade in|rocks at the castle.
+DL 0250 Message:Carry three rocks into the castle.
+IF 0308 Message:For each rock you'll receive|one point of new funds.
+IF 0152 Message:For every ten points there will be a new recruit.
+DL 0001 CallFnc:KeyConDisplay(13)
+DL 0350 Message:Now take another ten rocks into the castle.
+DL 0350 Message:Use both of the clonks to carry|more rocks at a time.
+IF 0153 Message:Very good!
+DL 0001 CallFnc:KeyConDisplay(0)
+DL 0001 CallFnc:PlaySound(24)
+DL 0100 Success
+
+[NewFile=ELEVATOR.SCR]
+Head=Clonk3Script
+Title=The Elevator
+Desc=New structures
+IDNum=15
+RuleSet=1;
+
+[PreInit]
+Clonks=1
+Wealth=50
+Castle=1
+BRockMode=5
+Climate=900
+Elevator=1
+Season=1000
+YearSpeed=0
+
+[RoundScript]
+DL 150 Message:A new building!
+DL 200 Message:The elevator makes mining much easier.
+DL 200 Message:But first, the elevator needs a shaft.
+DL 200 Message:Move your captain clonk into the lift...
+DL 150 CallFnc:KeyConDisplay(6)
+DL 050 CallFnc:KeyConDisplay(7)
+DL 050 Message:...and double click quickly on 'dig'.
+EV 205 Message:KeyConDisplay(6)
+DL 020 Message:Hit 'stop' to end shaft drilling.
+DL 100 CallFnc:KeyConDisplay(0)
+DL 200 Message:The lift will now move automatically.
+DL 500 Message:You should order a few more|clonks and a lorry.
+DL 500 Message:Again, collect 99 points worth of funds.
+DL 900 Message:If a clonk halts inside the elevator,|he can control it using the 'stop' command.
+IF 399 Message:Pretty good!
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=GOLD.SCR]
+Head=Clonk3Script
+Title=Gold Rush
+Desc=Go get some
+IDNum=5
+RuleSet=0;
+
+[PreInit]
+Clonks=6;
+Wealth=0;
+Castle=1;
+BRockMode=2;
+
+[RoundScript]
+DL 0150 Message:There it is...
+DL 0150 Message:...go take it into the castle.
+DL 0300 Message:A piece of gold is worth five points of funds.
+DL 0200 Message:Collect 99 points.
+DL 0100 Continue
+IF 0310 Message:There will be no new recruits,|because your officer can only command five at a time.
+IF 0350 Message:In a melee with a human opponent,|collecting funds should be a primary objective.
+IF 0399 Message:Task completed.
+DL 0001 CallFnc:KeyConDisplay(0)
+DL 0001 CallFnc:PlaySound(24)
+DL 0100 Success
+
+[NewFile=CATAPULT.SCR]
+Head=Clonk3Script
+Title=The catapult
+Desc=A long range weapon
+IDNum=7
+RuleSet=0
+
+[PreInit]
+Clonks=1
+Wealth=0
+Catapult=1
+BRockMode=1
+StartXPos=160
+BackCurveAmp=0
+
+[RoundScript]
+FP 150 Message:Using the catapult, of course, only makes sense,|if two players compete in a 'Melee'.
+DL 250 Message:It can be pushed to and fro just like the lorry.
+DL 200 Message:Stop your clonk in front of the catapult.
+DL 150 Continue
+IF 202 Message:Now push the catapult to the very left.
+EV 106 Continue
+DL 200 Message:Turn the catapult round and stop.
+EV 108 Continue
+EV 107 Message:Hit 'stop' again to let go of the vehicle.
+EV 107 Message:Dig out a few rocks.
+DL 100 Continue
+IF 099 Message:Now make the clonk grab the catapult.
+IF 202 Message:Hit 'throw' to fire the catapult.
+DL 001 CallFnc:KeyConDisplay(8)
+EV 203 Message:Woa!
+DL 050 CallFnc:KeyConDisplay(0)
+DL 100 Message:Let go of the vehicle and get a hold of|another rock, preferably a flintstone.
+IF 099 Message:Walk back to the catapult.
+IF 202 Message:You can control the firing range...
+DL 100 Message:...by hitting 'throw' again, quickly, during the charging phase.
+EV 203 Message:Okay, now target practice a bit.
+EV 203 Message:Try to fling rocks in different directions|at various distances.
+EV 203 Continue
+EV 203 Message:Now get a human opponent|and try a Melee.
+DL 250 Message:That'll be enough for this round.
+DL 200 Success
+
+[NewFile=RAIN.SCR]
+Head=Clonk3Script
+Title=Rain and thunderstorm
+Desc=Natural forces
+IDNum=8
+RuleSet=0;
+
+[PreInit]
+Clonks=6;
+Wealth=0;
+Castle=1;
+BRockMode=2;
+Rain=70;
+Lightning=30;
+
+[RoundScript]
+DL 150 Message:Gold mining under severe circumstances...
+DL 200 Message:Your goal is to collect 99 points worth of funds.
+DL 800 Message:Skillfull digging enables you to build mines|into which no water will run.
+DL 800 Message:Dig a tunnel to the left or right border|of the screen to create drains.
+DL 800 Message:If a clonk is swimming, you can make|him dive by hitting 'stop'.
+IF 399 Message:Mission completed.
+DL 001 CallFnc:PlaySound(24)
+DL 001 Success
+
+[NewFile=SNOW.SCR]
+Head=Clonk3Script
+Title=Snow
+Desc=Keep shoveling
+IDNum=9
+RuleSet=0;
+
+[PreInit]
+Clonks=6;
+Wealth=0;
+Castle=1;
+BRockMode=2;
+Rain=70;
+Climate=900;
+Season=0;
+
+[RoundScript]
+DL 150 Message:Then the winter came...
+DL 200 Message:Again, collect 99 points of funds.
+DL 800 Message:You'll have to keep your|tunnel entrances clear of snow.
+IF 399 Message:Mission completed.
+DL 001 CallFnc:PlaySound(24)
+DL 001 Success
+
+[NewFile=TOWER.SCR]
+Head=Clonk3Script
+Title=Guard tower
+Desc=Keep them buggers out
+IDNum=16
+RuleSet=1;
+
+[PreInit]
+Clonks=1
+Wealth=50
+Castle=1
+StartXPos=160
+BRockMode=5
+Climate=900
+Elevator=1
+Tower=1
+Season=1000
+YearSpeed=0
+Monsters=2
+BackCurveAmp=10
+BackRandomAmp=20
+
+[RoundScript]
+DL 150 Message:Guard towers are a protective meeasure.
+DL 150 Message:Move your clonk into a tower|and hit 'jump'.
+EV 206 Message:A good defensive position...
+DL 200 Message:If a clonk stands on top of or inside a tower|he can activate the tower gate with 'stop'.
+EV 207 Message:There you go.
+DL 300 Message:This way, monsters and enemy clonks can be kept outside...
+DL 200 Message:...so you can mine for gold in peace.
+DL 400 Message:Take care not to lock yourself out.
+DL 600 Message:Your goal is to eliminate the two monsters.
+DL 400 Message:To do so you should order additional clonks and flintstones.
+DL 800 Message:The guard tower, too, comes in more handy in a 'melee'.
+IF 204 Message:Well done.
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=CONSTRUC.SCR]
+Head=Clonk3Script
+Title=Construction kits
+Desc=Build your own structures
+IDNum=17
+RuleSet=1;
+
+[PreInit]
+Clonks=6
+Wealth=100
+StartXPos=160
+BRockMode=5
+Climate=900
+Season=1000
+YearSpeed=0
+BackCurveAmp=10
+BackRandomAmp=20
+
+[RoundScript]
+DL 150 Message:No castle this time...
+DL 100 Message:...but one of the clonks carries a construction kit!
+DL 200 Message:Using this you can build your own structures.
+DL 250 Message:Your captain clonk should look for|a level construction site|with the construction kit...
+DL 200 Message:...and then activate construction|with a double click on 'dig'.
+EV 306 Message:Build a castle (top left button).
+EV 208 Continue
+DL 100 Message:Move your clonks to the construction site|and make them stop there.
+EV 209 Message:You have completed your first own building.
+DL 300 Message:If you have built a castle, you can now|order additional constrcution kits|using the special menu.
+DL 500 Message:In order to complete this mission,|you have to build another two structures.
+DL 400 Message:A guard tower and an elevator, for example...
+EV 209 Message:Well done, just one more now.
+EV 209 Message:Mission completed.
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=SHARKS.SCR]
+Head=Clonk3Script
+Title=Sharks and Boats
+Desc=Crossing over
+IDNum=18
+RuleSet=1;
+
+[PreInit]
+Clonks=1
+Wealth=100
+StartXPos=20
+Castle=1
+BRockMode=0
+Climate=700
+Season=1000
+YearSpeed=0
+BackCurveAmp=100
+BackRandomAmp=25
+BackPhase=66
+WaterLevel=90
+Sharks=5
+
+[RoundScript]
+DL 150 Message:Oha.
+DL 200 Message:Your first objective is to take five rocks|to the very right border of the screen.
+DL 800 Message:The sharks are somewhat hungry...
+DL 400 Message:So how about a boat?
+DL 400 Message:Order the boat using the special menu|and simply push it into the water.
+IF 200 Message:First objective completed.
+DL 300 Message:The second part of this mission is|to move a lorry to the right border of the screen.
+DL 800 Message:Be careful when pushing the lorry onto the boat.
+DL 250 Message:Let go of the lorry before entering the boat with your clonks.
+IF 205 Message:Good work!
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=VOLCANO.SCR]
+Head=Clonk3Script
+Title=Volcanos, earthquakes
+Desc=Amazing tectonics
+IDNum=19
+RuleSet=1;
+
+[PreInit]
+Clonks=6
+Wealth=20
+Castle=1
+Elevator=1
+BRockMode=5
+Climate=900
+Season=1000
+YearSpeed=0
+Volcano=100
+Earthquake=30
+
+[RoundScript]
+DL 150 Message:Just another regular mining mission...?
+DL 250 Message:Maybe not quite.
+DL 250 Message:Collect 99 gold points.
+IF 399 Message:Looks like you made it!
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=DESERT.SCR]
+Head=Clonk3Script
+Title=The desert
+Desc=Cactus valley
+IDNum=20
+RuleSet=1;
+
+[PreInit]
+Clonks=4
+Wealth=20
+Castle=1
+Elevator=0
+BRockMode=1
+Climate=100
+Season=1000
+YearSpeed=0
+StartXPos=250
+
+[RoundScript]
+DL 150 Message:Heat, dust,...
+DL 250 Message:Underneath the sand|lies the black gold...
+DL 300 Message:Using 'order metarial' buy some empty barrels.
+DL 250 Message:If your clonks take those and dive into the oil|they will fill up the barrels.
+DL 300 Message:Sell the oil and collect 99 points.
+DL 800 Message:Digging in the desert is to be done|a bit more careful. The sand slides...
+IF 399 Message:Not bad! You've completed your mission.
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=SEASONS.SCR]
+Head=Clonk3Script
+Title=Seasons of the year
+Desc=As time goes by...
+IDNum=21
+RuleSet=1;
+
+[PreInit]
+Clonks=6
+Wealth=50
+Castle=1
+Elevator=1
+StartXPos=70
+BRockMode=5
+Climate=600
+Rain=40
+Lightning=10
+Season=1000
+YearSpeed=100
+WaterLevel=80
+BackRandomAmp=40
+BackCurveAmp=80
+Monsters=1
+Wipfs=8
+Sharks=2
+
+[RoundScript]
+DL 150 Message:Quite something going on here!
+DL 200 Message:Save the wipfs!
+DL 400 Message:So far you've only known stable weather conditions...
+DL 250 Message:...now you get to know the change of the seasons.
+DL 400 Message:To complete this mission,|save at least five wipfs.
+IF 203 Message:This was well done so far...
+DL 200 Message:...but now you still have|to eliminate that monster.
+DL 250 Continue
+IF 204 Message:Mission completed.
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=ACID.SCR]
+Head=Clonk3Script
+Title=Home of the monsters
+Desc=Hazard environments
+IDNum=22
+RuleSet=1;
+
+[PreInit]
+Clonks=6
+Wealth=100
+Castle=1
+Elevator=1
+Tower=1
+Climate=600
+Rain=-20
+Lightning=10
+Season=1000
+YearSpeed=0
+WaterLevel=30
+BackRandomAmp=90
+BackCurveAmp=5
+Monsters=1
+Environment=1
+BRockMode=4
+
+[RoundScript]
+DL 150 Message:Hazardous setting here...
+DL 250 Message:Eliminate the monster.
+IF 204 Message:Mission completed.
+DL 050 CallFnc:PlaySound(24)
+DL 300 Message:You have completed all medium tutorial rounds!
+DL 250 Success
+
+[NewFile=BALLOON.SCR]
+Head=Clonk3Script
+Title=The Balloon
+Desc=A new home base
+IDNum=23
+RuleSet=2;
+
+[PreInit]
+Clonks=6
+Wealth=50
+Castle=0
+Elevator=0
+Tower=0
+Climate=500
+Rain=-50
+Lightning=-50
+Season=1000
+YearSpeed=10
+WaterLevel=0
+BackRandomAmp=50
+BackCurveAmp=20
+Monsters=0
+Environment=0
+Balloon=1
+BRockMode=5
+Wipfs=7
+
+[RoundScript]
+DL 150 Message:Some basic novelty.
+DL 200 Message:Your home base is not in your castle any longer...
+DL 200 Message:...but can only be reached by means of air travel.
+DL 250 Message:Order a construction kit.
+EV 302 Continue
+DL 100 Message:Your order will arrive with the next balloon.
+DL 400 Message:Build a castle.
+EV 209 Message:The castle serves as a landing site|and simplifies loading and unloading.
+DL 300 Message:Order a lorry.
+DL 300 Message:Catch five wipfs and send them home to your base.
+DL 500 Message:To load something into the balloon|simply take it into the castle.
+DL 600 Message:Now even clonk energy can only be|refilled at your new base.
+IF 203 Message:You have completed your mission.
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=ENERGY.SCR]
+Head=Clonk3Script
+Title=Wind mills
+Desc=A source of power
+IDNum=24
+RuleSet=2;
+
+[PreInit]
+Clonks=6
+Wealth=50
+Castle=1
+Elevator=1
+Tower=0
+Climate=900
+Rain=-50
+Lightning=-50
+Season=1400
+YearSpeed=0
+WaterLevel=0
+BackRandomAmp=50
+BackCurveAmp=70
+Monsters=0
+Environment=0
+Balloon=1
+BRockMode=5
+Wipfs=0
+StartXPos=240
+
+[RoundScript]
+DL 300 Message:The elevator is idle.
+DL 200 Message:In the radical rule set, structures will|first have to be supplied with energy.
+DL 250 Message:Order a construction kit. (Brown box)
+EV 417 Continue
+DL 600 Message:Look for a hill top site and activate construction.
+EV 306 Message:Build a winmill.|(Scroll selection to the right, then top left button)
+EV 209 Continue
+DL 200 Message:Now you'll have to create a power line|from the wind mill to the elevator.
+DL 250 Message:Order a line construction kit. (Gray box)
+EV 418 Continue
+DL 600 Message:Take the line construction kit with your captain|and move in front of the windmill.
+DL 250 Message:Activate a quick double click on 'dig'.
+EV 210 Continue
+DL 100 Message:This way you create a new power line.
+DL 200 Message:Now move over to the elevator and connect the line|with another double click on 'dig'.
+EV 210 Continue
+DL 100 Message:Very good. Now the elevator's got a power supply.
+DL 250 Message:Activate elevator shaft drilling with|a double click on 'dig' in the lift.
+DL 500 Message:Now collect 99 gold points by mining gold.
+DL 800 Message:Lines can also be picked up again...
+DL 200 Message:...by activated a 'dig' double click at their end.|(Bottom left corner of the structure)
+DL 300 Message:You can also drop lines without a connection.
+DL 300 Message:If you activate the special menu|while the captain carries a line...
+DL 200 Message:...line construction will be cancelled|and the line construction kit will be available again.
+IF 399 Message:That'll be it for this round.
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=CREW.SCR]
+Head=Clonk3Script
+Title=A crew
+Desc=Controlling more than one clonk
+IDNum=3
+RuleSet=0
+
+[PreInit]
+Clonks=3
+Wealth=0
+BackCurveAmp=0
+BackRandomAmp=25
+StartXPos=160
+
+[RoundScript]
+FP 0150 Message:Now it's even three of them
+DL 0150 Message:They can be controlled one at|a time or all together.
+DL 0250 Message:Move your first clonk to the left|and make him stop there.
+DL 0001 CallFnc:KeyConDisplay(10);
+EV 0106 Continue
+EV 0107 Continue
+DL 0050 Message:Using these cursor keys, you can|select the clonks to be controlled
+DL 0001 CallFnc:KeyConDisplay(11);
+DL 0001 CallFnc:PlaySound(32);
+DL 0070 CallFnc:KeyConDisplay(12);
+DL 0050 CallFnc:KeyConDisplay(11);
+DL 0050 CallFnc:KeyConDisplay(12);
+DL 0150 Message:Select a different clonk|using the 'cursor right' key.
+EV 0102 Continue
+DL 0100 Message:Move this clonk to the right|and make him stop.
+EV 0108 Continue
+EV 0107 Message:Very good.
+DL 0100 Message:This is the 'selection toggle' key.
+DL 0001 CallFnc:KeyConDisplay(13);
+DL 0001 CallFnc:PlaySound(32);
+DL 0070 CallFnc:KeyConDisplay(14);
+DL 0050 CallFnc:KeyConDisplay(13);
+DL 0050 CallFnc:KeyConDisplay(14);
+DL 0001 Message:Hit 'stop' once more.
+EV 0107 Message:Now you can switch from one clonk|to all the other clonks|by hitting 'toggle'.
+EV 0101 Continue
+DL 0250 Message:Choose a different clonk|using the 'cursor left' key.
+EV 0100 Message:If you hit 'toggle' now after selecting a clonk,|he will be activated or deactivated from the group.
+EV 0101 Continue
+DL 0300 Message:This way you can select any combination|of clonks to be controlled.
+DL 0001 CallFnc:KeyConDisplay(13)
+DL 0450 Message:Details about the control|you'll find in the online-help system.
+DL 0350 Message:Your mission is now to move 15 rocks|to the very right border of the screen.
+DL 0450 Message:Only the captain clonk can dig,|but all the clonks should help carry.
+DL 0700 Message:Remember to look up control in the help system.
+IF 0201 Message:Mission completed.
+DL 0001 CallFnc:PlaySound(24)
+DL 0001 Success
+
+[NewFile=CROSSBOW.SCR]
+Head=Clonk3Script
+Title=The Crossbow
+Desc=An anti aircraft weapon
+IDNum=25
+RuleSet=2;
+
+[PreInit]
+Clonks=1
+Wealth=100
+Castle=1
+Elevator=0
+Tower=1
+Climate=500
+Rain=-50
+Lightning=-50
+Season=1000
+YearSpeed=10
+WaterLevel=0
+BackRandomAmp=25
+BackCurveAmp=10
+Monsters=0
+Environment=0
+Balloon=1
+BRockMode=5
+Wipfs=0
+Crossbow=1
+
+[RoundScript]
+DL 150 Message:In this round there is a new|long range weapon to be introduced.
+DL 250 Message:Since you can control the vertical|flight path of a balloon using 'stop'...
+DL 250 Message:...it can very well be used for|air strikes on the opponent's base in a melee.
+DL 300 Message:But there is a way to defend yourself.
+DL 150 Message:It just arrived along with your crew.
+DL 200 Message:Push the crossbow onto open space.
+DL 200 Message:Since you can adjust the aiming of the weapon|using the 'left' and 'right' commands...
+DL 250 Message:...you need to crank it all the way, before you can push it.
+DL 500 Message:Now order some arrows.
+EV 419 Continue
+DL 500 Message:Take the arrows and walk to the crossbow.
+IF 202 Message:Hit 'throw' to load the weapon.
+DL 200 Message:Now you can aim and fire.
+EV 203 Message:Zack.
+DL 300 Message:Pick up the arrows and try again.
+DL 250 Message:A clonk can carry up to|five arrows at a time.
+IF 202 Message:Fire!
+EV 203 Continue
+DL 800 Message:Now push the crossbow into the guard tower.
+DL 400 Message:Let go of it and hit 'jump' inside the tower.
+EV 206 Message:This way you can move vehicles up to the platform.
+DL 250 Message:In a melee, this is the best position for air defense.
+DL 500 Message:So much for the crossbow...
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=PUMP.SCR]
+Head=Clonk3Script
+Title=Pumps and water lines
+Desc=Cool new elements
+IDNum=26
+RuleSet=2;
+
+[PreInit]
+Clonks=6
+Wealth=100
+Castle=1
+Elevator=1
+Tower=0
+Windmill=1
+Climate=700
+Rain=+10
+Lightning=-50
+Season=1000
+YearSpeed=0
+WaterLevel=50
+StartXPos=70
+BackRandomAmp=20
+BackCurveAmp=60
+Balloon=1
+BRockMode=5
+
+[RoundScript]
+DL 150 Message:As you know, rain comes pouring into your mines at times.
+DL 200 Message:In the radical rule set|there is no more drain on the screen border.
+DL 250 Message:But there's a new method to get the|water back out of the mines.
+DL 250 Message:Order a construction kit.
+EV 417 Continue
+DL 500 Message:Build a pump.|(In the menu, scroll right, top right button)
+EV 209 Message:Now order three line construction kits.
+EV 418 Continue
+DL 250 Message:Using the first you should create a|power line from the windmill to the pump.
+DL 250 Message:Note: Always begin and the power supply structure.
+EV 210 Continue
+EV 210 Message:Now get the second line construction kit...
+DL 250 Message:...and connect that one to the pump.
+EV 210 Message:Drop the other end of the pipe in water.
+DL 200 Message:If a clonk is wimming or jumping, a single click on 'dig'|will be sufficient for line construction!
+DL 300 Message:Connect the third line kit to the pump.
+EV 210 Message:Once all is set up well,|the pump will start working.
+DL 300 Message:Drop the drain pipe where you|want the water to go.
+DL 300 Message:A pump will work only, if it has a power supply|and neither feeding nor drain pipe is clogged up.
+DL 400 Continue
+EV 211 Message:Very well done.
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=OIL.SCR]
+Head=Clonk3Script
+Title=Mc Oil
+Desc=Black Gold
+IDNum=27
+RuleSet=2;
+
+[PreInit]
+Clonks=1
+Wealth=50
+Castle=1
+Elevator=1
+Pump=1
+Windmill=1
+Climate=100
+Season=1000
+YearSpeed=0
+WaterLevel=0
+StartXPos=160
+BackRandomAmp=40
+BackCurveAmp=0
+Balloon=1
+BRockMode=1
+
+[RoundScript]
+DL 150 Message:Using pumps you can also|produce oil much more easily.
+DL 250 Message:Order two line construction kits.
+DL 200 Message:Drill the feeding pipe in to some oil field.
+DL 200 Message:And connect the drain to your castle.
+DL 800 Message:The best way is to dig your way above an oil spot|and activate feeder pipe drilling.
+DL 800 Message:Collect 99 points worth of funds by selling oil.
+DL 300 Continue
+IF 399 Message:Okay, that'll be it.
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=OILPOWER.SCR]
+Head=Clonk3Script
+Title=Oil power
+Desc=Energy without wind
+IDNum=28
+RuleSet=2;
+
+[PreInit]
+Clonks=6
+Wealth=100
+Castle=1
+Elevator=1
+Pump=1
+Windmill=1
+Climate=100
+Season=1000
+YearSpeed=20
+StartXPos=160
+BackRandomAmp=40
+BackCurveAmp=0
+Balloon=1
+BRockMode=1
+
+[RoundScript]
+DL 150 Message:At times there's no wind...
+DL 200 Message:...then you'll be stuck without power.
+DL 200 Message:Unless you have an oil power unit!
+DL 200 Message:This is what you'll be able to try out in this round.
+DL 250 Message:Order a construction kit.
+EV 417 Continue
+DL 400 Message:Build an oil power unit.|(Scroll right, top center button)
+EV 209 Message:Order a line construction kit.
+EV 418 Continue
+DL 250 Message:You should create a line from|the oil power unit to the windmill.
+EV 210 Continue
+DL 400 Message:If you now pump oil from the ground|directly into your power unit...
+DL 250 Message:...you'll be almost wind-independent.
+EV 210 Continue
+EV 210 Continue
+DL 300 Message:The burner will automatically fire, once there's not enough wind.
+EV 213 Continue
+DL 300 Message:Very good!
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=PARTY1.SCR]
+Head=Clonk3Script
+Title=Small party
+Desc=Radical
+IDNum=29
+RuleSet=2;
+
+[PreInit]
+Clonks=6
+Wealth=50
+Castle=1
+Elevator=1
+Windmill=1
+Climate=900
+Season=1000
+YearSpeed=50
+BackRandomAmp=100
+BackCurveAmp=10
+Balloon=1
+BRockMode=5
+Sharks=3
+Wipfs=10
+Monsters=2
+Rain=0
+Lightning=0
+Comet=30
+WaterLevel=40
+
+[RoundScript]
+DL 150 Message:A lot going on...
+DL 300 Message:Save five wipfs and eliminate the monsters.
+IF 203 Continue
+IF 204 Message:Wow, you made it!
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+
+[NewFile=PARTY2.SCR]
+Head=Clonk3Script
+Title=Big old party
+Desc=Very radical
+IDNum=30
+RuleSet=2;
+
+[PreInit]
+Clonks=6
+Wealth=100
+Castle=1
+Elevator=1
+Windmill=1
+Climate=600
+Season=1000
+YearSpeed=100
+BackRandomAmp=100
+BackCurveAmp=40
+Balloon=1
+BRockMode=5
+Sharks=4
+Wipfs=12
+Monsters=3
+Rain=10
+Lightning=10
+Comet=60
+Volcano=80
+Earthquake=30
+WaterLevel=50
+
+[RoundScript]
+DL 150 Message:And for a last time...
+DL 300 Message:Save the wipfs and take care of the monsters.
+IF 203 Continue
+IF 204 Continue
+DL 100 CallFnc:PlaySound(24)
+DL 050 Message:Congratulations!
+DL 100 Message:You have completed all tutorial rounds!
+DL 300 Message:Now you're ready to play any radical cooperative or melee round!
+DL 300 Continue
+DL 050 CallFnc:PlaySound(24)
+DL 050 Success
+

@@ -1,0 +1,85 @@
+# RedWolf Design CLONK 3 Radikal
+# Quelldatei fÅr Clonk-Namen
+
+# Diese Datei darf verÑndert werden, jedoch sollte beachtet werden:
+# 1) Nur ein Name pro Zeile. 2) LÑnge eines Namens maximal 15 Buchstaben.
+
+Hugo
+Edward
+Joe
+Sam
+Ringo
+Mac
+Heinz
+Rudolph
+Karl
+Beinhard
+Gonzo
+Kermit
+Helmut
+Haarmann
+Frerk
+Gandhi
+Jesus
+Adalbert
+Dîdelhart
+Semi
+Heino
+Tussnelda
+Guevara
+Hubert
+Donald
+Egbert
+Gerold
+Ernie
+Bert
+Poldi
+Kasimir
+Nepomuk
+Spencer
+BlÅmchen
+Howard
+Rambo
+Rocky
+James Bond
+Blofeld
+v.Boedefeld
+Zorro
+Winnetou
+Eisenherz
+Arthur
+Dr.Mabuse
+Tarzan
+Nietzsche
+Goethe
+Schiller
+Drescher
+Grobian
+Ali Baba
+Volker
+Hannibal
+Rincewind
+Zweiblum
+Cohen
+Hrun
+Krîsus
+Krempel
+Spelzdinkel
+Detritus
+Feigling
+Memme
+Pappnase
+Tomatenstark
+Kartoffelstark
+Wurzel
+Purzel
+Schmunzel
+Rapunzel
+Schurke
+Hîrnel
+Duddel
+Kowalski
+Big Jim
+Nelson
+Davey
+Erik

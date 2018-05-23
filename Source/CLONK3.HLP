@@ -1,0 +1,961 @@
+# RedWolf Design CLONK 3 Radikal Help File
+
+# This file must not be modified in any way! If this file is not in its
+# original state the main program will abort process.
+
+[WELCOME]
+
+                    ÄiWelcome to ÄLCLONK 3 Radikal
+                    Än^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+        ÄLRedWolf DesignÄn would like to welcome all experienced
+      and novice ÄiCLONK-playersÄn to this new release of the game.
+
+                 If you are a new player to ÄiCLONKÄn,
+             you should continue reading ‚What is CLONK?‚.
+
+             If you have played earlier versions of CLONK
+              you should continue reading ‚What's new?‚.
+
+                 By hitting the F1 key you can activate
+                  this On-Line help system at any time.
+
+                     ÄiMatthes Bender, April 1997Än
+[
+
+[WHAT IS CLONK?]
+CLONK is a multiplayer game of action, tactics and skill. This version can be played by up to three players at a time.
+
+The game will be played in real time. Each player will be able to control his crew of clonks in the randomly generated or user defined worlds, fighting his human opponents and/or the forces of nature.
+
+There are numerous modes and options to provide an almost unlimited variety of rounds to be challenged.
+
+All players should at first play the tutorial rounds to get accustomed to the new controls and features of the game.
+[
+
+[WHAT'S NEW?]
+                 Here's a list of the features of
+                         ÄLCLONK 3.5 RadikalÄn
+
+- Three session modes:
+  ÄiMission/Tutorial, Single player/cooperative and Melee/TournamentÄn
+- Extended Rule set: ÄiEasy, Medium/Advanced, and RadicalÄn
+- Player roster with player portraits and statistics
+- individual permanent crew for each player, with name, rank and
+  experience points for each clonk
+- completely renewed game game controls: Clonks can be controlled
+  all at once or in any combination
+- swimming, diving, digging in 7 directions, loam construction in
+  5 directions
+- double sized vertically scrolling game area
+- solid layers of rock, gold, and granite
+- water, oil and acid
+- earthquakes and volcanoes
+- Castles, elevators, windmills, pumps, guard towers, oil power
+- build your own structures and lines using construction kits
+- vehicles and heavy weapons: lorry, catapult, boat, crossbow
+- loads of new weapons and objects can be ordered at the home base
+- T-Flints, fire bombs, arrows, concrete, steel
+- shark attacks and intelligent wipfs
+- climate, seasons, rain, snow, thunder storms
+- 40 digitized sound effects
+[
+
+
+[CONTENTS]
+
+             ÄiContents of the ÄLCLONK 3 Radikal Äihelp systemÄn
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+        ‚WELCOME‚                       ‚DISCLAIMER‚
+        ‚WHAT IS CLONK?‚                ‚VERSIONS OF CLONK‚
+        ‚WHAT'S NEW?‚                   ‚LIST OF PROGRAM FILES‚
+                                      ‚REDWOLF DESIGN‚
+                                      ‚CREDITS‚
+                                      
+[
+
+[PROGRAM FILE ERROR]
+A file required by the program to run could not be found in your clonk directory.
+See ‚list of program files‚ for what files need to be there.
+[
+
+[REANIMATE CLONKS]
+If you're playing with your ‚permanent crew‚, you might want to reanimate clonks that have died, so they will be able to achieve a higher clonk ‚rank‚.
+
+You can only reanimate clonks that have more than 500 points of experience. Divide the clonk's experience level by 30 to find out how many storage points you will need to bring him back to life.
+[
+
+[ERROR HELP NOT TRANSLATED]
+Sorry, the help entry for this error subject has not been translated due to lack of time.
+[
+
+[BELEGTES TASTENKOMMANDO UMDEFINIERT]
+Sie haben ein Kommando mit einer neuen Taste belegt. Vorher war ein anderes Kommando mit dieser Taste belegt. Diesem anderen Kommando wurde nun zufÑllig eine neue Taste zugewiesen. Bitte ÅberprÅfen sie, ob alle Kommandos sinnvoll belegt sind.
+[
+
+[KEINE MISSION AUSGEWéHLT]
+Es sind keine Missions-Daten gefunden worden. Vermutlich fehlen eine oder mehrere Dateien, die das Spiel benîtigt.
+
+Siehe ‚Liste der Programmdateien‚.
+[
+
+[MISSION NOCH NICHT ERREICHT]
+Die Lernrunden kînnen nur der Reihe nach gespielt werden.
+Siehe hierzu auch ‚Missions-Passwîrter‚.
+[
+
+[RUNDEN-STARTKONDITIONEN]
+In manchen Spielmodi sind bestimmte Startkonditionen zwingend notwendig, da sonst unter UmstÑnden eine Runde technisch nicht erfÅllt werden kann.
+
+So muss z.B. im einfachen Regelwerk zum Gold Abbauen und Wipfe Retten eine Burg vorhanden sein, da man sonst seine ErtrÑge gar nicht in Sicherheit bringen kînnte.
+
+Bitte aktivieren Sie die geforderten Konditionen und starten sie die Runde erneut.
+[
+
+[SESSION-TEILNEHMER]
+Mîgliche Teilnehmerzahlen nach Art der Session:
+
+ÄiMission/Lernrunden
+^^^^^^^^^^^^^^^^^^Än
+Nur jeweils ein Spieler.
+
+ÄiEinzelspieler/Kooperativ
+^^^^^^^^^^^^^^^^^^^^^^^^Än
+Ein bis drei Spieler gleichzeitig.
+
+ÄiMelee
+^^^^^Än
+Zwei bis alle Spieler.
+Dabei jeweils zwei oder drei gelichzeitig (siehe ‚Turnier-Modus‚).
+[
+
+[NICHT GENUG SPEICHER FöR RUNDE]
+CLONK benutzt ausschliesslich Base-Speicher (siehe ‚System-Voraussetzungen‚). Sie kînnten versuchen, mehr Speicher zur VerfÅgung zu stellen, oder die Runden-Einstellungen anpassen.
+
+Eine tiefe Spiel-Landschaft verbraucht besonders viel Speicher. Sie sollten vorrangig Runden mit Äigeringerer LandschaftstiefeÄn (Scrolling) spielen.
+[
+
+[SOUND OKAY?]
+Das Programm hat gerade einen Soundeffekt abgespielt. Wenn Sie das ÄiCLONKÄn-GerÑusch gehîrt haben, antworten Sie bitte mit 'Ja'.
+[
+
+[CLONK-INFO]
+Hier wird Information Åber Clonks aus der ‚Stammcrew‚ angezeigt.
+
+FÅr jeden Clonk kann ein individueller Name angegeben werden.
+
+Desweiteren gibt es Information und Rang, Erfahrung, Anzahl der Runden und Wiederbelebungen des Clonks.
+[
+
+[STAMMCREW]
+Jeder Spieler hat eine Stammcrew von Clonks. Er kann allen Clonks individuelle Namen geben. (Siehe ‚Clonk-Info‚)
+
+Ein Clonk aus der Stammcrew kann in vielen Runden immer wieder eingesetzt werden. Das hat den Vorteil, dass er Åber mehrere Runden hinweg Erfahrung sammeln und somit weitaus besser befîrdert werden kann.
+
+Voraussetzung fÅr den Wiedereinsatz ist natÅrlich, dass der Clonk die jeweiligen Runden Åberlebt. Stirbt ein Clonk, der Åber 500 Erfahrungspunkte gesammelt hat, so kann dieser wiederbelebt werden.
+DafÅr muss der Spieler Score-Punkte einsetzen. (Siehe ‚Clonks wiederbeleben‚)
+
+Ob die Stammcrew zum Einsatz kommt oder ob mit einer Zufalls-Mannschaft gespielt wird, die immer mit Null Erfahrungswert beginnt, wird vor Beginn einer Session festgelegt. (Siehe ‚Session auswÑhlen‚)
+[
+
+[SPIELERFARBE]
+Jeder Spieler darf sich eine Lieblingsfarbe aussuchen, die seine Clonks tragen sollen. Sind zwei Spieler in einer Runde vertreten, die beide die gleiche Farbe gewÑhlt haben, so wird dem tabellenniedrigeren Spieler eine Ersatzfarbe zugewiesen.
+[
+
+[SPIELERPORTRAIT WéHLEN]
+Jeder Spieler kann sich aus dieser Liste ein Portrait aussuchen.
+
+Mit Äi'Import'Än kînnen Grafikdateien mit dem Format PCX als Portraits in die Auswahl aufgenommen werden. Das ermîglicht es dem Spieler, auch ein eingescanntes Foto oder ein mit einem Grafikprogramm erstelltes Bild zu benutzen. Siehe hierzu ‚PCX-Import‚.
+
+Mit Äi'Lîschen'Än kînnen Bilder aus der Liste entfernt werden.
+
+Mit Äi'Auswahl'Än oder durch einen Doppelklick auf das entsprechende Portrait wird das jeweils ausgewÑhlte Bild zur Benutzung fÅr den Spieler Åbernommen.
+
+Es kînnen maximal 16 unterschiedliche Portraits zur gleichen Zeit gespeichert werden.
+
+Acht Bilder werden dabei als Vorgaben vom Programm zur VefÅgung gestellt. Diese kînnen nicht gelîscht werden.
+[
+
+[PCX-IMPORT]
+Anhand dieser Schritte kînnen PCX-Dateien importiert werden:
+
+1. Mit ÄiMalprogramm oder Scan-ProgrammÄn gewÅnschte Grafik erstellen.
+   Format: 40x50 Pixel, 256 Farben
+   Farbe 000 (Schwarz) wird transparent
+
+2. Grafik ins CLONK-Verzeichnis kopieren.
+
+3. CLONK starten und im Importfenster Äirichtigen DateinamenÄn angeben.
+
+4. Button Äi'Import'Än anklicken.
+
+5. Wenn der Testimport geklappt hat, Äi'öbernehmen'Än anklicken.
+   Damit wird die Zeichnung in die Portrait-Tabelle Åbernommen.
+[
+
+[SPIELER-INFO]
+Hier kann jeder Spieler seine persînlichen Einstellungen vornehmen und Information Åber seine bisherige Laufbahn als CLONK-Spieler abrufen.
+
+Mit einem Klick auf das Portrait (zunÑchst ein Fragezeichen) wird das Fenster ‚Spielerportrait wÑhlen‚ geîffnet.
+
+Ausserdem gibt es einen Button zum Betrachten und Bearbeiten der ‚Stammcrew‚.
+
+Unter Äi'VorzÅge'Än kann die ‚Spielerfarbe‚ und die bevorzugte Steuerung eingestellt werden. Am einfachsten zu bedienen ist mit Sicherheit die Steuerung auf der rechten Tastaturseite, da hier der Åbersichtliche numerische Tastenblock zur VerfÅgung steht. Erst wenn mehrere Spieler gleichzeitig spielen mîchten, sollten der linke und schliesslich der mittlere Tastenblock zum Einsatz kommen. Siehe auch ‚Tastenbelegung‚.
+
+Eine Äi'Stellungnahme'Än kann jeweils nach einer Befîrderung abgegeben werden.
+[
+
+[SOUND SETUP]
+CLONK 3 Radikal kann Äiauf zwei verschiedene ArtenÄn digitale Soundeffekte erzeugen.
+
+Mîglich ist dies auf ÄiSoundBlasterÄn oder 100% kompatiblen Soundkarten.
+
+ZunÑchst mÅssen der ÄiIRQÄn und die ÄiBase-Port AdresseÄn der Soundkarte korrekt eingestellt werden. Bei einer richtig installierten Soundkarte sollte das Programm diese Werte bereits automatisch erkannt haben. Dann kann der Sound mit einer der beiden Methoden initialisiert werden:
+
+ÄLCT-VOICE Methode
+^^^^^^^^^^^^^^^^Än
+Diese Methode ist technisch vorzuziehen. Jedoch wird hierfÅr die ÄiTreiberdatei CT-VOICE.DRVÄn benîtigt, die zum Lieferumfang einer jeden SoundBlaster Karte gehîrt. Der genaue Pfad (inklusive Dateiname) muss angegeben werden, damit das Programm auf diese Datei zugreifen kann.
+
+ÄLTimer-Methode
+^^^^^^^^^^^^^Än
+Falls die CT-VOICE Methode nicht funktioniert, kann auf die Timer-Methode zurÅckgegriffen werden. Diese verlangsamt das Spiel minimal und erzeugt qualitativ weniger hochwertige Effekte. Die Timer-Methode kann nicht eingesetzt werden, wÑhrend ÄiWindows 95Än im Hintergund lÑuft.
+
+Das Soundsystem von CLONK ist zugegebenermassen nicht auf dem neusten Stand der Technik und konnte auch nur auf wenigen verschiedenen Soundkarten getestet werden. Der Autor kann keinerlei Garantie dafÅr Åbernehmen, dass das System auf allen Soundkarten funktioniert. ZukÅnftige Versionen von CLONK werden hoffentlich ein fortgeschritteneres Sound-System aufweisen.
+
+ÄLHinweis:Än Sound-Daten werden wÑhrend der Runde dynamisch nachgeladen. Dies kann (vor allem bei langsamen DatentrÑgern) zu Verzîgerungen im Spiel fÅhren. Daher ist die Benutzung eines ÄiDisk-Chache ProgrammsÄn wie z.B. SmartDrive anzuraten.
+
+Siehe auch: ‚System-Voraussetzungen‚
+[
+
+[TASTENBELEGUNG]
+FÅr jeden der drei Spieler gibt es 10 Tastenkommandos. Diese sind im Originalzustand so Åber die Tastatur verteilt, dass drei Blîcke von je 3x3 Tasten + 1 MenÅtaste entstehen.
+
+Wenn Sie diese Einstellungen Ñndern wollen, z.B. um das Spiel einer anderen Tastatur anzupassen, klicken Sie auf den jeweiligen Kommando-Button und drÅcken Sie dann Ihr neues Tastenkommando.
+
+Leider werden keine Spezialtasten (Cursor-Tasten, Enter, Tab, Alt, Shift) als Kommandos akzeptiert.
+
+Hier die Vorgaben-Belegung, die jederzeit wiederhergestellt werden kann:
+
+Äi
+    Links     Mitte    Rechts      Belegung des jeweiligen Blocks
+                                           
+    Q W E     I O P     7 8 9          <-Cursor   Toggle   Cursor->
+    A S D     K L ô     4 5 6            Werfen  Springen  Graben
+  < Y X C   M , . -   0 1 2 3    MenÅ     Links    Stop    RechtsÄn
+
+Siehe auch ‚Steuerung‚.
+[
+
+[TABELLE SORTIEREN]
+Die ‚Spielertabelle‚ kann nach den angegebenen Kriterien sortiert werden.
+[
+
+[KOOPERATIV-MODUS WéHLEN]
+In CLONK 3 Radikal gibt es drei Kooperativ/Einzel-Modi.
+
+Diese sind in diesem Fenster beschrieben.
+
+WÑhlen Sie einen Modus und drÅcken Sie 'OK'.
+[
+ 
+[SPEZIAL-OPTIONEN]
+In diesem Fenster gibt es weitere Optionen mit denen man Spiel und Steuerung seinen WÅnschen anpassen kann.
+
+Bei grosser Speicherknappheit oder auf sehr langsamen Rechnern kann man die ÄiRauchentwicklungÄn deaktivieren, um Speicher und Rechenzeit zu sparen.
+
+Wie bei einem Maus-Kommando, kînnen in CLONK mit einem ÄiDoppelklick auf die Graben-TasteÄn spezielle Aktionen ausgefÅhrt werden. (Siehe ‚Steuerung‚) AnfÑnger sollten mit einer niedrigeren Geschwindigkeit fÅr den Klick beginnen, um sich an die Steuerung zu gewîhnen. Da dadurch jedoch der Grabvorgang etwas verzîgert wird, sollte die Doppelklick-Geschwindigkeit erhîht werden, sobald die ÄiFingerfertigkeitÄn dazu vorhanden ist.
+
+Wird mit einer Maus gespielt, die nur zwei Buttons hat, muss die Option fÅr das ÄiZwei-Button-SpringenÄn aktiviert werden. Siehe hierzu ‚Maus-Steuerung‚.
+
+WÑhrend des Spiels werden zahlreiche nÅtzliche ÄiInformationen als TextÄn eingeblendet. Wer dies nicht mag, kann dies ausschalten.
+
+Normalerweise halten Clonks, die nicht mehr (per Cursor) zur Steuerung ausgewÑhlt sind automatisch an. Wird diese Option deaktiviert, kînnen verschiedene Clonk-Gruppen Äigleichzeitig verschiedene Aktionen durchfÅhrenÄn (z.B. in verschiedene Richtungen laufen). Dies erfordert jedoch einiges Geschick und hohe Geschwindigkeit beim Umschalten bei der Auswahl der Clonks im Spiel.
+
+Wer beim ÄiBauen von LeitungenÄn den öberblick verliert, welche Leitung denn wohin fÅhrt, kann sich mit der Funktion Äi'Leitungen vor Strukturen'Än mehr öberblick verschaffen.
+
+Die ÄiSpielgeschwindigkeitÄn kann der Rechnerleistung und dem Kînnen der Spieler angepasst werden. Dies ist sogar wÑhrend einer Runde mit den Tasten ÄiF5 und F6Än mîglich. Die Geschwindigkeit wird in Klammern hinter der Spielzeit angezeigt.
+
+Registrierte Spieler erhalten Zugang zum ‚Cheat-Menu‚. Dieses kann jedoch nur vor Beginn einer Runde aufgerufen werden.
+[
+
+[SESSION]
+Eine Session in CLONK besteht aus einzelnen Runden und findet unter bestimmten Bedingungen statt. (Siehe ‚Session auswÑhlen‚)
+
+Je nach Art der Session variiert die Anzahl der Spieler, die teilnehmen kînnen.
+[
+
+[RANG]
+Ein Clonk beginnt als einfacher Rekrut. Er kann bis zu zehnmal befîrdert werden. Dabei ist der Schritt zum FÑhnrich (und damit zum ÄiCaptain-ClonkÄn) der wichtigste, denn dieser ermîglicht die AusfÅhrung von Spezialaktionen wie graben, bauen, etc.
+
+Je hîher der Rang eines Clonks ist, desto mehr Energiereserven besitzt er und desto mehr Clonks kann er gleichzeitig befehligen.
+
+Siehe auch ‚Clonks wiederbeleben‚.
+[
+
+[REALISMUS]
+Je realistischer das Spiel gestaltet wird, desto schwieriger wird es, aber desto besser fÑllt die ‚Runden-Auswertung‚ aus.
+
+In diesem Fenster gibt es folgende Optionen:
+
+ÄiStrukturen kînnen einschneienÄn
+Wenn deaktiviert, wird gefallener Schnee automatisch von den Fundamenten der GebÑude entfernt.
+
+ÄiStrukturen kînnen brennenÄn
+Spricht fÅr sich selbst.
+
+ÄiStrukturen brauchen EnergieÄn
+Wenn aktiviert, mÅssen FahrstÅhle und Pumpen erst mit Energie von WindmÅhlen oder ôlîfen versorgt werden.
+
+ÄiAusnahme-BefîrderungÄn
+Wenn aktiviert, wird im Falle des Verlustes des letzten FÑhnrichs, der erfahrenste Rekrut zeitweise zum FÑhnrich befîrdert. (Wird am Ende der Runde wieder rÅckgÑngig gemacht.) Diese Option beeinflusst den Spielverlauf sowohl im Melee als auch im Kooperativmodus ganz entscheidend und sollte im Melee auch mit der Auswahl der 'Player Elimination' abgestimmt werden.
+
+ÄiAbfluss am RandÄn
+Wenn aktiviert, fliesst Wasser unterirdisch am Rand ab.
+
+ÄiSteine fliegen rausÄn
+Wenn deaktiviert, prallen geschleuderte Steine am Bildschirmrand ab.
+
+ÄiVersorgungsbasisÄn
+Spricht fÅr sich selbst.
+
+Einige dieser Optionen sind im mittleren bzw. radikalen Regelwerk jeweils zwingend aktiviert bzw. deaktiviert, um der GesamtkomplexitÑt der Regelwerke zu entsprechen.
+[
+
+[WETTER]
+Das ÄiKlimaÄn bestimmt die Durchschnittstemperatur, die Vegetation, sowie Bodenbeschaffenheit und BodenschÑtze.
+
+Der Regler 'ÄiJahreszeitÄn' bestimmt die Jahreszeit Äiam AnfangÄn der Runde.
+
+Der Regler 'ÄiZeitverlaufÄn' (Uhr) bestimmt, ob und wenn, wie schnell die Jahreszeiten aufeinanderfolgen.
+
+Die Einstellungen fÅr ÄiNiederschlag, Gewitter, Kometen und UmgebungÄn bedÅrfen keiner ErklÑrung.
+
+Das Wetter kann auf Zufall geschaltet werden.
+[
+
+[LANDSCHAFT]
+Die Landschafts-ÄiTiefeÄn bestimmt, wie weit die SpielflÑche vertikal scrollt. Vorsicht: Hoher Speicherbedarf.
+
+Die Åbrigen Einstellungen sprechen dank des Vorschau-Fensters fÅr die ÄiLandschaftsformÄn fÅr sich selbst. Eine Landschaftsform mit Zufallsfaktor entspricht verstÑndlicherweise nie genau der Vorschau.
+
+Die Landschaft kann auf Zufall geschaltet werden.
+[
+
+[TIERWELT]
+Hier kann eingestellt werden, wie stark das Spiel von Tieren bevîlkert sein soll.
+
+Sind Monster bzw. Wipfe auf Null gestellt, werden aber von der Runden-Aufgabe zwingend gefordert, werden diese Werte per Zufall gesetzt.
+
+Auch die gesamte Tierwelt kann auf Zufall geschaltet werden.
+[
+
+[SPIEL]
+Im oberen Bereich des Fensters werden Informationen Åber alle Teilnehmer angezeigt. Die Position eines Spielers im Fenster entspricht der Position wÑhrend der Runde. 
+Von hier aus kann auch (wenn aktiviert) die ‚Stammcrew‚ eingesehen werden, z.B. um ggf. verstorbene Stammclonks wiederzubeleben.
+
+Desweiteren kînnen Einstellungen zur Art der nÑchsten Runde vorgenommen werden.
+
+In einem Melee gibt es eine Einstellung fÅr die sogenannte 'ÄiPlayer EliminationÄn', also wodurch ein Spieler eliminiert wird. Äi'Kill the Captain'Än ist hierbei die ursprÅngliche Version: Wenn der Captain (wird in der Runde mit gelbem Ausrufungszeichen markiert) stirbt, hat der Spieler verloren. Bei Äi'Kill the crew'Än kann ein Spieler auch nach dem Verlust des Captains mit seinem Åbrigen Clonks weiterspielen (siehe auch ‚Realismus‚ fÅr 'Ausnahme-Befîrderung'). Bei Äi'Capture the flag'Än ist es das Ziel, die Flagge von der gegnerischen Burg zu stehlen und in seine eigene Basis zu schaffen. Ein Spieler, der nicht mehr im Besitz seiner Flagge ist, erhÑlt bestimmte Nachteile.
+
+Die zehn Marker im ÄiAnfangskonditionenÄn-Kasten stehen fÅr die fÅnf mîglichen GebÑude (Burg, Fahrstuhl, WindmÅhle, Pumpe und Wachturm) und die fÅnf mîglichen Fahrzeuge (Lore, Katapult, Boot, Armbrust und Ballon). Je nach Regelwerk sind nicht immer alle verfÅgbar.
+[
+
+[MISSION WéHLEN]
+Aus dieser Liste kann eine Mission ausgewÑhlt werden.
+
+Die Missionen mÅssen Äider Reihe nachÄn gelîst werden.
+Alle nicht verfÅgbaren Missionen erscheinen hellgrau.
+
+Die Missionen sind ÄiLernrundenÄn. Sie fÅhren Schritt fÅr Schritt in die Steuerung und die Spielelemente von Clonk ein.
+
+Ausserdem werden ÄiInformationenÄn Åber den aktiven Spieler angezeigt. Von hier aus kann auch (wenn aktiviert) die ‚Stammcrew‚ eingesehen werden, z.B. um ggf. verstorbene Stammclonks wiederzubeleben.
+
+Mit dem Button Äi'Passwort'Än kînnen ‚Missions-Passwîrter‚ eingegeben werden.
+[
+
+[RUNDEN-EINSTELLUNGEN]
+Hier sind die gewÅnschten Einstellungen vorzunehmen, sodann ist die Runde zu starten.
+
+Siehe also ‚Spiel‚ bzw. ‚Mission wÑhlen‚, ‚Tierwelt‚, ‚Landschaft‚, ‚Wetter‚, ‚Realismus‚ und ‚Spezial-Optionen‚.
+[
+
+[OPTIONEN]
+Von dieser Registerkarte aus erreicht man das ‚Sound Setup‚ und die Anpassung der ‚Tastenbelegung‚.
+
+Desweiteren gibt es verschiedene Optionen, mit denen man das Programm seinen Vorstellungen anpassen kann.
+
+Die Speicher-Option fÅr die Konfigurations-Datei ÄiCLONK.DATÄn sollte immer aktiviert sein, um die Gefahr des Datenverlustes durch einen Absturz zu minimieren. Einzig wenn das Spiel von einem nicht beschreibbaren DatentrÑger (Diskette oder CD) gespielt wird, sollte diese Option deaktiviert werden.
+
+Nach jeder Befîrderung kann ein Spieler einen geistreichen Kommentar abgeben. Wem das zu nervig ist, der kann dies deaktivieren.
+
+Das ÄiSVGA-TitelbildÄn sieht sehr gut aus, sollte aber nur auf VESA-kompatiblen Grafikkarten aktiviert werden. Falls eine Aktivierung zu Fehlern in der Intro-Sequenz fÅhrt, sollte diese mit Äi'ESC'Än abgebrochen und die Option wieder deaktiviert werden.
+[
+
+[SPIELERTABELLE]
+Hier kînnen sich alle Spieler eintragen, die CLONK spielen wollen.
+
+FÅr jeden Spieler kînnen Namen, ein Spielerportrait, Spiel-VorzÅge und eine ‚Stammcrew‚ gespeichert werden.
+
+Desweiteren wird fÅr jeden Spieler eine umfangreiche ÄiStatistikÄn Åber die gespielten Runden gefÅhrt.
+
+Die Tabelle kann nach verschiedenen Kriterien ÄisortiertÄn werden. Siehe hierzu: ‚Tabelle sortieren‚.
+
+Mit den Buttons Äi'Neu', 'Info/Edit' und 'Lîschen'Än kînnen neue Spieler in die Tabelle aufgenommen, bearbeitet oder aus der Liste entfernt werden. Auch mit einem Doppelklick auf einen Spielereintrag lÑsst sich die ‚Spieler-Info‚ îffnen.
+
+Mit dem Button Äi'Teilnahme'Än kann fÅr jeden Spieler bestimmt werden, ob er bei der nÑchsten ‚Session‚ mitspielen will.
+[
+
+[SESSION AUSWéHLEN]
+Vor dem Start einer ‚Session‚ stehen folgende Optionen zur Auswahl:
+
+ÄLArt der Session
+^^^^^^^^^^^^^^^Än
+ÄiMission/Lernrunden
+^^^^^^^^^^^^^^^^^^Än
+Alle Spieler sollten mindestens einmal alle Missionen durchspielen. Diese vermitteln Schritt fÅr Schritt ‚Steuerung‚ und Elemente des Spiels. (Missionen kînnen nur alleine gespielt werden.)
+
+ÄiEinzelspieler/Kooperativ
+^^^^^^^^^^^^^^^^^^^^^^^^Än
+In diesem Modus kînnen ein bis drei Spieler gleichzeitig spielen und gegen die Naturgewalten in CLONK antreten. Mîgliche Spielziele sind z.B. Bergbau, Jagd, Tierschutz oder der Aufbau einer Siedlung.
+Punkte werden je nach Bestehen einer Runde vergeben. Dabei werden Schwierigkeitsgrad und RealitÑtslevel einberechnet.
+
+ÄiMelee
+^^^^^Än
+Das ‚Melee‚ ist der ursprÅngliche Modus von CLONK. Zum Melee kînnen zwei oder mehr Spieler antreten. Bei einem grîsseren Turnier jeweils zwei bis drei gleichzeitig pro Runde.
+Das einzige Spielziel ist hierbei, seine Gegner auszuschalten. Dazu ist der Einsatz von allem, was es in CLONK gibt, erlaubt. Ob man seinen Gegner mit Steinen bewirft, sich im direkten Mann-zu-Mann Kampf versucht, ihn mit Fernwaffen beharkt oder
+eine Monsterhorde zu ihm rÅberlotst, bleibt einem dabei selbst Åberlassen. In vielen Runden gilt es vor allem, zuerst durch den Bau von Minen und Verteidugungsanlagen und den Abbau von Gold sein Einkommen zu sichern, um ausreichend finanzielle Mittel
+fÅr einen effektiven Angriff zur VerfÅgung zu haben.
+
+ÄLRegelwerk
+^^^^^^^^^Än
+Das ausgewÑhlte ‚Regelwerk‚ bestimmt die Anzahl der aktiven Spielelemente und die KomplexitÑt des Spiels. Neueinsteiger dÅrften mit der vollen Anzahl der Mîglichkeiten von CLONK 3 Radikal hoffnungslos Åberfordert sein.
+
+Jeder sollte deshalb zunÑchst im einfachen Regelwerk spielen um sich an das Spiel und seine Steuerung zu gewîhnen. Im fortgeschrittenen und radikalen Regelwerk kommen dann nach und nach neue Spielelemente dazu: Strukturen bauen, neue Waffen und neues GerÑt, neue Naturgewalten, Bestellung von der Heimatbasis per SpezialmenÅ, usw. In der nicht registrierten Version kann nur im einfachen Regelwerk gespielt werden.
+
+ÄLOptionen
+^^^^^^^^Än
+Hier sind grundlegende Entscheidungen zu treffen, unter welchen Bedingungen man spielen mîchte. Zum Beispiel, ob man seine ‚Stammcrew‚ einsetzen mîchte und nach welchem ‚Turnier-Modus‚ verfahren wird, wenn mehr als drei Spieler zu einem Melee antreten. Auch kann hier eingestellt werden, ob die Spielerposition pro Runde per Zufall oder nach Spieler-WÅnschen festgelegt wird.
+[
+
+[TURNIER-MODUS]
+Es gibt zwei mîgliche Verfahren fÅr den Fall, dass mehr als drei Spieler an einem Melee teilnehmen mîchten:
+
+ÄiRotation
+^^^^^^^^Än
+Jeder Spieler spielt zwei Runden mit und setzt dann aus.
+
+ÄiHerausforderung
+^^^^^^^^^^^^^^^Än
+Der Gewinner bleibt immer im Spiel, die anderen beiden Mitspieler werden ausgewechselt.
+[
+
+[MELEE]
+Melee (ausgesprochen 'Melei') bedeutet 'Handgemenge'.
+[
+
+[EINE SESSION STARTEN]
+Dies ist das ÄiHauptmenÅÄn von CLONK.
+
+Von hier aus kann man eine neue ‚Session‚ zusammenstellen und starten.
+
+Als erstes sollten auf der Registerkarte Äi'Spieler'Än alle, die an der neuen Session teilnehmen wollen, in die ‚Spielertabelle‚ eingetragen und als ‚Teilnehmer‚ markiert werden.
+
+Dann kann auf der Karte Äi'Session'Än die Art der neuen Session eingestellt werden. Siehe hierzu: ‚Session auswÑhlen‚.
+
+Auf der Karte '‚Optionen‚' kann nun noch das Spiel dem System und den WÅnschen der Spieler angepasst werden.
+
+Sind diese Schritte abgeschlossen, kann mit Äi'Session starten'Än ein neues Spiel begonnen werden.
+
+Mit ÄiESCÄn oder dem Button Äi'Spiel beenden'Än verlÑsst man das Programm.
+[
+
+[RUNDEN-AUSWERTUNG]
+FÅr jede Runde wird eine Runden-Bewertung (in Prozent) aus dem ÄiSchwierigkeitsgradÄn und dem ÄiRealitÑtslevelÄn zusammengesetzt (additiv). Melees haben immer eine Runden-Bewertung von 100%.
+
+Wer in einer Runde Äinicht eliminiertÄn wurde und nicht aufgegeben hat, erhÑlt einen ‚Gewinn-Bonus‚ in Hîhe der Runden-Bewertung.
+
+Ausserdem erhÑlt jeder Spieler Punkte fÅr seine Leistungen wÑhrend der Runde, z.B. fÅr erfolgreiche KÑmpfe, Konstruktion von GebÑuden, Abbau von BodenschÑtzen, Rettung von Wipfen, Sieg Åber Monster, etc.
+[
+
+[GEWINN-BONUS]
+Ein Spieler, der in einer Runde nicht eliminiert wird, erhÑlt einen ÄiGewinn-BonusÄn. Dieser Bonus entspricht der Runden-Bewertung, also Realismus plus Schwierigkeit bzw. 100% im Melee.
+
+Siehe auch ‚Runden-Auswertung‚.
+[
+
+[RUNDEN-INFO]
+Hier werden Informationen Åber die derzeit gespielte Runde angezeigt.
+
+Siehe auch ‚Runden-Auswertung‚, ‚Mission wÑhlen‚, ‚Spiel‚.
+[
+
+[RUNDEN-MENö]
+In diesem MenÅ, das mit ÄiESCÄn ein- und ausgeblendet werden kann, gibt es folgende Optionen:
+
+‚Runden-Info‚, ‚Tastaturbelegung‚, ‚Spezial-Optionen‚ und Hilfe zum Programm.
+
+Wer noch nicht mit der ‚Steuerung‚ des Spiels vertraut ist, sollte die OnLine-Hilfe konsultieren.
+[
+
+[BEFôRDERUNG]
+Auch Spieler haben einen Rang und kînnen befîrdert werden.
+[
+
+[STELLUNGNAHME]
+Jeder Spieler kann zu seiner Befîrderung Stellung beziehen. Der abgegebene ÄiKommentarÄn wird gespeichert. Die Sammlung aller dieser Zitate kann in der ‚Spielertabelle‚ angezeigt werden.
+[
+
+[RUNDENFEHLER]
+In diesem Fenster werden die Fehler angezeigt, die Im Laufe der letzten Runde aufgetreten sind.
+
+Der wohl am hÑufigsten auftretende Fehler dÅrfte Äi'Speicher zeitweise knapp'Än sein. Dies bedeutet, dass wÑhrend der Runde kleine Ungenauigkeiten aufgetreten sind, da nicht genug Speicher vorhanden war. Meistens konnte nur der eine oder andere umfangreuchere Sound nicht abgespielt werden. Sie kînnen versuchen, mehr Speicher zur VerfÅgung zu stellen, oder durch z.B. Verringerung der Landschaftstiefe (‚Landschaft‚) den Speicherbedarf der Runde zu reduzieren.
+
+Alle Fehler, die mit Äi'Safety:'Än beginnen deuten auf programminterne Ungenauigkeiten hin.
+
+Tritt ein Fehler bei der Sound-Initialisierung auf, sollten Sie das ‚Sound Setup‚ erneut durchfÅhren.
+
+Äi'Sound-Dateifehler'Än und Äi'Fehler im Script'Än deuten auf fehlerhafte Dateien hin, bitte ÅberprÅfen Sie die ‚Liste der Programmdateien‚.
+
+Siehe auch ‚Disclaimer‚.
+[
+
+[LIST OF PROGRAM FILES]
+The following files belong to ÄiCLONK 3 RadikalÄn. All of them need to be located in the directory from which you're playing CLONK. None of the files (a few exceptions) must be modified. The main program will abort process if the files are tampered with.
+
+ Äi   CLONK.EXEÄn  The main program
+ ÄiC3RGRAFX.GRPÄn  Graphics data
+ ÄiC3RSOUND.GRPÄn  Sound data
+ ÄiC3RTITLE.GRPÄn  Hires title graphics (rename in case of SVGA probs)
+ ÄiMISSIONS.SCRÄn  Mission/tutorial data
+ Äi  CLONK3.HLPÄn  The help file
+ Äi   CLONK.DOCÄn  German documentation 
+ Äi   NAMES.TXTÄn  Clonk Names (This text file may be edited)
+
+ Äi   CLONK.DATÄn  These files will be created by the game to store
+ Äi   FACES.DATÄn  your personal player data
+[
+
+[TEILNEHMER]
+Um einen Spieler als Teilnehmer zu markieren, muss man ihn in der ‚Spielertabelle‚ auswÑhlen und mit dem Button Äi'Teilnahme'Än aktivieren.
+[
+
+[REGELWERK]
+Das ausgewÑhlte Regelwerk bestimmt die Anzahl der aktiven Spielelemente und die KomplexitÑt des Spiels:
+
+Ä3Einfaches Regelwerk
+^^^^^^^^^^^^^^^^^^^Än
+Hier gibt es zunÑchst nur die grundlegenden Elemente von CLONK: Eine Landschaft, Clonks, Steine, Goldklumpen, Feuersteine, eine Burg, das Katapult und die Lore. Auch hier gibt es Monster und Wipfe, wenn auch nicht in ganz so grosser Anzahl.
+In den MenÅs der ‚Runden-Einstellungen‚ kînnen nur ‚Spiel‚ und ‚Tierwelt‚ frei eingestellt werden, der Rest wird durch den Zufall bestimmt.
+Das einfache Regelwerk entspricht im Umfang der Spielmîglichkeiten ungefÑhr der ‚Advanced Players Edition‚ von CLONK.
+
+Ä)Fortgeschrittenes (oder mittleres) Regelwerk
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^Än
+Hier gewinnt das Spiel zunehmend an KomplexitÑt: Strukturen (FahrstÅhle, WachtÅrme) kînnen selbst errichtet werden, die Rohstoffe im Boden liegen nicht mehr frei, sondern mÅssen zumeist freigesprengt werden. Mehr Tiere (Haie, Zaps und Zups) bevîlkern die Welt. Realismus und Wetter kînnen vom Spieler eingestellt werden. Es gibt zahlreiche neue Naturgewalten (Vulkan, Erdbeben, etc.) Mit die entscheidendste Neuerung ist das SpezialmenÅ im Spiel, mit dem Material, GerÑtschaften und neue Clonks von der Heimatbasis bestellt werden kînnen.
+
+ÄLRadikales Regelwerk
+^^^^^^^^^^^^^^^^^^^Än
+Jedoch erst hier kommen alle Spielelemente zum Einsatz. Strukturen verbrauchen Energie, die durch den Bau von WindmÅhlen und ôlîfen erzeugt werden muss. Zur Verbindung mÅssen Leitungen gelegt werden. Mit Pumpen kann man Wasser und ôl fîrdern. Die Heimatbasis kann ausserhalb des Spielfelds liegen und nur mit dem Ballon zu erreichen sein. Da dieser auch zum Luftangriff eingesetzt werden kann, sind nun die Armbrust und Pfeile erhÑltlich. Auch die wahrscheinlich gefÑhrlichste Waffe in CLONK gibt es erst im radikalen Regelwerk: die Brandbombe.
+
+Das radikale Regelwerk ist erst in der registrierten Version erhÑltlich.
+
+Siehe auch: ‚Spielelemente von CLONK‚
+[
+
+
+[SPIELELEMENTE VON CLONK]
+
+		 ÄiDie Spielemente von ÄLCLONK 3 RadikalÄn
+		 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Äi
+  Lebewesen    Objekte    Fahrzeuge    Strukturen    Naturgewalten
+  ^^^^^^^^^    ^^^^^^^    ^^^^^^^^^    ^^^^^^^^^^    ^^^^^^^^^^^^^Än
+  ‚Clonks‚       siehe      ‚Lore‚         ‚Burg‚          siehe
+  ‚Wipfe‚        ‚Objekte‚    ‚Katapult‚     ‚Fahrstuhl‚     ‚Wetter‚
+  ‚Monster‚                 ‚Boot‚         ‚WindmÅhle‚     und
+  ‚Haie‚                    ‚Armbrust‚     ‚Pumpe‚         ‚Landschaft‚
+  ‚Zaps‚                    ‚Ballon‚       ‚Wachturm‚
+  ‚Zups‚                                 ‚ôlofen‚
+				       ‚Zauberturm‚
+[
+
+[CLONKS]
+Clonks sind kleine humanoide Wesen. Entgegen dem ersten Anschein sind sie ausgesprochen flink und agil. Clonks sind grundsÑtzlich friedliche Zeitgenossen, aber wenn es darauf ankommt, schrecken sie vor nichts zurÅck.|Ein Clonk beginnt seine Laufbahn als einfacher Rekrut und kann nach und nach Erfahrung sammeln, um einen hîheren ‚Rang‚ zu erreichen.
+[WIPFE]
+Wipfe sind kleine pelzige Tierchen. Voller Lebensfreude hÅpfen und springen sie durch die Welt, immer auf der Suche nach etwas zu fressen. Sie ernÑhren sich ausschliesslich von pflanzlicher Nahrung, die sie aus der Erde ausgraben. Die natÅrlichen Feinde der Wipfe sind die ‚Haie‚. Ausserdem fÑngt das Fell der Wipfe sehr leicht Feuer.
+[MONSTER]
+Monster sind grosse grÅne Reptilien, die das Aussterben ihrer Artgenossen vor langer Zeit Åberlebt haben. Sie haben nichts bîses im Sinn, nehmen aber keine RÅcksicht auf ‚Clonks‚, die unvorsichtigerweise in ihren Weg kommen. Monster haben keine natÅrlichen Feinde und sind die widerstandsfÑhigsten Lebewesen in CLONK.
+[HAIE]
+Haie sind die Herrscher des Elementes Wasser, das sie gegen alle Eindringlinge verteidigen. Ihre natÅrlichen Feinde sind Trockenheit und Winter.
+[ZAPS]
+Zaps sind kleine gelbe Insekten, deren gelbe Nester in der Erde vergraben liegen.|Siehe auch ‚Zups‚.
+[ZUPS]
+Zups sind etwas grîsser und aggressiver als ihre kleinen BrÅder, die ‚Zaps‚. Sie treten in weniger grossen Mengen auf, dafÅr sind ihre Nester, die eine dunklere FÑrbung tragen, zerbrechlicher.
+[LORE]
+Mit der Lore kînnen Unmengen von Material leichter befîrdert werden. Sie kann durch die Gegend geschoben werden und auf andere Fahrzeuge verladen werden. Feuersteine und Zap-Nester gehîren nicht in eine Lore! Entleert werden kann eine Lore nur in der Heimatbasis. Ausserdem Åbt eine Lore eine seltsame Anziehungskraft auf ‚Wipfe‚ aus.
+[KATAPULT]
+Das Katapult ist die erste Fernwaffe in Clonk. Mit ihm kînnen fast alle ‚Objekte‚ Åber weite Entfernungen (z.B. die gegnerische Festung) geschleudert werden.||Das Katapult kann geschoben und gedreht und mit 'Werfen' abgefeuert werden. Wird 'Werfen' wÑhrend der Ausholphase erneut gedrÅckt, kann mit dem Katapult auch Åber kÅrzere Distanzen geschleudert werden.
+[BOOT]
+Das Boot ermîglicht den Transport Åber WasserflÑchen. Es muss ins Wasser geschoben werden und fÑhrt dann von alleine. Vorsicht bei Regen und Wellengang! Um ein Boot wieder aus dem Wasser herauszubekommen, muss man es mit Hilfe einer LehmbrÅcke trockenlegen.
+[ARMBRUST]
+Die Armbrust dient als Abwehrmittel gegen ‚Ballon‚-Luftangriffe.||Die Kommandos 'Rechts' und 'Links' bewirken bei der Armbrust zunÑchst das Ausrichten der Waffe. Erst wenn sie bis zum Anschlag gedreht ist, kann sie verschoben werfen.
+[BALLON]
+Bis heute das einzige Verkehrsmittel, das die LÅfte erobert hat. Im radikalen Regelwerk ist der Ballon zuweilen die einzige Verbindung zur Heimatbasis.||Auch der Ballon kann mit 'Stop' gesteuert werden. Bei richtigen WindverhÑltnissen kann er auf diese Weise prima fÅr Luftangriffe verwendet werden.||Der Ballon steuert vorzugsweise die Landeplattform einer Burg an, um dort seine Ladung anzusetzen. Er kann aber mit dem 'Ballon zu...'-Kommando aus dem SpezialmenÅ auch zu einem bestimmten Clonk gerufen werden. Er kann diesem Kommando nur nachkommen, wenn die WindverhÑltnisse dies zulassen.
+[BURG]
+Ist die Burg die Versorgungsbasis, so kînnen hier Energie aufgeladen und Objekte und GerÑtschaften bestellt und verkauft werden. Im mittleren und radikalen Regelwerk kostet Lebensenergie Geldpunkte.||Sie dient ausserdem als Landeplattform fÅr den ‚Ballon‚.||Die Burg ist mit 'Springen' zu betreten.
+[FAHRSTUHL]
+Der Fahrstuhl fÑhrt automatisch auf und ab, kann aber mit 'Stop' gesteuert werden und fÑhrt automatisch zu wartenden Clonks. Liegt der Fahrstuhlkorb auf festem Untergrung auf, kann ein Captain mit einem Grab-Doppelklick die Schachtbohrung aktivieren.
+[WINDMöHLE]
+Die einfachste und natÅrlichste Weise, Energie zu gewinnen. Energieleitungen mÅssen immer vom Erzeuger zum Verbraucher gelegt werden! Die WindmÅhle sollte immer an einem mîglichst hochgelegenen Platz gebaut werden. Fortgeschrittene Spieler kînnen einen ‚ôlofen‚ vor eine WindmÅhle schalten, um auch in windschwachen Zeiten Energie zur VerfÅgung zu haben.
+[PUMPE]
+Die Pumpe muss mit Energie versorgt werden. Die erste Leitung, die man von einer Pumpe aus baut, ist der Zufluss. Das Ablege-Kommando bewirkt beim Zufluss das BohrungsmenÅ. Die zweite an eine Pumpe angeschlossene Leitung wird zum Abfluss. Dieser kann an eine Burg oder einen ôlofen angeschlossen oder frei abgelegt werden. Eine Pumpe pumpt nur, wenn sie energieversorgt ist und weder Zufluss noch Abfluss verstopft ist.
+[WACHTURM]
+Das Kommando 'Springen' bewirkt im Wachturm den Transport von Clonks und GerÑtschaften auf die Turmplattform. Mit 'Stop' lÑsst sich das Tor des Turms îffnen und schliessen. Dieses Tor ist immer auf der Seite des Wachturms, die der ursprÅnglichen Startposition in der jeweiligen Runde abgewandt ist.
+[ôLOFEN]
+Der ôlofen ist ein Energieerzeuger. Er kann vor eine ‚WindmÅhle‚ geschaltet werden. In diesem Fall brennt er nur, wenn kein Wind weht. Clonks, die ôlfÑsser mit sich tragen, kînnen diese mit 'Stop' in den ôlofen laden. Ein schwarzer Balken zeigt den ôlstand an. Die eleganteste Lîsung ist es, mit einer Pumpe ôl direkt aus einem ôlfeld in den Ofen zu pumpen. Die Pumpe fÅllt den ôlstand dann bei Bedarf automatisch auf und die Energieversorgung ist auf lange Zeit abgesichert.
+[ZAUBERTURM]
+Mit magischer Energie, die durch Blitze gesammelt werden kann, lÑsst sich allerhand anstellen.
+[
+
+
+[OBJEKTE]
+ÄL
+		Komplette öbersicht Åber die Objekte
+		^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Äs
+Name~~~~~~~~~~~~~Beschreibung~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Wert
+^^^^~~~~~~~~~~~~~^^^^^^^^^^^^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+ÄiStein~~~~~~~~~~~~ÄnTut weh, wenn man ihn auf den Kopf kriegt.~Ä;1
+
+ÄiGoldklumpen~~~~~~ÄnObjekt der Begierde.~~~~~~~~~~~~~~~~~~~~~~~Ä;5
+
+ÄiErdklumpen~~~~~~~ÄnBildet Erdhaufen.~~~~~~~~~~~~~~~~~~~~~~~~~~Ä;0
+
+ÄiLehmklumpen~~~~~~ÄnBaut BrÅcken und WÑnde. ÄL(DG)~~~~~~~~~~~~~~~Ä;2
+
+ÄiStahlplatte~~~~~~ÄnBaut BrÅcken und WÑnde. ÄL(DG)~~~~~~~~~~~~~~~Ä;10
+
+ÄiBeton~~~~~~~~~~~~ÄnFÅllt Lîcher und bildet Fundamente.~~~~~~~~Ä;1
+
+ÄiFlÅssiger Granit~ÄnFÅllt Lîcher etwas dauerhafter.~~~~~~~~~~~~Ä;8
+
+ÄiBausatz~~~~~~~~~~ÄnZum Bauen von Strukturen. ÄL(DG)~~~~~~~~~~~~~Ä;15
+
+ÄiLeitungsbausatz~~ÄnZum Bauen von Leitungen. ÄL(DG)~~~~~~~~~~~~~~Ä;5
+
+ÄiFass~~~~~~~~~~~~~ÄnFÅllt sich, wenn in einer FlÅssigkeit.~~~~~Ä;2
+
+ÄiWasserfass~~~~~~~ÄnEntleert sich, wenn geworfen.~~~~~~~~~~~~~~Ä;2
+
+Äiétzfass~~~~~~~~~~Änétzt.~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Ä;10
+
+Äiôlfass~~~~~~~~~~~ÄnNicht ins Feuer werfen.~~~~~~~~~~~~~~~~~~~~Ä;7
+
+ÄiFlint~~~~~~~~~~~~ÄnExplodiert auf Erstkontakt.~~~~~~~~~~~~~~~~Ä;5
+
+ÄiT-Flint~~~~~~~~~~ÄnExplodiert nach wenigen Sekunden.~~~~~~~~~~Ä;4
+
+ÄiBrandbombe~~~~~~~ÄnBrennt.~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Ä;15
+
+ÄiPfeil~~~~~~~~~~~~ÄnGegen feindliche Ballons. ÄL(5P)~~~~~~~~~~~~~Ä;10
+
+ÄiBrandpfeil~~~~~~~ÄnEffektiver gegen feindliche Ballons. ÄL(5P)~~Ä;20
+
+ÄiSprengpfeil~~~~~~ÄnNoch effektiver gegen Ballons. ÄL(5P)~~~~~~~~Ä;25
+
+ÄiFlagge~~~~~~~~~~~ÄnZielobjekt zum Klauen.~~~~~~~~~~~~~~~~~~~~~Ä;10
+
+ÄiZap-Nest~~~~~~~~~ÄnZerbricht, wenn geworfen.~~~~~~~~~~~~~~~~~~Ä;2
+
+ÄiZup-Nest~~~~~~~~~ÄnZerbricht bei der kleinsten Bewegung.~~~~~~Ä;2
+
+ÄiMonster-Ei~~~~~~~ÄnVorsicht ist geboten.~~~~~~~~~~~~~~~~~~~~~~Ä;4
+
+ÄiPflanze~~~~~~~~~~ÄnFressen fÅr die Wipfe.~~~~~~~~~~~~~~~~~~~~~Ä;1
+
+
+ÄL(DG) ÄiWird aktiviert durch Grab-Doppelklick, siehe ‚Steuerung‚.
+ÄL(5P) ÄiGibt's im FÅnfer-Pack.
+[
+
+
+[SYSTEM-VORAUSSETZUNGEN]
+CLONK 3 Radikal sollte auf jedem schnelleren ÄiMS-DOS RechnerÄn mit ÄiVGA-KarteÄn laufen.
+
+Eine ÄiMouseÄn ist empfehlenswert, die meisten Funktionen in CLONK kînnen aber auch ohne eine Mouse gesteuert werden.
+
+Auf ÄiSoundBlasterÄn oder kompatiblen Karten werden digitale Soundeffekte ausgegeben. Siehe auch ‚Sound Setup‚.
+
+Auf ÄiVESA-kompatiblen SVGA-KartenÄn kann ein hochauflîsendes Titelbild angezeigt. ÄLHINWEIS:Än Sollte das hochauflîsende Titelbild zu Grafikfehlern fÅhren, kann die Datei ÄiC3RTITLE.GRPÄn umbenannt oder gelîscht werden. Dadurch wird die SVGA-Option deaktiviert. Eine andere Mîglichkeit, den Fehler zu vermeiden besteht darin, die Introsequenz mit ÄiESCÄn abzubrechen.
+Siehe auch ‚Optionen‚.
+
+CLONK benutzt ausschliesslich Base-Speicher (max. 640 KB). Hiervon sollte aber so viel wie mîglich zur VerfÅgung stehen.
+
+Da viele Daten wÑhrend des Spiels dynamisch von der Platte nachgeladen werden, ist der Einsatz eines ÄiDisk-Cache ProgrammsÄn wie z.B. SmartDrive sehr zu empfehlen. CLONK sollte nicht von einer Diskette und nach Mîglichkeit auch nicht direkt von einer CD gespielt werden.
+
+ÄiCLONK und Windows 95:Än CLONK 3 lÑuft unter Windows 95 ausschliesslich im Vollbildmodus. Die Soundausgabe per CT-VOICE Methode sollte funktionieren. ÄiTimer-Sound ist unter Windows 95 nicht mîglich!Än Bei Problemen sollte das Programm immer im MS-DOS Modus gestartet werden.
+[
+
+[DISCLAIMER]
+ÄLIn no case is the author responsible for any kind of damage or whatsoever effect that might be caused by the use of this program. There is also no warranty that the program will function correctly on each and every system.
+[
+
+[NO HELP]
+Sorry, there is no help entry available for this subject.
+[
+
+[HELLO]
+Hello, player. How are you doing?
+[
+
+[FINE]
+Well, great, so I guess no problems on that behalf.
+[
+
+[CREDITS]
+
+
+                    ÄiDesign, Code, Graphics, Sound
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^Än
+                    Matthes Bender / RedWolf Design
+
+
+			    ÄiAlpha Test
+			    ^^^^^^^^^^Än
+		 Wolfram Stein, Slawomir Sroczynski
+		Markus Wichitill / Creative Softworks
+
+
+                             ÄiBeta Test
+                             ^^^^^^^^^Än
+        Rudgar Neussert and 'Buffalo' Claus Erdmann / Hamburg
+                     Jakob Schwender / Bremen
+
+
+                           ÄiTitle Artwork
+			   ^^^^^^^^^^^^^Än
+                           Mirco Stolle
+
+
+                              ÄiThanks to
+                              ^^^^^^^^^Än
+            BÑrbel, Patrik and Frieder for monitor lending
+                        Holger for color scan
+                       Tobias for registration
+
+
+[
+
+[GREETINGS]
+(Watch it, this is German)
+
+Als Autor dieses Spiels mîchte ich den folgenden ehrenwerten Personen meine aufrichtigen GrÅsse zukommen lassen:
+
+ÄiAngelaÄn (ganz lieb); Äimeine FamilienÄn (in Europa, speziell Tobias, und in Kalifornien); alle, die an CLONK mitgewirkt haben (speziell ÄiMarkus, Wolfram, SlawoÄn sowie alle Tester, speziell Rudgar und Buffalo Claus, sowie Jakob und die Kiddies); alle ehrlichen registrierten und begeisterten CLONK-Spieler (das kînnte Dich mit einschliessen); desweiteren ÄiJan (Beth), Dierk, Tillmann, Henner und vor allem Kai und Arne; Bastian 'Monsterfalle' BîttcherÄn von Zentrifugal; ÄiMirco, Mareike, Markus, HolgerÄn und den Rest vom Bund fÅr Umwelt und Naturschutz; Ranger ÄiSascha NetheÄn Major 7; ÄiPatrickÄn Hammer; Patrik Grînzin; Bjîrn Schweinoch; alle 'ÄiLapplandÄn im Winter'-Teilnehmer; und alle, die ich in der hoffnungslosen Eile, in der ich dieses Dokument geschrieben habe, vergessen habe.
+[
+
+[REDWOLF DESIGN]
+
+               ÄLRedWolf Design Contact and Information
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ ÄnMail Address:       
+
+    ÄiMatthes Bender   
+    RedWolf Design 
+    Am Barkhof 20  
+    28209 Bremen   
+    Germany
+
+ ÄnEMail:                     Internet homepage:
+
+    ÄiRedWolfD@aol.com           http://members.aol.com/RedWolfD
+[
+
+
+
+[STEUERUNG]
+
+                           ÄLDie Steuerung
+                           ^^^^^^^^^^^^^Än
+
+  Neueinsteiger brauchen sich zunÑchst nur mit Teil A zu befassen.
+  Siehe ‚Steuerung Teil B‚ fÅr das mittlere und radikale Regelwerk.
+
+
+ÄLTeil A: Grundlagen der CLONK-Steuerung fÅr das einfache Regelwerk
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ÄiPrinzip
+^^^^^^^Än
+In CLONK kînnen ein bis drei Spieler gleichzeitig und in Echtzeit ihre Clonks durch die Welt steuern.
+
+ÄiWelche Tasten fÅr wen?
+^^^^^^^^^^^^^^^^^^^^^^Än
+Es gibt einen Block von neun Tasten fÅr jeden Spieler. Einzelspieler sollten den rechten Block nutzen, da dieser am bequemsten zu handhaben ist. Es folgt die Standardverteilung der Steuerung (klar wird es zu Zeiten eng vorm Computer, aber der Spass eines Dreispielerspiels liegt auf der Hand):
+Äi
+    Links     Mitte    Rechts      Belegung des jeweiligen Blocks
+                                           
+    Q W E     I O P     7 8 9          <-Cursor   Toggle   Cursor->
+    A S D     K L ô     4 5 6            Werfen  Springen  Graben
+  < Y X C   M , . -   0 1 2 3    MenÅ     Links    Stop    RechtsÄn
+
+In der Äi'Tastenbelegung'Än, erreichbar vom Fenster Äi'Optionen'Än, gibt es eine anschauliche Darstellung der Tasten und ihrer Belegung.
+
+ÄiDie Steuerungs-Tasten Links, Stop, Rechts, Werfen, Springen, Graben
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^Än
+Die Grundbedeutung der Tasten erklÑrt sich von selbst. Wichtig ist, das die Tasten nur kurz gedrÅckt und nicht festgehalten werden sollten. Auf 'Links' bzw. 'Rechts' laufen die Clonks los und selbstÑndig weiter, bis sie mit 'Stop' angehalten werden. Wenn ein Clonk grÑbt, kann mit 'Links' und 'Rechts' die Grabrichtung bestimmt werden. Auf 'Stop' hîrt er wieder auf.
+
+ÄiDie Cursor- und Toggle-Tasten
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^Än
+Mit diesen Tasten kann man bestimmen, welche Clonks gesteuert werden, wenn mehrere Clonks im Spiel sind. Neueinsteiger sollten zu öbungszwecken zunÑchst nur mit einem einzelnen Clonk spielen.
+
+Mit den oben aufgezÑhlten 'Steuerungs'-Tasten kann man jeweils entweder einen, alle oder jede beliebige Auswahl seiner Clonks steuern. Gesteuerte Clonks werden kurzzeitig mit einem roten Kasten markiert.  
+
+Mit den 'Cursor'-Tasten kann man durch die Reihen seiner Clonks durchschalten. Der Clonk unter dem Cursor wird mit seinem Namen markiert und erscheint im Status-Display.
+
+- Sucht man mit den Cursor-Tasten einen Clonk aus und betÑtigt dann
+  eine Steuerungs-Taste, wird dieser einzeln ausgewÑhlt und
+  gesteuert.
+- Sucht man mit den Cursor-Tasten einen Clonk aus und betÑtigt dann
+  die 'Toggle'-Taste, wird dieser Clonk zu den bereits gesteuerten
+  Clonks dazugeschaltet, bzw. abgeschaltet. So lÑsst sich jede
+  beliebige Kombination erreichen.
+- DrÅckt man einfach nur die Toggle-Taste, ohne vorher eine Cursor-
+  Taste benutzt zu haben, werden jeweils alle nicht gesteuerten
+  Clonks aktiviert. Das heisst, steuert man einen einzelnen Clonk,
+  wird dieser deaktiviert und alle anderen aktiviert oder eben
+  umgekehrt. Dieser Effekt ersetzt die parallele Steuerung von
+  Captain und Mannschaft.
+- DrÅckt man dreimal schnell hintereinander die Toggle-Taste, werden
+  alle Clonks aktiviert (aber nur, wenn vorher keine Cursor-Taste
+  benutzt wurde).
+- Sind alle Clonks aktiviert und man mîchte gerne nur einen
+  einzelnen steuern (meistens den hîchstrangingen Captain, auf den
+  automatisch der Cursor gesetzt ist), so ist die kÅrzeste Tasten-
+  Kombination hierfÅr folglich:
+  ÄiCursor rechts - Cursor links - SteuerungÄn
+
+Die ÄiMenÅ-TasteÄn wird erst ab dem mittleren Regelwerk interessant. Hier kann dann mit dieser Taste das Spezial-MenÅ ein- und ausgeblendet werden.
+
+ÄiDoppelklick auf Graben
+^^^^^^^^^^^^^^^^^^^^^^Än
+Mit einem Doppelklick auf 'Graben' (zweimal schnell hintereinander) werden Spezial-Aktionen eingeleitet. Im einfachen Regelwerk wird damit das BrÅcken-Bau-MenÅ aktiviert, wenn man Lehm dabeihat.
+
+Die Doppelklickgeschwindigkeit kann eingestellt werden. Bei langsamer Einstellung gibt es eine kurze Verzîgerung, bevor der Clonk anfÑngt richtig zu graben.
+
+ÄiMenÅ-Steuerung
+^^^^^^^^^^^^^^Än
+Zuweilen erscheint im Status-Display fÅr einen Spieler ein Spezial-MenÅ. Entweder beim BrÅcken-Bauen, Strukturen-Errichten, Zufluss-Rohre-Legen oder eben wenn es durch die MenÅ-Taste aktiviert wurde. Bei aktivem MenÅ entsprechen die unter sechs Tasten eines Spieler-Tastenblocks den sechs auf dem Bildschirm erscheinenden MenÅ-Knîpfen.
+
+ÄiFahrzeuge steuern
+^^^^^^^^^^^^^^^^^Än
+Um rollende Landfahrzeuge (Lore, Katapult) zu schieben, mit 'Stop' davor anhalten. Die Clonks fassen dann das Fahrzeug an. Mit 'Rechts' und 'Links' das Fahrzeug schieben, mit 'Stop' anhalten. Nochmal 'Stop' und die Clonks lassen das Fahrzeug wieder los. Das Katapult wird mit 'Werfen' abgefeuert, wenn die Clonks Steine dabeihaben.
+
+ÄiTauchen
+^^^^^^^Än
+Beim Schwimmen 'Stop' drÅcken.
+
+ÄiDie Burg betreten
+^^^^^^^^^^^^^^^^^Än
+Dazu genau vor dem Eingang stehen und 'Springen'. Um Fahrzeuge in die Burg zu schaffen, diese ebenfalls genau vor den Eingang schieben, dann 'Springen'.
+
+Weiter geht's mit ‚Steuerung Teil B‚.
+[
+
+[STEUERUNG TEIL B]
+ÄLTeil B: Erweiterte Steuerung im mittleren und radikalen Regelwerk
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^Än
+
+ÄiDoppelklick auf Graben
+^^^^^^^^^^^^^^^^^^^^^^Än
+Im mittleren und radikalen Regelwerk erhÑlt der Grab-Doppelklick folgende weitere Funktionen:
+
+- Strukturen errichten, wenn man einen Bausatz dabeihat
+- Leitungen bauen, wenn man einen Leitungsbausatz dabeihat und vor
+  einer Struktur steht
+- Leitungen verbinden oder ablegen, wenn man bereits eine baut
+- Leitungen aufnehmen, wenn man davorsteht und nichts trÑgt
+- Fahrstuhl-Schachtbohrung, wenn man in einem Fahrstuhl steht, der
+  noch keinen Schacht hat
+
+ÄiGebÑude betreten/aktivieren
+^^^^^^^^^^^^^^^^^^^^^^^^^^^Än
+Vor einer Burg oder in einem Wachturm 'Springen'.
+Mit 'Stop' vor einer Konstruktions-Baustelle Bauarbeiten aufnehmen.
+Das Tor am Wachturm wird mit 'Stop' aktiviert.
+ôlfÑsser werden durch ein 'Stop' in einen ôlofen geladen.
+
+ÄiTransportfahrzeuge steuern
+^^^^^^^^^^^^^^^^^^^^^^^^^^Än
+Transportfahrzeuge (Ballon, Fahrstuhl, Boot im Wasser) lassen sich mit einem 'Stop' steuern und kommen meist selbststÑndig zu wartenden Clonks hingefahren. (Der Ballon kann per SpezialmenÅ gerufen werden-) Katapult und Armbrust mit 'Werfen' laden bzw. abfeuern.
+
+ÄiSteine ablegen
+^^^^^^^^^^^^^^Än
+Zuweilen (bei Flintstones, Zap-Nestern, usw.) kann es sehr nÅtzlich sein, Steine abzulegen, statt sie zu werfen. HierfÅr gibt es eine Tastenkombination, die allerdings (wie eigentlich die gesamte Steuerung) ein wenig Fingerfertigkeit erfordert:
+ÄiStop - Stop - Werfen (schnell) = Ablegen.Än
+Wenn ein Clonk etwas abgelegt hat (Pfeil im Inventory), nimmt er erst nach dem zweiten Steuerungskommando wieder etwas auf.
+Auch hier gilt wieder: öbung macht den Meister. Zup-Nester kînnen nicht abgelegt werden!
+
+ÄiErdklumpen
+^^^^^^^^^^Än
+GrÑbt ein Clonk, bewirkt ein erneuter Klick auf Graben (erst nach einer Sekunde, da sonst Grab-Doppelklick), das Freigraben von Erdklumpen.
+
+ÄiDas AngriffsmenÅ
+^^^^^^^^^^^^^^^^Än
+Im SpezialmenÅ gibt es die Option 'Angriff' (die mit den Flaggen). Hier kann man sich aussuchen, ob und mit wem sich die eigenen Clonks prÅgeln sollen. Das macht besonders Sinn, wenn man mit drei Spielern spielt und sich zwei gegen einen verbÅnden wollen. Spieler, die sich nicht angreifen (beidseitig) kînnen gegenseitig ihre Burgen, TÅrme, Ballons, FahrstÅhle, etc. benutzen, steuern und mit Leitungen verbinden.
+
+ÄiLeitungen und Energieversorgung
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^Än
+Um eine Struktur mit Energie zu versorgen, mit einem Leitungsbaukasten (graue Kiste, nur RADIKAL) zum Versorger gehen (WindmÅhle, ôlofen), anschliessen, zum Verbraucher gehen, verbinden. Jeweils mit einem Doppelklick auf Graben. Ist ein Verbraucher (z.B. Pumpe, Fahrstuhl) versorgt, kann auch von ihm wieder Energie abgeleitet werden.
+
+Hinweis: Leitungen werden immer an die untere linke Ecke einer Struktur angeschlossen.
+
+Beim Aufnehmen von Leitungen (auch mit einem Grab-Doppelklick, aber nur, wenn der Clonk nichts trÑgt)
+sollte man also genau an dieser Ecke stehen.
+
+Pumpen werden aktiv wenn sie a) mit Energie versorgt sind (nur RADIKAL), b) einen Zufluss haben (mit Leitungsbaukasten und Doppelklick auf Graben, Leitungen werden unten links an Strukturen angeschlossen) und c) einen Abfluss haben. Wenn Zufluss oder Abfluss verstopft sind, pumpt die Pumpe nicht. Der Abfluss kann an einen ôlîfen oder an die Burg angeschlossen werden, jedoch funktioniert das nur, wenn nur ôl in der Leitung ist.
+
+Bei Bedarf zurÅck zu ‚Steuerung‚.
+[
+
+[VERSIONS OF CLONK]
+
+             ÄiCLONKÄ3     April 1994 ÄiThe original game
+   ÄiCLONK 2 DebakelÄ3  November 1994 ÄiA Strategy-Version of CLONK
+      ÄiCLONK A.P.E.Ä3       May 1995 ÄiAdvanced original game
+
+ ÄiCLONK 3.0 RadikalÄ3    August 1996 ÄiFirst shareware release
+         ÄiCLONK 3.1Ä3 September 1996 ÄiSpecially licenced version
+         ÄiCLONK 3.2Ä3   October 1996 ÄiEnglish Demo Version
+         ÄiCLONK 3.3Ä3  November 1996 ÄiExtended german version
+         ÄiCLONK 3.4Ä3     March 1997 ÄiEnglish shareware release
+         ÄiCLONK 3.5Ä3     April 1997 ÄiEnglish retail version
+[
+
+[MISSIONS-PASSWôRTER]
+Die Missionen in CLONK kînnen nur der Reihe nach gelîst werden.
+
+CLONK speichert automatisch ab, welche Missionen bereits durchgespielt wurden.
+
+Falls diese gespeicherte Information (Datei CLONK.DAT) einmal verloren gehen sollte, kînnen mit den Passwîrtern, die jeweils nach den einfachen, mittleren bzw. radikalen Missionen bekanntgegeben werden, immer wieder alle bereits gelîsten Missionen erreicht werden. Die Passwîrter kînnen im Fenster ‚Mission wÑhlen‚ eingegeben werden.
+[
+
+[SPIELER-IMPORT]
+Mit dieser Funktion kînnen Spieler-Daten aus der Äi"CLONK.DAT"Än-Datei eines anderen CLONK-Spieles Åbernommen werden.
+
+Dazu muss der komplette Pfad inklusive Dateiname der Datei angegeben werden.
+
+Es werden alle Spieler importiert, die nicht bereits in der Liste auftauchen. Importierte Spieler-Portraits kînnen nicht Åbernommen werden.
+
+Soll ein Spieler aus einer anderen CLONK.DAT Åbernommen werden, der aber bereits in der Liste vorhanden ist, kann der lokale Spieler-Eintrag gelîscht oder umbenannt werden.
+[
+
+[REGISTRATION]
+In order to register your copy of CLONK, print the file ÄiREGISTER.TXTÄn and fill in and mail this form to ‚RedWolf Design‚.
+
+Enclose the necessary payment of ÄiUSD 15Än or the equivalent in your currency.
+
+You will then receive your personal password which will enable you to access all the extended features of the game.
+[
