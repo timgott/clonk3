@@ -104,7 +104,7 @@ BYTE DOSOpen(char *fname, FILE **handle, const char* mode)
 {
 	//if (_dos_open(fname, _A_NORMAL, fhnd) == 0) return 1;
 	*handle = fopen(fname, mode);
-	if (*handle == 0) return 1;
+	if (*handle != 0) return 1;
 	return 0;
 }
 
