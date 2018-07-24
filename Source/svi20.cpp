@@ -181,7 +181,7 @@ int InitMouse(void)
 	MSON = 0;
 	return 0; // zero if failed*/
 	MSON = 1;
-	return 3; // Ja denk mal man hat ne 3 knopf maus oder schätz ich mal wenn nich dann nich oder so ende punkt
+	return 3; // Ja denk mal man hat ne 3 knopf maus oder schï¿½tz ich mal wenn nich dann nich oder so ende punkt
 }
 
 int MouseState(int *x, int *y)
@@ -2433,7 +2433,7 @@ void InitMsg(char *msg, BYTE col = CIMsg)
 	IMsgX = 0; IMsgY += 6;
 
 	UpdateScreen();
-	//SDL_Delay(100); // Sonst gehts ja viel zu schnell. Wir wollen ja noch ein bisschen das DOS-Gefühl haben.
+	//SDL_Delay(100); // Sonst gehts ja viel zu schnell. Wir wollen ja noch ein bisschen das DOS-Gefï¿½hl haben.
 }
 
 void InitMsgOpen(char *msg, BYTE col = CIMsg)
@@ -2441,6 +2441,8 @@ void InitMsgOpen(char *msg, BYTE col = CIMsg)
 	LPage(SVIPage);
 	SOut(msg, IMsgX, IMsgY, col);
 	IMsgX += 4 * SLen(msg);
+
+	UpdateScreen();
 }
 
 void ResetInitMsg(void)
