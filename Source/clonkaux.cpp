@@ -144,7 +144,7 @@ BYTE LoadMenuPages(void)
 		loadrv = LoadAGC2PageV1("C3RGRAFX.GRP|C3MENU1.AGC", MenuPage, 0, 0, NULL, NULL, cpal, 0);
 	if (loadrv)
 	{
-		snprintf(OSTR, "Error while reading the|graphics file C3RGRAFX.GRP:|€%c%s|€%cProgram aborted", CDRed, AGCError(loadrv), CGray1);
+		snprintf(OSTR, sizeof(OSTR), "Error while reading the|graphics file C3RGRAFX.GRP:|ï¿½%c%s|ï¿½%cProgram aborted", CDRed, AGCError(loadrv), CGray1);
 		Message(OSTR, "program file error"); return 0;
 	}
 	DefCols2Pal(cpal);
@@ -158,7 +158,7 @@ BYTE LoadMenuPages(void)
 		loadrv = LoadAGC2PageV1("FACES.DAT", FacePage, 0, 0, NULL, NULL, cpal, 0);
 		if (loadrv)   // could also check for correct size
 		{
-			snprintf(OSTR, "Error while reading the|player portrait FACES.DAT:|€%c%s", CDRed, AGCError(loadrv));
+			snprintf(OSTR, sizeof(OSTR), "Error while reading the|player portrait FACES.DAT:|ï¿½%c%s", CDRed, AGCError(loadrv));
 			Message(OSTR, "program file error");
 			ResetPlayerFaces();
 			Config.FaceFile = 0; Config.FaceNum = DefFaceNum;
@@ -195,7 +195,7 @@ WINDOW *SoundSetWin;
 int DeactivateSound(int dummy)
 {
 	Config.Sound = 0;
-	//CloseWindow(SoundSetWin); // Ja du schreibst ja selbst das man aus der exfunc keine Fenster schließen soll. Dann machs auch nicht.
+	//CloseWindow(SoundSetWin); // Ja du schreibst ja selbst das man aus der exfunc keine Fenster schlieï¿½en soll. Dann machs auch nicht.
 	return dummy;
 }
 
@@ -277,7 +277,7 @@ int InitTestCTVMethod(int dummy)
 
 	if (errcode)
 	{
-		snprintf(OSTR, "€%c%s€%c|%s", CDRed, Config.SoundPath, CGray1, CTVErrMsg(errcode));
+		snprintf(OSTR, sizeof(OSTR), "ï¿½%c%sï¿½%c|%s", CDRed, Config.SoundPath, CGray1, CTVErrMsg(errcode));
 		Message(OSTR);
 		DestroyVOC(&sample);
 		return dummy;
@@ -586,7 +586,7 @@ BYTE LoadConfigSystem(void)
 {
 	BYTE lval;
 	lval = LoadCfgSysProcess("CLONK.DAT", 0);
-	snprintf(OSTR, "%s... ", LoadCfgStatus(lval)); InitMsgOpen(OSTR);
+	snprintf(OSTR, sizeof(OSTR), "%s... ", LoadCfgStatus(lval)); InitMsgOpen(OSTR);
 	if (Inside(lval, 0, 9))
 	{
 		SortPlayerList(0); return 1;
@@ -612,7 +612,7 @@ int PlayerImport(int dummy)
 	}
 	else
 	{
-		snprintf(OSTR, "Error importing|%s:|%s", DatImportName, LoadCfgStatus(lval));
+		snprintf(OSTR, sizeof(OSTR), "Error importing|%s:|%s", DatImportName, LoadCfgStatus(lval));
 		Message(OSTR);
 	}
 	return dummy;
@@ -771,7 +771,7 @@ int SetKeyboardControl(int conid)
 	TextObject("Please enter a new|keyboard command for:", 100, 5, CGray2, -1, 1);
 	TextObject(ConPlrName[tplr], 100, 20, CGray1, -1, 1);
 	TextObject(ConConName[tcon], 100, 27, CGray1, -1, 1);
-	snprintf(OSTR, "Before: '%c'", Config.KCom[tplr][tcon]);
+	snprintf(OSTR, sizeof(OSTR), "Before: '%c'", Config.KCom[tplr][tcon]);
 	TextObject(OSTR, 100, 36, CGray2, -1, 1);
 	if (InitErrorCheck()) { CloseWindow(cwin); return 0; }
 	DrawWindow(cwin); // For GFX only
@@ -786,7 +786,7 @@ int SetKeyboardControl(int conid)
 			usedby = KComUsed(inc);
 			if ((usedby > -1) && (usedby != conid))
 			{
-				snprintf(OSTR, "Key '%c' has been in use|for €%c%s: %s€%c|(This command should be redefined)", inc, CDRed, ConPlrName[usedby / 10], ConConName[usedby % 10], CGray1);
+				snprintf(OSTR, sizeof(OSTR), "Key '%c' has been in use|for ï¿½%c%s: %sï¿½%c|(This command should be redefined)", inc, CDRed, ConPlrName[usedby / 10], ConConName[usedby % 10], CGray1);
 				ReplaceEqualKCom(inc);
 			}
 			Config.KCom[tplr][tcon] = inc;

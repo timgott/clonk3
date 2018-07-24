@@ -486,7 +486,7 @@ void CheckOilCollection(STRUCTYPE *tstrc)
 								}
 	if (brls > 0)
 	{
-		snprintf(OSTR, "+%d Oil", brls);
+		snprintf(OSTR, sizeof(OSTR), "+%d Oil", brls);
 		GameMessage(OSTR, tstrc->x + 8, tstrc->y - 8, CWhite, NULL);
 	}
 }
