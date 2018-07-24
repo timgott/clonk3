@@ -144,7 +144,7 @@ char *DefQuoteSource[MaxDefQuote] = { "This was cool!",                         
 "Wieder in die Monstergrube geschleudert worden?",
 "One for all, all against one.",
 "And who's gonna clean up later?",
-"Wer anderen eine Grube gr„bt, f„llt selbst hinein!",
+"Wer anderen eine Grube grï¿½bt, fï¿½llt selbst hinein!",
 "Try this!" };
 
 extern char *GetClonkName(void);
@@ -449,14 +449,14 @@ void ManInfoEdit(MANINFO *man)
 
 	NewObject("RankPic", PICTURE, 0, 0, 5, 15, 11, 11, MenuPage, 0, 0, 0 + 11 * man->rank, 32, 0, 0, 0, NULL, NULL);
 
-	sprintf(OSTR, "Rank: €%c%s  €%cExperience: €%c%d", CGray1, RankName[man->rank], CGray2, CGray1, man->exp);
+	sprintf(OSTR, "Rank: ï¿½%c%s  ï¿½%cExperience: ï¿½%c%d", CGray1, RankName[man->rank], CGray2, CGray1, man->exp);
 	TextObject(OSTR, 5, 30, CGray2);
 	if (man->rank < 10) sprintf(OSTR, "(Promotion to %s at %d)", RankName[man->rank + 1], ClonkRankExp(man->rank + 1));
 	else sprintf(OSTR, "(No more promotions)");
 	TextObject(OSTR, 5, 36, CGray2);
-	sprintf(OSTR, "Rounds (survived): €%c%d", CGray1, man->rnds);
+	sprintf(OSTR, "Rounds (survived): ï¿½%c%d", CGray1, man->rnds);
 	TextObject(OSTR, 5, 48, CGray2);
-	sprintf(OSTR, "Reanimated: €%c%d times", CGray1, man->rean);
+	sprintf(OSTR, "Reanimated: ï¿½%c%d times", CGray1, man->rean);
 	TextObject(OSTR, 5, 54, CGray2);
 
 	if (man->dead)
@@ -612,7 +612,7 @@ int TestImportPCX(int tface)
 
 	if (pcxrv)
 	{
-		sprintf(OSTR, "Error importing|%s:|€%c%s", ImportFileName, CDRed, LoadPCXError(pcxrv));
+		sprintf(OSTR, "Error importing|%s:|ï¿½%c%s", ImportFileName, CDRed, LoadPCXError(pcxrv));
 		Message(OSTR, "Error help not translated");
 	}
 
@@ -637,7 +637,7 @@ int TakeOverImportFace(int dummy)
 	}
 	else
 	{
-		sprintf(OSTR, "Error while saving|player portrait file FACES.DAT:|€%c%s", CDRed, AGCError(saverv));
+		sprintf(OSTR, "Error while saving|player portrait file FACES.DAT:|ï¿½%c%s", CDRed, AGCError(saverv));
 		Message(OSTR);
 	}
 	return dummy;
@@ -707,7 +707,7 @@ void DeleteFace(int num)
 	saverv = SaveAGCPageV1("FACES.DAT", FacePage, 0, 0, ffwdt, ffhgt, NULL, NULL);
 	if (saverv)
 	{
-		sprintf(OSTR, "Error while saving|player portrait file FACES.DAT:|€%c%s", CDRed, AGCError(saverv));
+		sprintf(OSTR, "Error while saving|player portrait file FACES.DAT:|ï¿½%c%s", CDRed, AGCError(saverv));
 		Message(OSTR);
 		Config.FaceFile = 0;
 	}
@@ -1561,7 +1561,7 @@ BYTE SetBSA4Mission(void)
 			}
 			else
 			{
-				sprintf(OSTR, "Error reading mission file|€%c%s", CDRed, MissionScript.fname); Message(OSTR, "Program file error");
+				sprintf(OSTR, "Error reading mission file|ï¿½%c%s", CDRed, MissionScript.fname); Message(OSTR, "Program file error");
 			}
 		}
 	}
@@ -1731,7 +1731,7 @@ BYTE InitCSBMenuPages(void)
 		NewObject("Structures|burn", FLAGBOX, 1, 0, 36, 28, 10, 10, 1, 0, 0, 0, 0, 0, 0, 0, NULL, &BSA.Realism.StrcBurn);
 		NewObject("Structures|snow in", FLAGBOX, 1, hd, 36, 5, 10, 10, 1, 0, 0, 0, 0, 0, 0, 0, NULL, &BSA.Realism.StrcSnow);
 
-		NewButton("Help", HIDEOFF, 268, 135, 35, 9, XRVHELP, 1); // HILFE wieder hinzugefügt
+		NewButton("Help", HIDEOFF, 268, 135, 35, 9, XRVHELP, 1); // HILFE wieder hinzugefï¿½gt
 	}
 
 	// Weather Page ------------------------------------------------------------
@@ -2018,7 +2018,7 @@ BYTE InitRosterMenuPages(void)
 
 	CTextObject(PrgInfoLine, 3, 154, CGray4);
 	/*if (Registered())
-	  sprintf(OSTR,"€%cThis CLONK game is registered for €%c%s",CGray3,CGray2,Config.RegName);
+	  sprintf(OSTR,"ï¿½%cThis CLONK game is registered for ï¿½%c%s",CGray3,CGray2,Config.RegName);
 	  else
 	  SCopy("This is an unregistered shareware version!",OSTR);
 	  TextObject(OSTR,3,154,CRed);*/
@@ -2142,15 +2142,15 @@ int InRoundInfo(int dummy)
 
 	cwin = NewWindow("Round-Info", CARDBOX, 1, -1, -1, 200, 70, 1, 3, XRVCLOSE, "Contents");
 
-	sprintf(OSTR, " Rule set: €%c%s", CGray1, RuleSetName[BSA.RuleSet]);
+	sprintf(OSTR, " Rule set: ï¿½%c%s", CGray1, RuleSetName[BSA.RuleSet]);
 	TextObject(OSTR, 70, 5, CGray2);
-	sprintf(OSTR, "  Session: €%c%s", CGray1, SModeName[BSA.SMode]);
+	sprintf(OSTR, "  Session: ï¿½%c%s", CGray1, SModeName[BSA.SMode]);
 	TextObject(OSTR, 70, 12, CGray2);
 	switch (BSA.SMode)
 	{
-	case S_MISSION: sprintf(OSTR, "  Mission: €%c%.20s", CGray1, MissionScript.title); break;
-	case S_MELEE: sprintf(OSTR, "     Mode: €%c%s", CGray1, EliminationName[BSA.GPlrElm]); break;
-	case S_COOPERATE: sprintf(OSTR, "     Mode: €%c%s", CGray1, CGModeName[BSA.CoopGMode]); break;
+	case S_MISSION: sprintf(OSTR, "  Mission: ï¿½%c%.20s", CGray1, MissionScript.title); break;
+	case S_MELEE: sprintf(OSTR, "     Mode: ï¿½%c%s", CGray1, EliminationName[BSA.GPlrElm]); break;
+	case S_COOPERATE: sprintf(OSTR, "     Mode: ï¿½%c%s", CGray1, CGModeName[BSA.CoopGMode]); break;
 	}
 	TextObject(OSTR, 70, 19, CGray2);
 
@@ -2307,13 +2307,13 @@ void RoundEndProcess(PLAYERINFO **winnerp)
 					switch (MissionScript.idnum) // (Hardcoded idnums)
 					{
 					case 12:
-						Message("You have completed all EAYS missions!|Please copy the following pass word:|€!WIPFEMONSTERSCHNEE€i|With this pass word you can continue on this mission,|in case your score file gets lost. (F1 for more info)", "mission passwords");
+						Message("You have completed all EAYS missions!|Please copy the following pass word:|ï¿½!WIPFEMONSTERSCHNEEï¿½i|With this pass word you can continue on this mission,|in case your score file gets lost. (F1 for more info)", "mission passwords");
 						break;
 					case 22:
-						Message("You have completed all MEDIUM missions!|Please copy the following pass word:|€!VULKANBEBENAUSBRUCH€i|With this pass word you can|skip over all easy and medium missions.", "mission passwords");
+						Message("You have completed all MEDIUM missions!|Please copy the following pass word:|ï¿½!VULKANBEBENAUSBRUCHï¿½i|With this pass word you can|skip over all easy and medium missions.", "mission passwords");
 						break;
 					case 30:
-						Message("You have completed all tutorial rounds!|Please copy the following pass word:|€!DASWARHARTEARBEIT€i", "mission passwords");
+						Message("You have completed all tutorial rounds!|Please copy the following pass word:|ï¿½!DASWARHARTEARBEITï¿½i", "mission passwords");
 						break;
 					}
 					if (MissionScript.next)
@@ -2784,11 +2784,6 @@ int main(int argc, char *argv[])
 		{
 			if (i + 1 < argc)
 			{
-				/*char c = argv[i+1][0];
-				scale = c - '0';
-				if (scale < 1 || scale > 9)
-					scale = 1;*/
-
 				scale = SDL_atoi(argv[i + 1]);
 			}
 		}
