@@ -3,8 +3,8 @@ CC = g++
 SDL_CFLAGS = $(shell sdl2-config --cflags)
 SDL_LDFLAGS = $(shell sdl2-config --libs)
 
-CFLAGS = -w -fpermissive -I./Port $(SDL_CFLAGS)
-LDFLAGS = -lm $(SDL_LDFLAGS)
+CFLAGS = -O3 -w -fpermissive -I./Port $(SDL_CFLAGS)
+LDFLAGS = $(SDL_LDFLAGS)
 
 OUTDIR = build
 EXE = $(OUTDIR)/clonk
@@ -22,7 +22,6 @@ $(EXE): $(OUTDIR) $(OBJS) $(CONTENTTARGETS)
 	$(CC) -c $< -o $@ $(CFLAGS)
 
 $(CONTENTTARGETS):
-	echo $@
 	cp $(patsubst $(OUTDIR)%, $(CONTENTDIR)%, $@) $(OUTDIR)
 
 $(OUTDIR):
