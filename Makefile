@@ -26,10 +26,7 @@ $(CONTENTTARGETS):
 
 $(OUTDIR):
 	mkdir $(OUTDIR)
-
-run:
-	$(EXE)
-
+	
 clean:
 	rm $(OBJS)
 	rm -r $(OUTDIR)
