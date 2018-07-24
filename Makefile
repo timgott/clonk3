@@ -5,7 +5,7 @@ SDL_LDFLAGS = $(shell sdl2-config --libs)
 
 CFLAGS = -w -fpermissive -I./Port $(SDL_CFLAGS)
 LDFLAGS = -lm $(SDL_LDFLAGS)
-EXE = clonk
+EXE = bin/clonk
 
 DEPS = $(shell find -iname *.h)
 OBJS = $(patsubst %.cpp, %.o, $(shell find -iname *.cpp))
