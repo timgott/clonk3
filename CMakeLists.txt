@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.13)
 project(Clonk3)
 
-set(CONTENTDIR Content)
+# Path to content files
+set(CONTENTDIR content)
 
 add_executable(clonk)
 
@@ -10,16 +11,11 @@ find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
 target_link_libraries(clonk ${SDL2_LIBRARIES})
 
-# Make the code actually compile
+# Required options to make the code actually compile
 target_compile_options(clonk PRIVATE -fpermissive)
 
-add_subdirectory(Port)
-add_subdirectory(Source)
-
-target_include_directories(clonk
-PRIVATE
-	Port
-)
+# Source directories
+add_subdirectory(src)
 
 # Copy content
 add_custom_command(

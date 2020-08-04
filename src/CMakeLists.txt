@@ -21,3 +21,10 @@ PRIVATE
 	std_gfx.cpp
 	svi20.cpp
 )
+
+target_include_directories(clonk
+PRIVATE
+	port
+)
+
+add_subdirectory(port)
