@@ -1,0 +1,23 @@
+target_sources(clonk
+PRIVATE
+	bsconsys.cpp
+	bsexcsys.cpp
+	bsgfxsys.cpp
+	bsmansys.cpp
+	bspxssys.cpp
+	bsscrsys.cpp
+	bsstrsys.cpp
+	bsvhcsys.cpp
+	bsweasys.cpp
+	clonk.cpp
+	clonkaux.cpp
+	ct-voice.cpp
+	dsp-dtss.cpp
+	gfx_load.cpp
+	intro.cpp
+	sprite.cpp
+	standard.cpp
+	stdfile.cpp
+	std_gfx.cpp
+	svi20.cpp
+)
