@@ -17,7 +17,6 @@ BYTE DOSOpen(char *fname, FILE **stream, const char* mode);
 void DOSClose(FILE* stream);
 BYTE DOSRead(FILE* stream, void *fbuf, WORD fbtr);
 BYTE DOSWrite(FILE* stream, void *fbuf, WORD fbtw);
-BYTE FileExists(char *fname);
 
 BYTE InitBFI(char *fname, WORD bufsize=5000); // On any error, BFIO
 BYTE DeInitBFI(void);			     // deinits by itself

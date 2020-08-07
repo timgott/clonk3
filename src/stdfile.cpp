@@ -12,7 +12,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL_filesystem.h>
-#include <unistd.h>
 #include "standard.h"
 
 //------------------------- Path & General Functions --------------------------------
@@ -123,15 +122,6 @@ BYTE DOSRead(FILE *stream, void *fbuf, WORD fbtr) // btr: bytes to read; bar: by
 BYTE DOSWrite(FILE *stream, void *fbuf, WORD fbtw)
 {
 	if (fwrite(fbuf, 1, fbtw, stream) == fbtw) return 1;
-	return 0;
-}
-
-BYTE FileExists(char *fname)
-{
-	if (access(fname, 0) == 0)
-	{
-		return 1;
-	}
 	return 0;
 }
 

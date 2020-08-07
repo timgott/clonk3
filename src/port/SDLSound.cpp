@@ -1,4 +1,4 @@
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include "SDLSound.h"
 
 static uint8_t *audioBuffer;

@@ -7,12 +7,13 @@ set(CONTENTDIR content)
 add_executable(clonk)
 
 # Add SDL2
-find_package(SDL2 REQUIRED)
-include_directories(${SDL2_INCLUDE_DIRS})
-target_link_libraries(clonk ${SDL2_LIBRARIES})
+find_package(SDL2 CONFIG REQUIRED)
+target_link_libraries(clonk PRIVATE SDL2::SDL2 SDL2::SDL2main)
 
 # Required options to make the code actually compile
-target_compile_options(clonk PRIVATE -fpermissive)
+if(CMAKE_COMPILER_IS_GNUCC)
+	target_compile_options(clonk PRIVATE -fpermissive)
+endif()
 
 # Source directories
 add_subdirectory(src)
