@@ -944,7 +944,7 @@ void DrawPlrListCell(int num, int tx, int ty, BYTE sel)
 	else
 	{
 		SOut(sortname[spbn], tx + 42, ty + 14, CGray3);
-		sprintf(OSTR, "Score: %lu", (spbn == 0) ? PlrTotalScore(cplr) : cplr->score[spbn - 1]);
+		sprintf(OSTR, "Score: %" PRIu32, (spbn == 0) ? PlrTotalScore(cplr) : cplr->score[spbn - 1]);
 		SOut(OSTR, tx + 42, ty + 20, cplr->inses ? CGray1 : CGray3);
 		sprintf(OSTR, "Rounds: %d", (spbn == 0) ? PlrTotalRounds(cplr) : cplr->rnds[spbn - 1]);
 		SOut(OSTR, tx + 42, ty + 26, cplr->inses ? CGray1 : CGray3);
@@ -1124,16 +1124,16 @@ void PlayerInfoEdit(PLAYERINFO *plr)
 
 	sprintf(OSTR, "Rank: %s", PlrRankName(plr->rank));
 	TextObject(OSTR, 52, 23, CGray1);
-	sprintf(OSTR, "Total score: %lu", PlrTotalScore(plr));
+	sprintf(OSTR, "Total score: %" PRIu32, PlrTotalScore(plr));
 	TextObject(OSTR, 52, 29, CGray1);
 
 	playmin = plr->playsec / 60;
-	sprintf(OSTR, "Total playing time: %lu:%02lu:%02lu", playmin / 60, playmin % 60, plr->playsec % 60);
+	sprintf(OSTR, "Total playing time: %" PRIu32 ":%02" PRIu32 ":%02" PRIu32, playmin / 60, playmin % 60, plr->playsec % 60);
 	TextObject(OSTR, 52, 92, CGray1);
 
 	NewObject("Statistics", FRAME, 0, 0, 52, 40, 192, 49, 1, 0, 0, CGray3, -1, CGray5, 0, 0, NULL, NULL);
 	TextObject(" Mission  Single   Melee   Total", 110, 47, CDRed);
-	sprintf(OSTR, "        Score  %6lu  %6lu  %6lu  %6lu", plr->score[0], plr->score[1], plr->score[2], PlrTotalScore(plr));
+	sprintf(OSTR, "        Score  %6" PRIu32 "  %6" PRIu32 "  %6" PRIu32 "  %6" PRIu32, plr->score[0], plr->score[1], plr->score[2], PlrTotalScore(plr));
 	TextObject(OSTR, 57, 55, CGray1);
 	sprintf(OSTR, " Total rounds    %4d    %4d    %4d    %4d", plr->rnds[0], plr->rnds[1], plr->rnds[2], PlrTotalRounds(plr));
 	TextObject(OSTR, 57, 61, CGray2);
@@ -2338,10 +2338,10 @@ BYTE InitEndPrPage(DWORD modify)
 		SCopy(MissionScript.title, OSTR, 23);
 		break;
 	case S_COOPERATE:
-		sprintf(OSTR, "%s %lu", CGModeName[BSA.CoopGMode], modify);
+		sprintf(OSTR, "%s %" PRIu32, CGModeName[BSA.CoopGMode], modify);
 		break;
 	case S_MELEE:
-		sprintf(OSTR, "%s %lu", EliminationName[BSA.GPlrElm], modify);
+		sprintf(OSTR, "%s %" PRIu32, EliminationName[BSA.GPlrElm], modify);
 		break;
 	}
 	TextObject(OSTR, winwdt / 2, 10, CGray2, -1, 1);
@@ -2359,7 +2359,7 @@ BYTE InitEndPrPage(DWORD modify)
 				CTextObject((char*)PlrRankName(BSA.Plr[cnt].Info->rank), ctx + 43, cty + 55, CGray2, -1, 1);
 				CTextObject(BSA.Plr[cnt].Info->name, ctx + 43, cty + 61, CGray1, -1, 1);
 
-				sprintf(OSTR, "%lu Before", BSA.Plr[cnt].Info->score[BSA.SMode] - modify * (BSA.Plr[cnt].ScoreGain + 100 * (!BSA.Plr[cnt].Eliminate)) / 100);
+				sprintf(OSTR, "%" PRIu32 " Before", BSA.Plr[cnt].Info->score[BSA.SMode] - modify * (BSA.Plr[cnt].ScoreGain + 100 * (!BSA.Plr[cnt].Eliminate)) / 100);
 				TextObject(OSTR, ctx + 42, cty + 72, CGray2, -1, 1);
 
 				if (BSA.Plr[cnt].ScoreGain > 0)
@@ -2379,7 +2379,7 @@ BYTE InitEndPrPage(DWORD modify)
 				NewObject("SumLine", FRAME, 0, 0, ctx + 15, cty + 92, 55, 1, 0, 0, 0, CGray2, -1, 0, 0, 0, NULL, NULL);
 				NewObject("SumLine", FRAME, 0, 0, ctx + 15, cty + 100, 55, 1, 0, 0, 0, CGray1, -1, 0, 0, 0, NULL, NULL);
 
-				sprintf(OSTR, "%lu Total", BSA.Plr[cnt].Info->score[BSA.SMode]);
+				sprintf(OSTR, "%" PRIu32 " Total", BSA.Plr[cnt].Info->score[BSA.SMode]);
 				TextObject(OSTR, ctx + 42, cty + 94, CGray1, -1, 1);
 
 				NewObject("Frame", FRAME, 0, 0, ctx, cty, 85, 125 - 10 * (BSA.Plr[cnt].Eliminate != 0), 0, 0, 0, 64 + BSA.Plr[cnt].Col, CGray5, 0, 0, 0, NULL, NULL);

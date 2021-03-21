@@ -370,8 +370,8 @@ void IFTOut(const char *tptr, int tx, int ty, int wdt, int maxhgt, int startl, i
 					case 0: // No special run
 						switch (cchar)
 						{
-						case (char)128: srun = 1; break; // Color def run '�'
-						case (char)226: // HLink run toggle '�'
+						case (BYTE)128: srun = 1; break; // Color def run '�'
+						case (BYTE)226: // HLink run toggle '�'
 							if (!hlrun)
 							{
 								hlrun = 1; hlridx = 0;
@@ -382,7 +382,7 @@ void IFTOut(const char *tptr, int tx, int ty, int wdt, int maxhgt, int startl, i
 								if (hlgot == 1) hlgot = 2;
 							}
 							break;
-						case (char)9: cox = 8 * ((cox / 8) + 1); break; // Tab 8
+						case (BYTE)9: cox = 8 * ((cox / 8) + 1); break; // Tab 8
 						default: // Output character
 							if (cchar == '|') cchar = ' '; // Don't show pipes
 							if (output && Inside(coy - startl, 0, maxhgt - 1))

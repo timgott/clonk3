@@ -659,7 +659,7 @@ void DrawValBox(OBJECT *obj, BYTE update)
 	if (!obj->VBLongU)
 		sprintf(OSTR, "%d%c", *obj->iptr, obj->VBUnit);
 	else
-		sprintf(OSTR, "%lu%c", *((DWORD*)obj->iptr), obj->VBUnit);
+		sprintf(OSTR, "%" PRIu32 "%c", *((DWORD*)obj->iptr), obj->VBUnit);
 	switch (obj->VBDesign)
 	{
 	case 0:
