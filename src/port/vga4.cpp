@@ -55,8 +55,10 @@ void SPixA(int x, int y, BYTE col)
 BYTE GPixA(int x, int y)
 {
 	SDL_Surface* surf = vgaPages[currentPage];
-	assert(x >= 0 && y >= 0 && x < surf->w && y < surf->h);
-	return ((uint8_t*)surf->pixels)[surf->pitch * y + surf->format->BytesPerPixel * x];
+	if (x >= 0 && y >= 0 && x < surf->w && y < surf->h)
+		return ((uint8_t*)surf->pixels)[surf->pitch * y + surf->format->BytesPerPixel * x];
+	else
+		return -1;
 }
 
 void LPage(BYTE page)
