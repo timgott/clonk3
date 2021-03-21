@@ -18,14 +18,15 @@
 
 //------------------------------ Headers -------------------------------------
 
+#include <stdint.h>
 #include <ctype.h>
 #include "standard.h"
 
 //----------------------- Basic Type Definitions -----------------------------
 
-typedef unsigned char     BYTE;
-typedef unsigned int      WORD;
-typedef unsigned long int DWORD;
+typedef uint8_t  BYTE;
+typedef uint16_t WORD;
+typedef uint32_t DWORD;
 
 //------------------------- Standard Functions -------------------------------
 

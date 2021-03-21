@@ -7,9 +7,11 @@
 // RedWolf Design STANDARD Header by M.Bender
 // Version and date see Library.
 
-typedef unsigned char     BYTE;
-typedef unsigned int      WORD;
-typedef unsigned long int DWORD;
+#include <stdint.h>
+
+typedef uint8_t  BYTE;
+typedef uint16_t WORD;
+typedef uint32_t DWORD;
 
 extern BYTE Inside(long ival, long lbound, long rbound);
 extern long BoundBy(long bval, long lbound, long rbound);

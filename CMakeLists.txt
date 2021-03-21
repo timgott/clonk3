@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.13)
 project(Clonk3)
 
+# Enable address sanitizer
+set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address")
+set (CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address")
+
 # Path to content files
 set(CONTENTDIR content)
 
