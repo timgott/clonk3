@@ -318,10 +318,10 @@ BYTE DeInitBFO(void)
 	return rval;
 }
 
-BYTE PutBFO(void *vtbuf, WORD size = 1)
+BYTE PutBFO(const void *vtbuf, WORD size = 1)
 {
 	WORD transfer;
-	BYTE *fbuf = (BYTE*)vtbuf;
+	const BYTE *fbuf = (BYTE*)vtbuf;
 	if (BFOHandle == nullptr) return 9;
 	while (size > 0)
 		if (BFOBufLoad < BFOBufSize) // Transfer to buffer

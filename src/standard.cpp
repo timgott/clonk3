@@ -18,6 +18,7 @@
 
 //------------------------------ Headers -------------------------------------
 
+#include <ctype.h>
 #include "standard.h"
 
 //----------------------- Basic Type Definitions -----------------------------
@@ -144,7 +145,7 @@ BYTE MemEqual(BYTE *ptr1, BYTE *ptr2, DWORD cnt)
 	return 1;
 }
 
-void MemCopy(BYTE *fptr, BYTE *tptr, DWORD cnt)
+void MemCopy(const BYTE *fptr, BYTE *tptr, DWORD cnt)
 {
 	if (tptr < fptr) // Downwards in mem
 		while (cnt > 0) { *tptr = *fptr; tptr++; fptr++; cnt--; }
@@ -164,7 +165,7 @@ float PathC(int fc, int tc, float pc)
 
 const int MaxSLen = 500;
 
-int SLen(char *sptr)
+int SLen(const char *sptr)
 {
 	int slen = 0;
 	if (!sptr) return 0;
@@ -172,14 +173,14 @@ int SLen(char *sptr)
 	return slen;
 }
 
-void SCopy(char *src, char *trg, int maxn)
+void SCopy(const char *src, char *trg, int maxn)
 {
 	int cnt;
 	for (cnt = 0; *src && (cnt < maxn); cnt++, src++, trg++) *trg = *src;
 	*trg = 0;
 }
 
-BYTE SEqual(char *str1, char *str2)
+BYTE SEqual(const char *str1, const char *str2)
 {
 	int cnt;
 	for (cnt = 0; *str1 && *str2 && (cnt < MaxSLen); cnt++, str1++, str2++)
@@ -187,13 +188,13 @@ BYTE SEqual(char *str1, char *str2)
 	return 1;
 }
 
-BYTE SEqualL(char *str1, char *str2)
+BYTE SEqualL(const char *str1, const char *str2)
 {
 	if (SEqual(str1, str2) && (SLen(str1) == SLen(str2))) return 1;
 	return 0;
 }
 
-int SCharPos(char tchar, char *istr)
+int SCharPos(char tchar, const char *istr)
 {
 	int cpos;
 	if (!istr) return -1;
@@ -206,10 +207,7 @@ void Capitalize(char *str)
 {
 	while (str && *str)
 	{
-		if (Inside(*str, 97, 122)) *str -= 32;
-		if (*str == '„') *str = 'Ž';
-		if (*str == '”') *str = '™';
-		if (*str == '') *str = 'š';
+		*str = toupper(*str);
 		str++;
 	}
 }

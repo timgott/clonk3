@@ -41,7 +41,7 @@ extern USERPREF UserPref;
 extern BSATYPE BSA;
 extern CONFIG Config;
 
-extern void InitProcessB(char *msg, BYTE page = 0);
+extern void InitProcessB(const char *msg, BYTE page = 0);
 
 extern void DrawClock(BYTE tpge);
 extern void KeyConDisplay(int stat);

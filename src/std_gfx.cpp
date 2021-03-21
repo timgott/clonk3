@@ -154,7 +154,7 @@ BYTE FntDef = 0;
 
 void DefFont(void)
 {
-	static char *lines2[35] = { "nn    x x x  xx  x x x  x   xx  ", // Chrs 32-41
+	static const char *lines2[35] = { "nn    x x x  xx  x x x  x   xx  ", // Chrs 32-41
 				 "nn    x x x xxx    x x  x  x  x ",
 				 "nn    x    x xx x x  x     x  x ",
 				 "nn           xxx x   x     x  x ",
@@ -244,14 +244,14 @@ BYTE COut(char chr, int tx, int ty, BYTE fcol, int bcol)
 	return 0;
 }
 
-int CSLen(char *sptr, int maxlen = MaxSOut)
+int CSLen(const char *sptr, int maxlen = MaxSOut)
 {
 	int rval = 0;
 	if (!sptr) return 0;
 	while (*sptr && (rval < maxlen))
 	{
-		if (*sptr == (char)128) rval -= 2; // Color definition '€c'
-		if (*sptr == (char)226) rval -= 1; // HLink start/stop 'â'
+		if (*sptr == (char)128) rval -= 2; // Color definition 'ï¿½c'
+		if (*sptr == (char)226) rval -= 1; // HLink start/stop 'ï¿½'
 		//if (*sptr==9) rval+=7;   // Tab character 9
 		sptr++; rval++;
 	}
@@ -264,7 +264,7 @@ void SReplaceChar(BYTE *str, BYTE ochar, BYTE nchar)
 }
 
 // String out
-void SOut(char *sptr, int tx, int ty, BYTE fcol, int bcol = -1, BYTE form = 0)
+void SOut(const char *sptr, int tx, int ty, BYTE fcol, int bcol = -1, BYTE form = 0)
 {
 	int lenchk = 0;
 	if (form) tx += (form == 2) - CSLen(sptr)*(2 + 2 * (form == 2));
@@ -276,7 +276,7 @@ void SOut(char *sptr, int tx, int ty, BYTE fcol, int bcol = -1, BYTE form = 0)
 	}
 }
 
-void SOutS(char *sptr, int tx, int ty, BYTE fcol, BYTE bcol, BYTE form = 0)
+void SOutS(const char *sptr, int tx, int ty, BYTE fcol, BYTE bcol, BYTE form = 0)
 {
 	int lenchk = 0;
 	if (form) tx += (form == 2) - CSLen(sptr)*(2 + 2 * (form == 2));
@@ -302,7 +302,7 @@ void TOutS(char *tptr, int tx, int ty, BYTE fcol, int bcol, BYTE form = 0)
 	SOutS(tptr, tx, ty, fcol, bcol, form);
 }
 
-void TOutSt(char *tptr, int *mwdt, int *mhgt) // Textausmaße! 124 ('|') = Zeilenumbruch
+void TOutSt(const char *tptr, int *mwdt, int *mhgt) // Textausmaï¿½e! 124 ('|') = Zeilenumbruch
 {
 	int cwdt = 0;
 	*mwdt = 0; *mhgt = 1;
@@ -320,7 +320,7 @@ const BYTE HLinkCol = 140;
 
 
 
-void IFTOut(char *tptr, int tx, int ty, int wdt, int maxhgt, int startl, int *loutp, BYTE fcol, int bcol, BYTE form, BYTE output, int ax, int ay, char *gethl)
+void IFTOut(const char *tptr, int tx, int ty, int wdt, int maxhgt, int startl, int *loutp, BYTE fcol, int bcol, BYTE form, BYTE output, int ax, int ay, char *gethl)
 {
 	int cox, coy, wlen, cwlen, cnt, hlridx;
 	BYTE ccol, srun, cchar, hlrun, eotext, lfull, hlgot;
@@ -370,8 +370,8 @@ void IFTOut(char *tptr, int tx, int ty, int wdt, int maxhgt, int startl, int *lo
 					case 0: // No special run
 						switch (cchar)
 						{
-						case (char)128: srun = 1; break; // Color def run '€'
-						case (char)226: // HLink run toggle 'â'
+						case (char)128: srun = 1; break; // Color def run 'ï¿½'
+						case (char)226: // HLink run toggle 'ï¿½'
 							if (!hlrun)
 							{
 								hlrun = 1; hlridx = 0;
@@ -444,17 +444,17 @@ void IFTOut(char *tptr, int tx, int ty, int wdt, int maxhgt, int startl, int *lo
 		}
 }
 
-void FTOut(char *tptr, int tx, int ty, int wdt, int maxhgt, int startl, BYTE fcol, int bcol, BYTE form)
+void FTOut(const char *tptr, int tx, int ty, int wdt, int maxhgt, int startl, BYTE fcol, int bcol, BYTE form)
 {
 	IFTOut(tptr, tx, ty, wdt, maxhgt, startl, NULL, fcol, bcol, form, 1, 0, 0, NULL);
 }
 
-void FTOutSt(char *tptr, int wdt, int startl, int *loutp)
+void FTOutSt(const char *tptr, int wdt, int startl, int *loutp)
 {
 	IFTOut(tptr, 0, 0, wdt, 30000, startl, loutp, 0, 0, 0, 0, 0, 0, NULL);
 }
 
-void FTOutGetHL(char *tptr, int wdt, int maxhgt, int startl, int ax, int ay, char *gethl)
+void FTOutGetHL(const char *tptr, int wdt, int maxhgt, int startl, int ax, int ay, char *gethl)
 {
 	IFTOut(tptr, 0, 0, wdt, maxhgt, startl, NULL, 0, 0, 0, 0, ax, ay, gethl);
 }

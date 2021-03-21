@@ -11,9 +11,6 @@ find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
 target_link_libraries(clonk ${SDL2_LIBRARIES})
 
-# Required options to make the code actually compile
-target_compile_options(clonk PRIVATE -fpermissive)
-
 # Source directories
 add_subdirectory(src)
 
