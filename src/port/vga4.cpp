@@ -7,6 +7,7 @@
 // RedWolf Design  VGA4 Module  by M.Bender
 
 #include <SDL.h>
+#include <assert.h>
 //#include "STANDARD.H"
 #include "SDLmain.h"
 #include "vga4.h"
@@ -54,6 +55,7 @@ void SPixA(int x, int y, BYTE col)
 BYTE GPixA(int x, int y)
 {
 	SDL_Surface* surf = vgaPages[currentPage];
+	assert(x >= 0 && y >= 0 && x < surf->w && y < surf->h);
 	return ((uint8_t*)surf->pixels)[surf->pitch * y + surf->format->BytesPerPixel * x];
 }
 
@@ -74,7 +76,7 @@ void UpdateScreen()
 {
 	//HandleSDLEvents();
 
-	// Blitten funktioniert hier schon wieder nicht. Scheint unzuverlässig zu sein.
+	// Blitten funktioniert hier schon wieder nicht. Scheint unzuverlï¿½ssig zu sein.
 	//SDL_BlitScaled(vgaPages[videoPage], NULL, sdlScreenSurface, &destRect);
 
 	int w = vgaPages[videoPage]->w;
@@ -172,7 +174,7 @@ void BMove(BYTE fpge, int fx, int fy, BYTE tpge, int tx, int ty, int wdt, int hg
 }
 
 // Neue Funktion. Einfacher als Colormask zu implementieren: Vertausche einfach die Farben auf der Palette.
-// Kann ich wieder rückgängig machen, Bitmask implementiert
+// Kann ich wieder rï¿½ckgï¿½ngig machen, Bitmask implementiert
 void BMoveSwapColor(BYTE fpge, int fx, int fy, BYTE tpge, int tx, int ty, BYTE wdt, BYTE hgt, BYTE oldcol, BYTE newcol)
 {
 	SDL_Palette *pal = vgaPages[fpge]->format->palette;

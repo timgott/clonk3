@@ -193,15 +193,17 @@ void MoveRedWTextFlash(int prc) // Process 0-50
 	int cnt, cnt2;
 	LPage(CBackPage);
 	// FlashUp new 8 columns
-	for (cnt = 316 - prc * 8; cnt < 316 - prc * 8 + 8; cnt++) if (cnt < 320)
-		for (cnt2 = 170; cnt2 < 200; cnt2++)
-			if (GPixA(cnt, cnt2) == rwbcol)
-				SPixA(cnt, cnt2, 245);
+	for (cnt = 316 - prc * 8; cnt < 316 - prc * 8 + 8; cnt++) 
+		if (cnt >= 0 && cnt < 320)
+			for (cnt2 = 170; cnt2 < 200; cnt2++)
+				if (GPixA(cnt, cnt2) == rwbcol)
+					SPixA(cnt, cnt2, 245);
 	// DeFlash old 8 columns
-	for (cnt = 340 - prc * 8; cnt < 340 - prc * 8 + 8; cnt++)
-		for (cnt2 = 170; cnt2 < 200; cnt2++)
-			if (GPixA(cnt, cnt2) == 245)
-				SPixA(cnt, cnt2, rwbcol);
+	for (cnt = 340 - prc * 8; cnt < 340 - prc * 8 + 8; cnt++) 
+		if (cnt >= 0 && cnt < 320)
+			for (cnt2 = 170; cnt2 < 200; cnt2++)
+				if (GPixA(cnt, cnt2) == 245)
+					SPixA(cnt, cnt2, rwbcol);
 }
 
 void MoveInRedWText(int prc) // Process 0-30
@@ -548,7 +550,7 @@ BYTE LoadPCX640x480(char *fname) // Returns 1 if okay
 BYTE TitleGraphic(BYTE hires)
 {
 	BYTE svgaok = 0, rval;
-	/*if (hires && FileExists("C3RTITLE.GRP")) // Nur für das hochauflösende Bild am Anfang mach ich mir jetzt nicht so eine Mühe.
+	/*if (hires && FileExists("C3RTITLE.GRP")) // Nur fï¿½r das hochauflï¿½sende Bild am Anfang mach ich mir jetzt nicht so eine Mï¿½he.
 		if (InitSVGA())
 		{
 			if (LoadPCX640x480("C3RTITLE.GRP|C3HTITLE.PCX"))
@@ -589,7 +591,7 @@ void EndTextMessage(void)
 	//textcolor(LIGHTGRAY);
 	printf(ANSI_COLOR_LIGHTGRAY "!\n\r");
 	//textcolor(DARKGRAY);
-	printf(ANSI_COLOR_DARKGRAY "     ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ\n\r");
+	printf(ANSI_COLOR_DARKGRAY "     ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n\r");
 	//textcolor(LIGHTGRAY);
 	printf(ANSI_COLOR_LIGHTGRAY "           Information and contact / ");
 	//textcolor(WHITE);
