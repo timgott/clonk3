@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 project(Clonk3)
 
 option(GERMAN_CONTENT "Use German instead of English content files" OFF)
+option(EASY_MONSTER_BBOX "Make monsters easier to hit by increasing their bounding box" ON)
 
 # Enable address sanitizer
 set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address")
@@ -12,6 +13,10 @@ if (GERMAN_CONTENT)
 	set(CONTENTDIR "content-de")
 else()
 	set(CONTENTDIR "content")
+endif()
+
+if (EASY_MONSTER_BBOX)
+	add_compile_definitions(LARGER_MONSTER_BBOX)
 endif()
 
 add_executable(clonk)
