@@ -686,7 +686,7 @@ void DefaultConfig(void)
 {
 	Config.FaceNum = DefFaceNum; Config.FaceFile = 0; Config.ImportMode = 0;
 	Config.SortPlrBy = 0; Config.ShowQuotes = 0;
-	Config.GameSpeed = 7;
+	Config.GameSpeed = 3;
 	Config.SaveDatAlways = 0;
 	Config.LangType = 0;
 

@@ -793,8 +793,7 @@ BYTE ExecRoundLoop(void) // Returns aborted
 		}
 
 		// Game Speed
-		if (Config.GameSpeed != 10) SDL_Delay(200 / Config.GameSpeed);
-		//if (Config.GameSpeed != 10) SDL_Delay(100 / Config.GameSpeed);
+		if (Config.GameSpeed != 10) SDL_Delay(100 / Config.GameSpeed);
 	} while (!gcs);
 
 	return (gcs == 2);
