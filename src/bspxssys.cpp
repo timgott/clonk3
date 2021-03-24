@@ -946,7 +946,8 @@ void MoveRocks(void)
 							&& Inside(GBackPix(crck->x + 1, crck->y + 4), CEarth1, CAshes2)
 							&& !Inside(GBackPix(crck->x + 1, crck->y + 0), CSolidL, CSolid2H))
 						{ // Grow, conditions met
-						/*ExtractLiquid(crck->x+1,crck->y+3);
+#ifdef ENABLE_PLANT_GROWTH
+						ExtractLiquid(crck->x+1,crck->y+3);
 						if (crck->phase<110-(crck->x%30)) crck->phase++;
 						if (Inside(GBackPix(crck->x+1,crck->y+0),CSky1,CSky2))
 						  if (crck->phase<110-(crck->x%30)) crck->phase++; // Double if outside
@@ -957,7 +958,7 @@ void MoveRocks(void)
 						  crck->phase-=30;
 						  NewRock(BoundBy(crck->x-5+10*random(2),4,312),crck->y-4,RADEAD,PLANT1,0,0,0,-1);
 						  }
-						*/
+#endif ENABLE_PLANT_GROWTH
 						}
 						else
 						{ // Else degenerate to standard minimum size (Tick50)
