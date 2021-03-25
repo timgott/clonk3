@@ -5,9 +5,12 @@ Website of the original: http://clonk.de/classics.php
 
 ![Demo](../assets/demo.gif)
 
+## Command line options
+
+- `--scale [number]` sets the scaling factor
+- `--interpolation [none|scale2x|scale4x]` sets the interpolation filter type (default is scale2x)
 ## Tips
 
-- Add `-scale [number]` as command line argument to set the scaling factor
 - Press F5/F6 to change game speed
 - To enable sound you have to select the `SDL Method`
 
