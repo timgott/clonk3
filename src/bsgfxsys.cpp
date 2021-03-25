@@ -1862,7 +1862,9 @@ void TimeOut(void)
 	LPage(CPGE); SOut(OSTR, 315, 10, CWhite, CBlack, 2);
 
 	if (FPS < LowFPSMark) LowFPS = 1; else LowFPS = 0;
-	//sprintf(OSTR,"%04d FPS",FPS); SOut(OSTR,319,0,LowFPS ? CRed : CWhite,CBlack,2);
+#ifdef DEBUG
+	sprintf(OSTR,"%04d FPS",FPS); SOut(OSTR,319,0,LowFPS ? CRed : CWhite,CBlack,2);
+#endif
 	FPS = 0;
 
 	if (LowMem) SOut("LOWMEM", 319, 5, CRed, CBlack, 2);
