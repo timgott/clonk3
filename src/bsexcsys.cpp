@@ -682,9 +682,6 @@ BYTE ExecRoundLoop(void) // Returns aborted
 		// Scripting
 		if (BSA.SMode == S_MISSION) ExecScript();
 
-		// Screen Control
-		Toggle(CPGE); DrawScreen(); PPage(CPGE);
-
 		// Tick Control
 		Tick2++;  if (Tick2 == 2)   Tick2 = 0;
 		Tick3++;  if (Tick3 == 3)   Tick3 = 0;
@@ -793,6 +790,9 @@ BYTE ExecRoundLoop(void) // Returns aborted
 				break;
 			}
 		}
+
+		// Screen Control
+		Toggle(CPGE); DrawScreen(); PPage(CPGE);
 
 		// Game Speed
 		int elapsedMs = SDL_GetTicks() - startMs;
