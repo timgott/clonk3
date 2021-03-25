@@ -19,6 +19,7 @@
 //--------------------------- Include Headers --------------------------------
 
 #include <stdio.h>
+#include <SDL2/SDL.h>
 
 #include "standard.h"
 #include "vga4.h"
@@ -27,9 +28,9 @@
 
 #include "svi20typ.h"
 
-#include <SDL.h>
-#include "SDLmain.h"
 #include "UserInput.h"
+#include "SDLmain.h"
+
 
 extern char OSTR[500]; // Use extern OSTR?
 
@@ -187,8 +188,8 @@ int InitMouse(void)
 int MouseState(int *x, int *y)
 {
 	int but = SDL_GetMouseState(x, y);
-	if (x != nullptr) *x /= ScreenScaleFactor;
-	if (y != nullptr) *y /= ScreenScaleFactor;
+	if (x != nullptr) *x /= PortScreenScaleFactor;
+	if (y != nullptr) *y /= PortScreenScaleFactor;
 	return but;
 }
 
@@ -2247,8 +2248,8 @@ BYTE RunSVI(void) // Error/No windows returns 0
 				{
 				case SDL_MOUSEBUTTONDOWN:
 					exitloop = true;
-					inc.x = event.button.x / ScreenScaleFactor;
-					inc.y = event.button.y / ScreenScaleFactor;
+					inc.x = event.button.x / PortScreenScaleFactor;
+					inc.y = event.button.y / PortScreenScaleFactor;
 					inc.b = SDL_BUTTON(event.button.button);
 					break;
 
@@ -2453,14 +2454,9 @@ void ResetInitMsg(void)
 	InitMsg("");
 }
 
-BYTE InitSVI(int screenScale, BYTE svipge, char *helpfname)
+BYTE InitSVI(BYTE svipge, char *helpfname)
 {
 	if (!IsVGA()) return 0;
-	if (!InitSDL(screenScale))
-	{
-		CloseSDL();
-		return 0;
-	}
 	InitVGA();
 	DefColors();
 	SVIPage = svipge;
@@ -2474,5 +2470,4 @@ void CloseSVI(void)
 {
 	CloseWindows();
 	CloseVGA();
-	CloseSDL();
 }

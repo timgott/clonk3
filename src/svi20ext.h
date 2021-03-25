@@ -38,7 +38,7 @@ extern void CloseWindow(WINDOW *win, BYTE noredr=0);
 extern BYTE RunSVI(void);
 extern void ClearSVI(void);
 
-BYTE InitSVI(int screenScale, BYTE svipge, char *helpfname);
+BYTE InitSVI(BYTE svipge, char *helpfname);
 extern void CloseSVI(void);
 
 extern void InitSVIGrayMap(void);

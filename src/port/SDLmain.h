@@ -1,14 +1,14 @@
 #pragma once
 
-//#include <SDL_video.h>
+#include <SDL2/SDL_surface.h>
+#include <SDL2/SDL_video.h>
+#include "Scaling.h"
 
 extern SDL_Surface* SdlScreenSurface;
 extern SDL_Window* SdlWindow;
-extern int ScreenScaleFactor;
 
-int InitSDL(int scale);
+extern int PortScreenScaleFactor;
+extern UpscaleInterpolationType PortInterpolationType;
+
+int InitSDL(int scale, UpscaleInterpolationType interpolationType);
 void CloseSDL(void);
-
-//void HandleSDLEvents();
-
-

@@ -37,6 +37,8 @@ const char *PrgInfoLine = "RedWolf Design CLONK 3.5 Radikal";
 #include "RandomWrapper.h" // implementiert random()
 #include "UserInput.h"
 
+#include "SDLmain.h"
+
 //--------------------------- Extern Program Parts ---------------------------
 
 extern void Intro(BYTE hires);
@@ -3213,24 +3215,48 @@ int printUsage()
 int main(int argc, char *argv[])
 {
 	int scale = 2;
+	UpscaleInterpolationType interpolationType = INTERPOLATION_SCALE2X;
 	for (int i = 1; i < argc; i++)
 	{
-		if (SEqual(argv[i], "--s") || SEqual(argv[i] + 1, "scale"))
+		if (strcmp(argv[i], "--scale") == 0 || strcmp(argv[i], "/scale") == 0)
 		{
 			if (i + 1 < argc)
 			{
 				scale = SDL_atoi(argv[i + 1]);
 			}
 		}
+		if (strcmp(argv[i], "--interpolation") == 0 || strcmp(argv[i], "/interpolation") == 0)
+		{
+			if (i + 1 < argc) {
+				if (SDL_strcasecmp(argv[i+1], "none") == 0)
+					interpolationType = INTERPOLATION_NONE;
+				else if (SDL_strcasecmp(argv[i+1], "scale2x") == 0)
+					interpolationType = INTERPOLATION_SCALE2X;
+				else if (SDL_strcasecmp(argv[i+1], "scale4x") == 0)
+					interpolationType = INTERPOLATION_SCALE4X;
+			}
+		}
+		if (strcmp(argv[i], "--help") == 0 || strcmp(argv[i], "/help") == 0) {
+			printf("%s [--scale NUMBER] [--interpolation none|scale2x|scale4x]\n", argv[0]);
+			return 0;
+		}
 	}
 
-	if (InitSVI(scale, MainPage, "CLONK3.HLP"))
+	if (!InitSDL(scale, interpolationType))
+	{
+		CloseSDL();
+		printf("SDL Initialization failure");
+		return 0;
+	}
+
+	if (InitSVI(MainPage, "CLONK3.HLP"))
 	{
 		InitMsg(PrgInfoLine, CRed);
 		InitMsg("");
 		SVISetExternFunctions(&DrawListBoxCell, &ListBoxCellAction);
 		MainPrg();
 		CloseSVI();
+		CloseSDL();
 		EndTextMessage();
 		return 0;
 	}

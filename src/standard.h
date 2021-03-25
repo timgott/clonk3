@@ -7,6 +7,8 @@
 // RedWolf Design STANDARD Header by M.Bender
 // Version and date see Library.
 
+#pragma once
+
 #include <stdint.h>
 
 typedef uint8_t  BYTE;
