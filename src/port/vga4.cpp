@@ -11,6 +11,8 @@
 //#include "STANDARD.H"
 #include "SDLmain.h"
 #include "vga4.h"
+#include "../standard.h"
+#include "../clonk_bs.h" // for color constants
 
 int MaxX = 319, MaxY = 199;
 
@@ -74,54 +76,182 @@ void PPage(BYTE page)
 	//SDL_Delay(VERTICAL_RETRACE_MS);
 }
 
-void UpdateScreen()
-{
-	//HandleSDLEvents();
+bool IsUiColor(BYTE color) {
+ return color >= CBlack && color <= CYellow;
+}
 
-	// Blitten funktioniert hier schon wieder nicht. Scheint unzuverl�ssig zu sein.
-	//SDL_BlitScaled(vgaPages[videoPage], NULL, sdlScreenSurface, &destRect);
+void CalculateScale2x(BYTE* src, int x, int y, int width, int height, BYTE* e0, BYTE* e1, BYTE* e2, BYTE* e3) {
+	int pitch = width;
+	int pos = y*pitch + x;
+	bool topInBound = y > 0;
+	bool leftInBound = x > 0;
+	bool bottomInBound = y < height-1;
+	bool rightInBound = x < width-1;
+	BYTE e = src[pos];
+	if (IsUiColor(e)) { // Do not smooth UI colors
+		*e0 = e;
+		*e1 = e;
+		*e2 = e;
+		*e3 = e;
+	}
+	else {
+		BYTE a = leftInBound && topInBound ? src[pos - pitch - 1] : e;
+		BYTE b = topInBound ? src[pos - pitch] : e;
+		BYTE c = rightInBound && topInBound ? src[pos - pitch + 1] : e;
+		BYTE d = leftInBound ? src[pos - 1] : e;
+		BYTE f = rightInBound ? src[pos + 1] : e;
+		BYTE g = leftInBound && bottomInBound ? src[pos + pitch - 1] : e;
+		BYTE h = bottomInBound ? src[pos + pitch] : e;
+		BYTE i = rightInBound && bottomInBound ? src[pos + pitch + 1] : e;
+		
+		if (b != h && d != f) {
+			bool smoothD = !IsUiColor(d);
+			bool smoothF = !IsUiColor(f);
+			*e0 = d == b && smoothD ? d : e;
+			*e1 = b == f && smoothF ? f : e;
+			*e2 = d == h && smoothD ? d : e;
+			*e3 = h == f && smoothF ? f : e;
+		} else {
+			*e0 = e;
+			*e1 = e;
+			*e2 = e;
+			*e3 = e;
+		}
+	}
+}
 
-	int w = vgaPages[videoPage]->w;
-	int h = vgaPages[videoPage]->h;
+void CalculateScale2xHalf(BYTE* src, int x, int y, int width, int height, BYTE* e0, BYTE* e1, BYTE* e2, BYTE* e3) {
+	int pitch = width;
+	int pos = y*pitch + x;
+	bool topInBound = y > 0;
+	bool leftInBound = x > 0;
+	bool bottomInBound = y < height-1;
+	bool rightInBound = x < width-1;
+	BYTE e = src[pos];
+	if (IsUiColor(e)) { // Do not smooth UI colors
+		*e0 = e;
+		*e1 = e;
+		*e2 = e;
+		*e3 = e;
+	}
+	else {
+		BYTE b = topInBound ? src[pos - pitch] : e;
+		BYTE d = leftInBound ? src[pos - 1] : e;
+		BYTE f = rightInBound ? src[pos + 1] : e;
+		BYTE h = bottomInBound ? src[pos + pitch] : e;
+		
+		if (d != f) {
+			bool smoothD = !IsUiColor(d);
+			bool smoothF = !IsUiColor(f);
+			*e0 = d == b && smoothD ? d : e;
+			*e1 = b == f && smoothF ? f : e;
+		} else {
+			*e0 = e;
+			*e1 = e;
+		}
 
-	BYTE *sourcePixels = (BYTE*)vgaPages[videoPage]->pixels;
-	Uint32 *destPixels = (Uint32*)SdlScreenSurface->pixels;
+		*e2 = e;
+		*e3 = e;
+	}
+}
 
-	int sourceBpp = vgaPages[videoPage]->format->BytesPerPixel;
-	//int sourceLineskip = w * sourceBpp;
+void ApplyScale2xHalf(BYTE *src, int w, int h, BYTE *dest) {
+	int destPitch = w*2;
 
-	int destBpp = SdlScreenSurface->format->BytesPerPixel;
-	int destPixelSkip = ScreenScaleFactor;
-	int destLineSkip = w * destPixelSkip;
+	for (size_t x = 0; x < w; x++)
+	{
+		for (size_t y = 0; y < h; y++)
+		{
+			int destPos = y*2*destPitch + x*2;
+			CalculateScale2xHalf(src, x, y, w, h,
+				&dest[destPos],
+				&dest[destPos + 1],
+				&dest[destPos + destPitch],
+				&dest[destPos + destPitch + 1]
+			);
+		}
+	}
+}
 
-	SDL_Color *vgaColors = vgaPages[videoPage]->format->palette->colors;
+void DrawScaledPixel(Uint32 *pixels, Uint32 value, int destX, int destY, int pitch, int scale) {
+	int pos = destX + destY * pitch;
+	Uint32 *p = &pixels[pos];
+	for (int yy = 0; yy < scale; yy++)
+	{
+		for (int xx = 0; xx < scale; xx++)
+		{
+			*p = value;
+			p += 1;
+		}
+		p += pitch - scale;
+	}
+}
+
+inline Uint32 ColorToUint32(SDL_Color col) {
+	return (col.a << 8 * 3) + (col.r << 8 * 2) + (col.g << 8 * 1) + col.b;
+}
+
+void BlitIndexedPixelsAndScale2x(int w, int h, BYTE *sourcePixels, Uint32 *destPixels, SDL_Color *palette, int scaleFactor) {
+	int halfScaleFactor = scaleFactor / 2;
+	int destPitch = w * scaleFactor;
 
 	for (int y = 0; y < h; y++)
 	{
 		for (int x = 0; x < w; x++)
 		{
-			Uint32 *p = destPixels;
-			SDL_Color col = vgaColors[*sourcePixels];
-			Uint32 destCol = (col.a << 8 * 3) + (col.r << 8 * 2) + (col.g << 8 * 1) + col.b;
-			for (int yy = 0; yy < ScreenScaleFactor; yy++)
-			{
-				for (int xx = 0; xx < ScreenScaleFactor; xx++)
-				{
-					*p = destCol;
-					p += 1;
-				}
-				p += destLineSkip - destPixelSkip;
-			}
+			BYTE e0, e1, e2, e3;
+			CalculateScale2x(sourcePixels, x, y, w, h, &e0, &e1, &e2, &e3);
 
-			destPixels += destPixelSkip;
-			sourcePixels += sourceBpp;
-		}
-
-		for (int yy = 1; yy < ScreenScaleFactor; yy++)
-		{
-			destPixels += destLineSkip;
+			int destX = x * scaleFactor;
+			int destY = y * scaleFactor;
+			DrawScaledPixel(destPixels, ColorToUint32(palette[e0]), destX, destY, destPitch, halfScaleFactor);
+			DrawScaledPixel(destPixels, ColorToUint32(palette[e1]), destX + halfScaleFactor, destY, destPitch, halfScaleFactor);
+			DrawScaledPixel(destPixels, ColorToUint32(palette[e2]), destX, destY + halfScaleFactor, destPitch, halfScaleFactor);
+			DrawScaledPixel(destPixels, ColorToUint32(palette[e3]), destX + halfScaleFactor, destY + halfScaleFactor, destPitch, halfScaleFactor);
 		}
 	}
+}
+
+void BlitIndexedPixelsAndScale2xSlow(int w, int h, BYTE *sourcePixels, Uint32 *destPixels, SDL_Color *palette, int scaleFactor) {
+	BYTE buffer2x[w*2 * h*2];
+	ApplyScale2xHalf(sourcePixels, w, h, buffer2x);
+
+	BlitIndexedPixelsAndScaleNN(w*2, h*2, buffer2x, destPixels, palette, scaleFactor / 2);
+}
+
+void BlitIndexedPixelsAndScale4x(int w, int h, BYTE *sourcePixels, Uint32 *destPixels, SDL_Color *palette, int scaleFactor) {
+	BYTE buffer2x[w*2 * h*2];
+	ApplyScale2xHalf(sourcePixels, w, h, buffer2x);
+
+	BlitIndexedPixelsAndScale2xSlow(w*2, h*2, buffer2x, destPixels, palette, scaleFactor / 2);
+}
+
+void BlitIndexedPixelsAndScaleNN(int w, int h, BYTE *sourcePixels, Uint32 *destPixels, SDL_Color *palette, int scaleFactor) {
+	int destPixelSkip = scaleFactor;
+	int destLineSkip = w * destPixelSkip;
+
+	for (int y = 0; y < h; y++)
+	{
+		for (int x = 0; x < w; x++)
+		{
+			Uint32 destCol = ColorToUint32(palette[sourcePixels[x + y*w]]);
+			int destX = x * scaleFactor;
+			int destY = y * scaleFactor;
+			DrawScaledPixel(destPixels, destCol, destX, destY, destLineSkip, scaleFactor);
+		}
+	}
+}
+
+void UpdateScreen()
+{
+	int w = vgaPages[videoPage]->w;
+	int h = vgaPages[videoPage]->h;
+
+	BYTE *sourcePixels = (BYTE*)vgaPages[videoPage]->pixels;
+	Uint32 *destPixels = (Uint32*)SdlScreenSurface->pixels;
+	SDL_Color *palette = vgaPages[videoPage]->format->palette->colors;
+
+	BlitIndexedPixelsAndScale2x(w, h, sourcePixels, destPixels, palette, ScreenScaleFactor);
 
 	SDL_UpdateWindowSurface(SdlWindow);
 }
