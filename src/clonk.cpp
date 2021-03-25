@@ -3219,14 +3219,14 @@ int main(int argc, char *argv[])
 	UpscaleInterpolationType interpolationType = INTERPOLATION_SCALE2X;
 	for (int i = 1; i < argc; i++)
 	{
-		if (strcmp(argv[i], "--scale") == 0 || strcmp(argv[i], "/scale") == 0)
+		if (strcmp(argv[i], "--scale") == 0 || strcmp(argv[i], "/scale") == 0 || strcmp(argv[i], "-scale") == 0)
 		{
 			if (i + 1 < argc)
 			{
 				scale = SDL_atoi(argv[i + 1]);
 			}
 		}
-		if (strcmp(argv[i], "--interpolation") == 0 || strcmp(argv[i], "/interpolation") == 0)
+		if (strcmp(argv[i], "--interpolation") == 0 || strcmp(argv[i], "/interpolation") == 0 || strcmp(argv[i], "-interpolation") == 0)
 		{
 			if (i + 1 < argc) {
 				if (SDL_strcasecmp(argv[i+1], "none") == 0)
