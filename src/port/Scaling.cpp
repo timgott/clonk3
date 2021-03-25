@@ -156,6 +156,7 @@ void BlitIndexedPixelsAndScaleNN(int w, int h, Uint8 *sourcePixels, Uint32 *dest
 void BlitIndexedPixelsAndScale2x(int w, int h, Uint8 *sourcePixels, Uint32 *destPixels, SDL_Color *palette, int scaleFactor) {
 	int halfScaleFactor = scaleFactor / 2;
 	int destPitch = w * scaleFactor;
+	int scaledPixelSize = (scaleFactor + 1) / 2; // ensures that the entire screen is filled with odd scaling ratios, could be improved of course
 
 	for (int y = 0; y < h; y++)
 	{
@@ -166,10 +167,10 @@ void BlitIndexedPixelsAndScale2x(int w, int h, Uint8 *sourcePixels, Uint32 *dest
 
 			int destX = x * scaleFactor;
 			int destY = y * scaleFactor;
-			DrawScaledPixel(destPixels, ColorToUint32(palette[e0]), destX, destY, destPitch, halfScaleFactor);
-			DrawScaledPixel(destPixels, ColorToUint32(palette[e1]), destX + halfScaleFactor, destY, destPitch, halfScaleFactor);
-			DrawScaledPixel(destPixels, ColorToUint32(palette[e2]), destX, destY + halfScaleFactor, destPitch, halfScaleFactor);
-			DrawScaledPixel(destPixels, ColorToUint32(palette[e3]), destX + halfScaleFactor, destY + halfScaleFactor, destPitch, halfScaleFactor);
+			DrawScaledPixel(destPixels, ColorToUint32(palette[e0]), destX, destY, destPitch, scaledPixelSize);
+			DrawScaledPixel(destPixels, ColorToUint32(palette[e1]), destX + halfScaleFactor, destY, destPitch, scaledPixelSize);
+			DrawScaledPixel(destPixels, ColorToUint32(palette[e2]), destX, destY + halfScaleFactor, destPitch, scaledPixelSize);
+			DrawScaledPixel(destPixels, ColorToUint32(palette[e3]), destX + halfScaleFactor, destY + halfScaleFactor, destPitch, scaledPixelSize);
 		}
 	}
 }
