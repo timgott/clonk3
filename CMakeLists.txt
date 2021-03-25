@@ -39,6 +39,9 @@ target_link_libraries(clonk PRIVATE SDL2::SDL2 SDL2::SDL2main)
 # Source directories
 add_subdirectory(src)
 
+# Manifest directory
+add_subdirectory(manifest)
+
 # Copy content
 add_custom_command(
 		TARGET clonk POST_BUILD
