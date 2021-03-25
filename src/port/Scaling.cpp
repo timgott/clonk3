@@ -176,10 +176,11 @@ void BlitIndexedPixelsAndScale2x(int w, int h, Uint8 *sourcePixels, Uint32 *dest
 }
 
 void BlitIndexedPixelsAndScale4x(int w, int h, Uint8 *sourcePixels, Uint32 *destPixels, SDL_Color *palette, int scaleFactor) {
-	Uint8 buffer2x[w*2 * h*2]; // allocation on stack, could probably be avoided but who cares.
+	Uint8 *buffer2x = new Uint8[w*2 * h*2]; // unnecessary reallocation, could be avoided but who cares.
 	ApplyScale2xHalf(sourcePixels, w, h, buffer2x);
 
 	BlitIndexedPixelsAndScale2x(w*2, h*2, buffer2x, destPixels, palette, scaleFactor / 2);
+	delete buffer2x;
 }
 
 void BlitIndexedPixelsAndScale(int w, int h, Uint8 *sourcePixels, Uint32 *destPixels, SDL_Color *palette, int scaleFactor, UpscaleInterpolationType interpolationType) {
