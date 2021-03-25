@@ -676,6 +676,9 @@ BYTE ExecRoundLoop(void) // Returns aborted
 
 	do
 	{
+		// Measure time to reach target frame delay
+		int startMs = SDL_GetTicks();
+
 		// Scripting
 		if (BSA.SMode == S_MISSION) ExecScript();
 
@@ -792,7 +795,12 @@ BYTE ExecRoundLoop(void) // Returns aborted
 		}
 
 		// Game Speed
-		if (Config.GameSpeed != 10) SDL_Delay(100 / Config.GameSpeed);
+		int elapsedMs = SDL_GetTicks() - startMs;
+		SDL_assert(elapsedMs >= 0);
+		int targetDelay = 100 / Config.GameSpeed;
+		int remainingDelay = targetDelay - elapsedMs;
+		if (Config.GameSpeed != 10 && remainingDelay > 0) 
+			SDL_Delay(remainingDelay);
 	} while (!gcs);
 
 	return (gcs == 2);
