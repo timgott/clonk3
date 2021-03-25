@@ -19,6 +19,7 @@
 //--------------------------- Include Headers --------------------------------
 
 #include <stdio.h>
+#include <SDL2/SDL.h>
 
 #include "standard.h"
 #include "vga4.h"
@@ -27,9 +28,9 @@
 
 #include "svi20typ.h"
 
-#include <SDL.h>
-#include "SDLmain.h"
 #include "UserInput.h"
+#include "SDLmain.h"
+
 
 extern char OSTR[500]; // Use extern OSTR?
 
@@ -187,8 +188,8 @@ int InitMouse(void)
 int MouseState(int *x, int *y)
 {
 	int but = SDL_GetMouseState(x, y);
-	if (x != nullptr) *x /= ScreenScaleFactor;
-	if (y != nullptr) *y /= ScreenScaleFactor;
+	if (x != nullptr) *x /= PortScreenScaleFactor;
+	if (y != nullptr) *y /= PortScreenScaleFactor;
 	return but;
 }
 
@@ -533,7 +534,7 @@ void DrawStd3D(int x1, int y1, int x2, int y2, BYTE invert)
 BYTE ProcessBPage = 0;
 //int ProcessBLine=-1;
 
-void InitProcessB(char *msg, BYTE page = SVIPage)
+void InitProcessB(const char *msg, BYTE page = SVIPage)
 {
 	int tx = 80, ty = 80, wdt = 160, hgt = 19;
 	ProcessBPage = page;
@@ -659,7 +660,7 @@ void DrawValBox(OBJECT *obj, BYTE update)
 	if (!obj->VBLongU)
 		sprintf(OSTR, "%d%c", *obj->iptr, obj->VBUnit);
 	else
-		sprintf(OSTR, "%lu%c", *((DWORD*)obj->iptr), obj->VBUnit);
+		sprintf(OSTR, "%" PRIu32 "%c", *((DWORD*)obj->iptr), obj->VBUnit);
 	switch (obj->VBDesign)
 	{
 	case 0:
@@ -1560,7 +1561,7 @@ BYTE KbObjAction(OBJECT *obj, BYTE kbspc, BYTE kbstn) // Returns eXitRVal
 
 //--------------------------- Object Handling -------------------------------
 
-OBJECT *NewBasicObject(char *title, BYTE type, BYTE acc, BYTE hid, int x, int y, int wdt, int hgt, BYTE bd1, BYTE bd2, BYTE bd3, int id1, int id2, int id3, int id4, int id5, char *bptr, int *dptr)
+OBJECT *NewBasicObject(const char *title, BYTE type, BYTE acc, BYTE hid, int x, int y, int wdt, int hgt, BYTE bd1, BYTE bd2, BYTE bd3, int id1, int id2, int id3, int id4, int id5, char *bptr, int *dptr)
 {
 	OBJECT *nobj;
 	WINDOW *twin;
@@ -1586,7 +1587,7 @@ OBJECT *NewBasicObject(char *title, BYTE type, BYTE acc, BYTE hid, int x, int y,
 	return nobj;
 }
 
-OBJECT *NewObject(char *title, BYTE type, BYTE acc, BYTE hid, int x, int y, int wdt, int hgt, BYTE bd1, BYTE bd2, BYTE bd3, int id1, int id2, int id3, int id4, int id5, char *bptr, int *dptr)
+OBJECT *NewObject(const char *title, BYTE type, BYTE acc, BYTE hid, int x, int y, int wdt, int hgt, BYTE bd1, BYTE bd2, BYTE bd3, int id1, int id2, int id3, int id4, int id5, char *bptr, int *dptr)
 {
 	OBJECT *nobj, *bscobj1, *bscobj2, *bscobj3;
 
@@ -1633,7 +1634,7 @@ OBJECT *NewObject(char *title, BYTE type, BYTE acc, BYTE hid, int x, int y, int 
 	return nobj;
 }
 
-OBJECT *TextObject(char *txt, int tx, int ty, int fcol, int bcol = -1, BYTE form = 0)
+OBJECT *TextObject(const char *txt, int tx, int ty, int fcol, int bcol = -1, BYTE form = 0)
 {
 	OBJECT *nobj;
 	char *tptr;
@@ -1658,17 +1659,17 @@ OBJECT *CTextObject(char *txt, int tx, int ty, int fcol, int bcol = -1, BYTE for
 	return NewObject("[Const Text]", TEXT, 0, 0, tx, ty, 0, 0, form, 2, 0, fcol, bcol, 0, 0, 0, txt, NULL);
 }
 
-OBJECT *ITextObject(char **txt, int *index, int tx, int ty, int fcol, int bcol = -1, BYTE form = 0)
+OBJECT *ITextObject(const char **txt, int *index, int tx, int ty, int fcol, int bcol = -1, BYTE form = 0)
 { // brutal ptr conversion
 	return NewObject("[Const Indexed Text]", TEXT, 0, 0, tx, ty, 0, 0, form, 2, 0, fcol, bcol, 0, 0, 0, ((char*)txt), index);
 }
 
-OBJECT *NewButton(char *title, BYTE hide, int tx, int ty, int wdt, int hgt, BYTE xrval, BYTE noulr)
+OBJECT *NewButton(const char *title, BYTE hide, int tx, int ty, int wdt, int hgt, BYTE xrval, BYTE noulr)
 {
 	return NewObject(title, BUTTON, 1, hide, tx, ty, wdt, hgt, xrval, noulr, 0, 0, 0, 0, 0, 0, NULL, NULL);
 }
 
-OBJECT *NewFlagBox(char *title, int tx, int ty, int *valptr, BYTE hide = HIDEOFF)
+OBJECT *NewFlagBox(const char *title, int tx, int ty, int *valptr, BYTE hide = HIDEOFF)
 {
 	return NewObject(title, FLAGBOX, 1, hide, tx, ty, 10, 10, 1, 0, 0, 0, 0, 0, 0, 0, NULL, valptr);
 }
@@ -1734,7 +1735,7 @@ void ReTabObject(WINDOW *win, OBJECT **obj)
 
 //--------------------------- Window Operation -------------------------------
 
-WINDOW *NewWindow(char *title, BYTE type, BYTE prior, int x, int y, int wdt, int hgt, int num, int outof, BYTE escxrv, char *hindex)
+WINDOW *NewWindow(const char *title, BYTE type, BYTE prior, int x, int y, int wdt, int hgt, int num, int outof, BYTE escxrv, char *hindex)
 {
 	WINDOW *nwin;
 
@@ -2247,8 +2248,8 @@ BYTE RunSVI(void) // Error/No windows returns 0
 				{
 				case SDL_MOUSEBUTTONDOWN:
 					exitloop = true;
-					inc.x = event.button.x / ScreenScaleFactor;
-					inc.y = event.button.y / ScreenScaleFactor;
+					inc.x = event.button.x / PortScreenScaleFactor;
+					inc.y = event.button.y / PortScreenScaleFactor;
 					inc.b = SDL_BUTTON(event.button.button);
 					break;
 
@@ -2370,7 +2371,7 @@ void ClearSVI(void)
 
 //--------------------------- Instant Windows --------------------------------
 
-void Message(char *txt, char *hindex = NULL)
+void Message(const char *txt, char *hindex = NULL)
 {
 	WINDOW *cwin;
 	int twdt, thgt;
@@ -2385,7 +2386,7 @@ void Message(char *txt, char *hindex = NULL)
 	else { /*DrawWindow(cwin);*/ if (!SVIRunning) RunSVI(); }
 }
 
-void ConfirmedCall(char *txt, int ctype, int(*exfunc)(int), int expar, char *hindex = NULL)
+void ConfirmedCall(const char *txt, int ctype, int(*exfunc)(int), int expar, char *hindex = NULL)
 {
 	char *posbut[3] = { "OK","Yeah","Yes" };
 	char *negbut[3] = { "Cancel","Nope","No" };
@@ -2404,7 +2405,7 @@ void ConfirmedCall(char *txt, int ctype, int(*exfunc)(int), int expar, char *hin
 	else { /*DrawWindow(cwin);*/ if (!SVIRunning) RunSVI(); }
 }
 
-void LineInput(char *msg, char *txt, int maxlen, int(*exfunc)(int) = NULL, int expar = 0, char *hindex = NULL)
+void LineInput(const char *msg, char *txt, int maxlen, int(*exfunc)(int) = NULL, int expar = 0, char *hindex = NULL)
 {
 	WINDOW *cwin;
 	int winwdt = Max(Max(maxlen * 4 + 4 + 10, SLen(msg) * 4 + 10), 50);
@@ -2426,7 +2427,7 @@ void SVISetExternFunctions(void(*dlbc)(int, int, int, int, BYTE), BYTE(*lbca)(in
 	ExtLBCAction = lbca;
 }
 
-void InitMsg(char *msg, BYTE col = CIMsg)
+void InitMsg(const char *msg, BYTE col = CIMsg)
 {
 	LPage(SVIPage);
 	SOut(msg, IMsgX, IMsgY, col);
@@ -2436,7 +2437,7 @@ void InitMsg(char *msg, BYTE col = CIMsg)
 	//SDL_Delay(100); // Sonst gehts ja viel zu schnell. Wir wollen ja noch ein bisschen das DOS-Gef�hl haben.
 }
 
-void InitMsgOpen(char *msg, BYTE col = CIMsg)
+void InitMsgOpen(const char *msg, BYTE col = CIMsg)
 {
 	LPage(SVIPage);
 	SOut(msg, IMsgX, IMsgY, col);
@@ -2453,14 +2454,9 @@ void ResetInitMsg(void)
 	InitMsg("");
 }
 
-BYTE InitSVI(int screenScale, BYTE svipge, char *helpfname)
+BYTE InitSVI(BYTE svipge, char *helpfname)
 {
 	if (!IsVGA()) return 0;
-	if (!InitSDL(screenScale))
-	{
-		CloseSDL();
-		return 0;
-	}
 	InitVGA();
 	DefColors();
 	SVIPage = svipge;
@@ -2474,5 +2470,4 @@ void CloseSVI(void)
 {
 	CloseWindows();
 	CloseVGA();
-	CloseSDL();
 }

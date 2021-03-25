@@ -390,8 +390,23 @@ void CheckMen2Rocks(void) // Every Tick1
 											}
 							// Get Hit
 							if ((crck->act == RAROLL) || (crck->act == RAFLY))
-								if (crck->type < PLANT1)
-									if (Inside(crck->x - mptr->x, 0, 4) && Inside(crck->y - mptr->y, 0, 6))
+								if (crck->type < PLANT1) {
+									int collisionBoxW = 4;
+									int collisionBoxH = 6;
+									int collisionBoxOffsetX = 0;
+									int collisionBoxOffsetY = 0;
+									
+									#ifdef LARGER_MONSTER_BBOX
+										if (mptr->type == MNMONSTER) {
+											collisionBoxW = 16;
+											collisionBoxH = 10;
+											collisionBoxOffsetX = -4;
+											collisionBoxOffsetY = -2;
+										}
+									#endif
+									
+									if (Inside(crck->x - (mptr->x + collisionBoxOffsetX), 0, collisionBoxW) 
+									 && Inside(crck->y - (mptr->y + collisionBoxOffsetY), 0, collisionBoxH))
 									{
 										if (Inside(crck->type, ARROW, BARROW)) mptr->strn -= 2;
 										else mptr->strn -= 5;
@@ -405,6 +420,7 @@ void CheckMen2Rocks(void) // Every Tick1
 										else
 										{
 											mptr->tx = BoundBy(mptr->x + crck->xdir * 30, 12, 305);
+											GSTP = SNDMONSTER;
 										}
 
 										if (Inside(crck->thrby, 0, 2)) if ((cnt == 3) || !NotHostile(cnt, crck->thrby))
@@ -414,6 +430,7 @@ void CheckMen2Rocks(void) // Every Tick1
 												ScoreGain(crck->thrby, 10); // Kills extra
 										}
 									}
+								}
 						}
 				CheckCastleFlagCollect(mptr);
 			}

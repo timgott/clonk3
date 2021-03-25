@@ -52,13 +52,13 @@ extern PLAYERRANK *FirstPlrRank;
 extern char OSTR[500];
 extern BYTE InRound, FirstTimeRun, SBDetected;
 
-extern char *SoundStatusName[3];
+extern const char *SoundStatusName[];
 
 extern void ClearBSAPlrPtrs(void);
 extern MANINFO *NewDefaultMan2List(MANINFO **crew);
 extern PLAYERINFO *NewDefaultPlr2List(void);
 extern void SortCrewList(MANINFO *crew);
-extern BYTE NewPlrRank(char *name);
+extern BYTE NewPlrRank(const char *name);
 extern int SortPlayerList(int dummy);
 extern void DeInitPlayerList(void);
 extern void ClearPlrRanks(void);
@@ -686,7 +686,7 @@ void DefaultConfig(void)
 {
 	Config.FaceNum = DefFaceNum; Config.FaceFile = 0; Config.ImportMode = 0;
 	Config.SortPlrBy = 0; Config.ShowQuotes = 0;
-	Config.GameSpeed = 7;
+	Config.GameSpeed = 3;
 	Config.SaveDatAlways = 0;
 	Config.LangType = 0;
 

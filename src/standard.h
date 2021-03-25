@@ -7,9 +7,13 @@
 // RedWolf Design STANDARD Header by M.Bender
 // Version and date see Library.
 
-typedef unsigned char     BYTE;
-typedef unsigned int      WORD;
-typedef unsigned long int DWORD;
+#pragma once
+
+#include <stdint.h>
+
+typedef uint8_t  BYTE;
+typedef uint16_t WORD;
+typedef uint32_t DWORD;
 
 extern BYTE Inside(long ival, long lbound, long rbound);
 extern long BoundBy(long bval, long lbound, long rbound);
@@ -33,15 +37,15 @@ extern void Toggle(BYTE &tbyte);
 extern void FillMem(BYTE *bptr, DWORD cnt, BYTE val);
 extern void ZeroMem(BYTE *bptr, DWORD cnt);
 extern BYTE MemEqual(BYTE *ptr1, BYTE *ptr2, DWORD cnt);
-extern void MemCopy(BYTE *fptr, BYTE *tptr, DWORD cnt);
+extern void MemCopy(const BYTE *fptr, BYTE *tptr, DWORD cnt);
 extern float PathC(int fc, int tc, float pc);
 
-extern int  SLen(char *sptr);
-extern void SCopy(char *src, char *trg, int maxn = 500);
-extern BYTE SEqual(char *str1, char *str2);
-extern BYTE SEqualL(char *str1, char *str2);
+extern int  SLen(const char *sptr);
+extern void SCopy(const char *src, char *trg, int maxn = 500);
+extern BYTE SEqual(const char *str1, const char *str2);
+extern BYTE SEqualL(const char *str1, const char *str2);
 extern void Capitalize(char *str);
-extern int SCharPos(char tchar, char *istr);
+extern int SCharPos(char tchar, const char *istr);
 
 //extern BYTE RTCRead(BYTE address);
 //extern void RTCWrite(BYTE address, BYTE contents);

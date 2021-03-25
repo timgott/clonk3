@@ -24,7 +24,7 @@ BYTE GetBFI(void *vtbuf, WORD size=1);
 DWORD BFIFileLength(void);                     // Return 0 if no error
 BYTE InitBFO(char *fname, WORD bufsize=5000);
 BYTE DeInitBFO(void);
-BYTE PutBFO(void *vtbuf, WORD size=1);
+BYTE PutBFO(const void *vtbuf, WORD size=1);
 
 BYTE InitFileSearch(char *path);   // Set search path
 BYTE SearchNextFile(char *nameto); // Returns file name w/out path

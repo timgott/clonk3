@@ -1154,7 +1154,7 @@ void DrawRock(ROCKTYPE *rptr)
 				else ASprite(&RockSpr[rptr->type], CPGE, rptr->x, rptr->y - BackVPos + 20);
 				break;
 			case PLANT3:
-				for (rstp = rptr->phase - 30, cnt = 1; rstp > 0; cnt++)
+				for (rstp = rptr->phase, cnt = 0; rstp > 0; cnt++)
 				{
 					ASprite(&RockSpr[Min(PLANT1 + rstp / 10, PLANT3)], CPGE, rptr->x, rptr->y - (3 + (rptr->x % 2))*cnt - BackVPos + 20);
 					rstp -= Min(rstp, 30);

@@ -41,7 +41,7 @@ extern USERPREF UserPref;
 extern BSATYPE BSA;
 extern CONFIG Config;
 
-extern void InitProcessB(char *msg, BYTE page = 0);
+extern void InitProcessB(const char *msg, BYTE page = 0);
 
 extern void DrawClock(BYTE tpge);
 extern void KeyConDisplay(int stat);
@@ -793,8 +793,7 @@ BYTE ExecRoundLoop(void) // Returns aborted
 		}
 
 		// Game Speed
-		if (Config.GameSpeed != 10) SDL_Delay(200 / Config.GameSpeed);
-		//if (Config.GameSpeed != 10) SDL_Delay(100 / Config.GameSpeed);
+		if (Config.GameSpeed != 10) SDL_Delay(100 / Config.GameSpeed);
 	} while (!gcs);
 
 	return (gcs == 2);

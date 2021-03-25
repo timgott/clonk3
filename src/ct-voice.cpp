@@ -24,7 +24,7 @@
 
 char *CTVoicePtr, *CTVoiceRealDataPtr;
 char *data_ptr;
-unsigned CTVoiceStatus;
+WORD CTVoiceStatus;
 
 // F U N C T I O N S /////////////////////////////////////////////////////////
 
@@ -63,7 +63,7 @@ void DeInitCTVoice(void)
 	delete[] CTVoiceRealDataPtr;*/
 }
 
-void CTVoiceSetBase(unsigned port)
+void CTVoiceSetBase(WORD port)
 {
 	/*asm{
 		mov bx,1          // function 1 set port address
@@ -72,7 +72,7 @@ void CTVoiceSetBase(unsigned port)
 	}*/
 }
 
-void CTVoiceSpeaker(unsigned on)
+void CTVoiceSpeaker(WORD on)
 {
 	/*asm{
 		mov bx,4          // function 4 turn speaker on or off
@@ -127,7 +127,7 @@ void CTVoiceBreak(void) // Break a sound loop
 	  }
   }*/
 
-void CTVoiceSetInt(unsigned dma)
+void CTVoiceSetInt(WORD dma)
 {
 	/*
 	asm{
@@ -227,7 +227,7 @@ char *CTVErrMsg(int errcode)
 	return unkerrmsg;
 }
 
-BYTE InitCTVSound(char *ctvname, unsigned port, unsigned irq)
+BYTE InitCTVSound(char *ctvname, WORD port, WORD irq)
 {
 	BYTE errs;
 	errs = LoadCTVoice(ctvname); if (errs) return errs; // Returns 0,1-4
@@ -260,7 +260,7 @@ BYTE CTVSoundCheck(void)
 // BLASTER AUTODETECTION /////////////////////////////////////////////////////
 
 
-BYTE AutodetectBlaster(unsigned *port, unsigned *irq, char *path)
+BYTE AutodetectBlaster(WORD *port, WORD *irq, char *path)
 {
 	char *cenv, *cptr;
 	BYTE dok = 1;

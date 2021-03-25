@@ -7,9 +7,11 @@
 // RedWolf Design  VGA4 Module  by M.Bender
 
 #include <SDL.h>
+#include <assert.h>
 //#include "STANDARD.H"
 #include "SDLmain.h"
 #include "vga4.h"
+#include "Scaling.h"
 
 int MaxX = 319, MaxY = 199;
 
@@ -54,7 +56,10 @@ void SPixA(int x, int y, BYTE col)
 BYTE GPixA(int x, int y)
 {
 	SDL_Surface* surf = vgaPages[currentPage];
-	return ((uint8_t*)surf->pixels)[surf->pitch * y + surf->format->BytesPerPixel * x];
+	if (x >= 0 && y >= 0 && x < surf->w && y < surf->h)
+		return ((uint8_t*)surf->pixels)[surf->pitch * y + surf->format->BytesPerPixel * x];
+	else
+		return -1;
 }
 
 void LPage(BYTE page)
@@ -72,52 +77,14 @@ void PPage(BYTE page)
 
 void UpdateScreen()
 {
-	//HandleSDLEvents();
-
-	// Blitten funktioniert hier schon wieder nicht. Scheint unzuverlässig zu sein.
-	//SDL_BlitScaled(vgaPages[videoPage], NULL, sdlScreenSurface, &destRect);
-
 	int w = vgaPages[videoPage]->w;
 	int h = vgaPages[videoPage]->h;
 
 	BYTE *sourcePixels = (BYTE*)vgaPages[videoPage]->pixels;
 	Uint32 *destPixels = (Uint32*)SdlScreenSurface->pixels;
+	SDL_Color *palette = vgaPages[videoPage]->format->palette->colors;
 
-	int sourceBpp = vgaPages[videoPage]->format->BytesPerPixel;
-	//int sourceLineskip = w * sourceBpp;
-
-	int destBpp = SdlScreenSurface->format->BytesPerPixel;
-	int destPixelSkip = ScreenScaleFactor;
-	int destLineSkip = w * destPixelSkip;
-
-	SDL_Color *vgaColors = vgaPages[videoPage]->format->palette->colors;
-
-	for (int y = 0; y < h; y++)
-	{
-		for (int x = 0; x < w; x++)
-		{
-			Uint32 *p = destPixels;
-			SDL_Color col = vgaColors[*sourcePixels];
-			Uint32 destCol = (col.a << 8 * 3) + (col.r << 8 * 2) + (col.g << 8 * 1) + col.b;
-			for (int yy = 0; yy < ScreenScaleFactor; yy++)
-			{
-				for (int xx = 0; xx < ScreenScaleFactor; xx++)
-				{
-					*p = destCol;
-					p += 1;
-				}
-				p += destLineSkip - destPixelSkip;
-			}
-
-			destPixels += destPixelSkip;
-			sourcePixels += sourceBpp;
-		}
-
-		for (int yy = 1; yy < ScreenScaleFactor; yy++)
-		{
-			destPixels += destLineSkip;
-		}
-	}
+	BlitIndexedPixelsAndScale(w, h, sourcePixels, destPixels, palette, PortScreenScaleFactor, PortInterpolationType);
 
 	SDL_UpdateWindowSurface(SdlWindow);
 }
@@ -172,7 +139,7 @@ void BMove(BYTE fpge, int fx, int fy, BYTE tpge, int tx, int ty, int wdt, int hg
 }
 
 // Neue Funktion. Einfacher als Colormask zu implementieren: Vertausche einfach die Farben auf der Palette.
-// Kann ich wieder rückgängig machen, Bitmask implementiert
+// Kann ich wieder rï¿½ckgï¿½ngig machen, Bitmask implementiert
 void BMoveSwapColor(BYTE fpge, int fx, int fy, BYTE tpge, int tx, int ty, BYTE wdt, BYTE hgt, BYTE oldcol, BYTE newcol)
 {
 	SDL_Palette *pal = vgaPages[fpge]->format->palette;

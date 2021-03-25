@@ -5,4 +5,5 @@ PRIVATE
 	SDLSound.cpp
 	UserInput.cpp
 	vga4.cpp
+	Scaling.cpp
 )

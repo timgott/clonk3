@@ -27,7 +27,7 @@ typedef struct SAMPLE { BYTE *buf; WORD len, freq; };
 
 //--------------------------- Global Variables -------------------------------
 
-int SBBaseA;
+WORD SBBaseA;
 
 //-------------------- DTSTimerInt Global Variables --------------------------
 
@@ -50,8 +50,8 @@ void SetTimerFreq(WORD freq) // and DTSTimerInt-CallOld-Freq
 	//if (freq < 19) freq = 19; // Check range
 	//if (freq > 50000) freq = 50000;
 	//outportb(0x43, 0x36);                                    /* Steuerbefehl */
-	//nfreq = 1193180 / freq;      /* internen Wert fr Timer-Frequenz berechnen */
-	//outportb(0x40, nfreq & 0xFF);      /* Low-BYTE fr den Timer-Wert setzen */
+	//nfreq = 1193180 / freq;      /* internen Wert fï¿½r Timer-Frequenz berechnen */
+	//outportb(0x40, nfreq & 0xFF);      /* Low-BYTE fï¿½r den Timer-Wert setzen */
 	//outportb(0x40, (nfreq >> 8) & 0xFF);                 /* High-BYTE setzen */
 
 	//DTSOldTCall = 65536 / nfreq; // OldT-Call-Freq
@@ -59,23 +59,23 @@ void SetTimerFreq(WORD freq) // and DTSTimerInt-CallOld-Freq
 
 void SetOrigFreq()
 {
-	//WORD nfreq;                          /* interner Wert fr Timer-Frequenz */
+	//WORD nfreq;                          /* interner Wert fï¿½r Timer-Frequenz */
 	//outportb(0x43, 0x36);                                     /* Steuerbefehl */
 	//nfreq = 0xFFFF;               /* Timer-Frequenz auf Originalwert (18,2 Hz) */
-	//outportb(0x40, nfreq & 0xFF);          /* Low-BYTE fr die Timer-Frequenz */
-	//outportb(0x40, (nfreq >> 8) & 0xFF);  /* High-BYTE fr die Timer-Frequenz */
+	//outportb(0x40, nfreq & 0xFF);          /* Low-BYTE fï¿½r die Timer-Frequenz */
+	//outportb(0x40, (nfreq >> 8) & 0xFF);  /* High-BYTE fï¿½r die Timer-Frequenz */
 }
 
 int ReadDSP()
 {
-	//WORD chkcnt;                                                /* ein Z„hler */
+	//WORD chkcnt;                                                /* ein Zï¿½hler */
 	//int  Reading;                 /* TRUE, wenn der DSP zum Lesen bereit ist */
 
 	//chkcnt = 0;
 	//Reading = 0;
 	//while (!Reading)            /* wiederholen, bis DSP zum Lesen bereit ist */
 	//{
-	//	chkcnt++;                                           /* Z„hler erh”hen */
+	//	chkcnt++;                                           /* Zï¿½hler erhï¿½hen */
 	//	Reading = ((inportb(SBBaseA + 0x0E) & 0x80) == 0x80);
 	//	if (chkcnt == 10000) // took too long?
 	//		return -1; // Error: Cannot read from DSP / maybe missing sound card
@@ -118,7 +118,7 @@ BYTE SpeakerOff()
 
 BYTE InitDSP()
 {
-	//WORD chkcnt;                                                /* ein Z„hler */
+	//WORD chkcnt;                                                /* ein Zï¿½hler */
 	//int  Reading;       /* TRUE, wenn der BYTEwert AAh gelesen werden konnte */
 
 	//chkcnt = 0;
@@ -128,7 +128,7 @@ BYTE InitDSP()
 	//outportb(SBBaseA + 0x06, 0x00);    /* Port 2x6h mit 00h beschreiben */
 	//while (Reading != 0xAA)
 	//{
-	//	chkcnt++;                                           /* Z„hler erh”hen */
+	//	chkcnt++;                                           /* Zï¿½hler erhï¿½hen */
 	//	Reading = ReadDSP();
 	//	if (Reading == -1) return 0;
 	//	if (chkcnt == 1000) return 0; // Took too long -> error
@@ -218,7 +218,7 @@ BYTE DSPSoundCheck(void)
 	return 0;
 }
 
-BYTE InitDSPSound(unsigned *basea)
+BYTE InitDSPSound(WORD *basea)
 {
 	SBBaseA = *basea;
 	if (!InitDSP())

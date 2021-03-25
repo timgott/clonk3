@@ -11,10 +11,10 @@ extern void DestroyVOC(BYTE **buf);
 
 extern char *CTVErrMsg(int errcode);
 
-extern BYTE InitCTVSound(char *ctvname, unsigned port, unsigned irq);
+extern BYTE InitCTVSound(char *ctvname, WORD port, WORD irq);
 extern void DeInitCTVSound(void);
 extern void CTVPlaySound(BYTE *vocbuf);
 extern BYTE CTVSoundCheck(void);
 extern void CTVoiceStop(void);
 
-extern BYTE AutodetectBlaster(unsigned *port, unsigned *irq, char *path);
+extern BYTE AutodetectBlaster(WORD *port, WORD *irq, char *path);

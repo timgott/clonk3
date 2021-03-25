@@ -14,5 +14,5 @@ typedef struct SAMPLE { BYTE *buf; WORD len, freq; };
 
 extern BYTE DSPPlaySound(BYTE *vocbuf);
 extern BYTE DSPSoundCheck(void);
-extern BYTE InitDSPSound(unsigned *basea);
+extern BYTE InitDSPSound(WORD *basea);
 extern void DeInitDSPSound(void);
