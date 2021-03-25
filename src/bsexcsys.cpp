@@ -617,10 +617,9 @@ BYTE GameOverCheck(void) // Every Sec5, returns over+delay
 
 //----------------------------- Round Messages ------------------------------
 
-extern char *CGModeName[6];
-extern char *EliminationName[3];
-extern char *CoopSubName[3];
-extern char *RuleSetName[3];
+extern const char *CGModeName[6];
+extern const char *EliminationName[3];
+extern const char *RuleSetName[3];
 extern SCRIPTINFO MissionScript;
 
 void GameModeMessage(void)

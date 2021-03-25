@@ -1484,7 +1484,7 @@ void DrawLightN(void)
 		}
 }
 
-extern char *RankName[11];
+extern const char *RankName[11];
 
 void DrawCursor(MANTYPE *crs)
 {

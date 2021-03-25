@@ -82,7 +82,7 @@ char *LineTypeName[3] = { "Power line","Feeding pipe","Drain pipe" };
 char *StructTypeName[StructTypeNum - 3] = { "Windmill","Water wheel","Oil power","Elevator","Pump","Castle","House","Tower","Magic Tower","(None)","(None)" };
 char *ColorName[8] = { "Blue","Red","Green","Yellow","Purple","Brown","Light blue","Light green" };
 
-extern char *RankName[11];
+extern const char *RankName[11];
 
 //-------------------------- ------------------- -------------------------------
 

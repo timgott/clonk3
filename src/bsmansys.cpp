@@ -1766,7 +1766,7 @@ void InitCrewData(BYTE plr, BYTE hostile)
 
 //------------------------ Promotion / Experience ----------------------------
 
-extern char *RankName[11];
+extern const char *RankName[11];
 extern void CursorAdjust(BYTE plr);
 
 extern int ClonkRankExp(int crnk);
