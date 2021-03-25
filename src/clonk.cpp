@@ -3215,7 +3215,7 @@ int printUsage()
 
 int main(int argc, char *argv[])
 {
-	int scale = 2;
+	int scale = 4;
 	UpscaleInterpolationType interpolationType = INTERPOLATION_SCALE2X;
 	for (int i = 1; i < argc; i++)
 	{
