@@ -23,6 +23,7 @@ const char *PrgInfoLine = "RedWolf Design CLONK 3.5 Radikal";
 #include <stdlib.h>
 #include <stdio.h>
 #include <SDL.h>
+#include <inttypes.h>
 
 #include "standard.h"
 #include "vga4.h"

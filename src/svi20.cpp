@@ -20,6 +20,7 @@
 
 #include <stdio.h>
 #include <SDL2/SDL.h>
+#include <inttypes.h>
 
 #include "standard.h"
 #include "vga4.h"
