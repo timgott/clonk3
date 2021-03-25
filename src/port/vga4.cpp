@@ -83,10 +83,6 @@ bool IsUiColor(BYTE color) {
 void CalculateScale2x(BYTE* src, int x, int y, int width, int height, BYTE* e0, BYTE* e1, BYTE* e2, BYTE* e3) {
 	int pitch = width;
 	int pos = y*pitch + x;
-	bool topInBound = y > 0;
-	bool leftInBound = x > 0;
-	bool bottomInBound = y < height-1;
-	bool rightInBound = x < width-1;
 	BYTE e = src[pos];
 	if (IsUiColor(e)) { // Do not smooth UI colors
 		*e0 = e;
@@ -95,6 +91,10 @@ void CalculateScale2x(BYTE* src, int x, int y, int width, int height, BYTE* e0, 
 		*e3 = e;
 	}
 	else {
+		bool topInBound = y > 0;
+		bool leftInBound = x > 0;
+		bool bottomInBound = y < height-1;
+		bool rightInBound = x < width-1;
 		BYTE a = leftInBound && topInBound ? src[pos - pitch - 1] : e;
 		BYTE b = topInBound ? src[pos - pitch] : e;
 		BYTE c = rightInBound && topInBound ? src[pos - pitch + 1] : e;
@@ -123,10 +123,6 @@ void CalculateScale2x(BYTE* src, int x, int y, int width, int height, BYTE* e0, 
 void CalculateScale2xHalf(BYTE* src, int x, int y, int width, int height, BYTE* e0, BYTE* e1, BYTE* e2, BYTE* e3) {
 	int pitch = width;
 	int pos = y*pitch + x;
-	bool topInBound = y > 0;
-	bool leftInBound = x > 0;
-	bool bottomInBound = y < height-1;
-	bool rightInBound = x < width-1;
 	BYTE e = src[pos];
 	if (IsUiColor(e)) { // Do not smooth UI colors
 		*e0 = e;
@@ -135,6 +131,10 @@ void CalculateScale2xHalf(BYTE* src, int x, int y, int width, int height, BYTE* 
 		*e3 = e;
 	}
 	else {
+		bool topInBound = y > 0;
+		bool leftInBound = x > 0;
+		bool bottomInBound = y < height-1;
+		bool rightInBound = x < width-1;
 		BYTE b = topInBound ? src[pos - pitch] : e;
 		BYTE d = leftInBound ? src[pos - 1] : e;
 		BYTE f = rightInBound ? src[pos + 1] : e;
@@ -152,6 +152,24 @@ void CalculateScale2xHalf(BYTE* src, int x, int y, int width, int height, BYTE* 
 
 		*e2 = e;
 		*e3 = e;
+	}
+}
+
+void ApplyScale2x(BYTE *src, int w, int h, BYTE *dest) {
+	int destPitch = w*2;
+
+	for (size_t x = 0; x < w; x++)
+	{
+		for (size_t y = 0; y < h; y++)
+		{
+			int destPos = y*2*destPitch + x*2;
+			CalculateScale2x(src, x, y, w, h,
+				&dest[destPos],
+				&dest[destPos + 1],
+				&dest[destPos + destPitch],
+				&dest[destPos + destPitch + 1]
+			);
+		}
 	}
 }
 
@@ -191,6 +209,22 @@ inline Uint32 ColorToUint32(SDL_Color col) {
 	return (col.a << 8 * 3) + (col.r << 8 * 2) + (col.g << 8 * 1) + col.b;
 }
 
+void BlitIndexedPixelsAndScaleNN(int w, int h, BYTE *sourcePixels, Uint32 *destPixels, SDL_Color *palette, int scaleFactor) {
+	int destPixelSkip = scaleFactor;
+	int destLineSkip = w * destPixelSkip;
+
+	for (int y = 0; y < h; y++)
+	{
+		for (int x = 0; x < w; x++)
+		{
+			Uint32 destCol = ColorToUint32(palette[sourcePixels[x + y*w]]);
+			int destX = x * scaleFactor;
+			int destY = y * scaleFactor;
+			DrawScaledPixel(destPixels, destCol, destX, destY, destLineSkip, scaleFactor);
+		}
+	}
+}
+
 void BlitIndexedPixelsAndScale2x(int w, int h, BYTE *sourcePixels, Uint32 *destPixels, SDL_Color *palette, int scaleFactor) {
 	int halfScaleFactor = scaleFactor / 2;
 	int destPitch = w * scaleFactor;
@@ -212,34 +246,11 @@ void BlitIndexedPixelsAndScale2x(int w, int h, BYTE *sourcePixels, Uint32 *destP
 	}
 }
 
-void BlitIndexedPixelsAndScale2xSlow(int w, int h, BYTE *sourcePixels, Uint32 *destPixels, SDL_Color *palette, int scaleFactor) {
-	BYTE buffer2x[w*2 * h*2];
-	ApplyScale2xHalf(sourcePixels, w, h, buffer2x);
-
-	BlitIndexedPixelsAndScaleNN(w*2, h*2, buffer2x, destPixels, palette, scaleFactor / 2);
-}
-
 void BlitIndexedPixelsAndScale4x(int w, int h, BYTE *sourcePixels, Uint32 *destPixels, SDL_Color *palette, int scaleFactor) {
-	BYTE buffer2x[w*2 * h*2];
+	BYTE buffer2x[w*2 * h*2]; // allocation on stack, could probably be avoided but who cares.
 	ApplyScale2xHalf(sourcePixels, w, h, buffer2x);
 
-	BlitIndexedPixelsAndScale2xSlow(w*2, h*2, buffer2x, destPixels, palette, scaleFactor / 2);
-}
-
-void BlitIndexedPixelsAndScaleNN(int w, int h, BYTE *sourcePixels, Uint32 *destPixels, SDL_Color *palette, int scaleFactor) {
-	int destPixelSkip = scaleFactor;
-	int destLineSkip = w * destPixelSkip;
-
-	for (int y = 0; y < h; y++)
-	{
-		for (int x = 0; x < w; x++)
-		{
-			Uint32 destCol = ColorToUint32(palette[sourcePixels[x + y*w]]);
-			int destX = x * scaleFactor;
-			int destY = y * scaleFactor;
-			DrawScaledPixel(destPixels, destCol, destX, destY, destLineSkip, scaleFactor);
-		}
-	}
+	BlitIndexedPixelsAndScale2x(w*2, h*2, buffer2x, destPixels, palette, scaleFactor / 2);
 }
 
 void UpdateScreen()
@@ -251,7 +262,7 @@ void UpdateScreen()
 	Uint32 *destPixels = (Uint32*)SdlScreenSurface->pixels;
 	SDL_Color *palette = vgaPages[videoPage]->format->palette->colors;
 
-	BlitIndexedPixelsAndScale2x(w, h, sourcePixels, destPixels, palette, ScreenScaleFactor);
+	BlitIndexedPixelsAndScale4x(w, h, sourcePixels, destPixels, palette, ScreenScaleFactor);
 
 	SDL_UpdateWindowSurface(SdlWindow);
 }
