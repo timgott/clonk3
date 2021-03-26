@@ -95,9 +95,7 @@ void ManCanDoMsg(MANTYPE *mptr, char *verb)
 void MouseFromMenu(void)
 {
 	MouseCon.cursor = 0;
-	SetMouseRange(0, 20, 2 * 320 - 1, 179);
-	MouseCon.x1 = MouseX(); MouseCon.y1 = 178;
-	SetMouseLoc(2 * MouseCon.x1, MouseCon.y1);
+	// The original version teleported the mouse here.
 }
 
 void ActivateMenu(BYTE plr, BYTE type)
@@ -1553,12 +1551,12 @@ void MouseControl(void)
 				CursorTo(plr, onman);
 				MouseCon.cursor = 5;
 			}
-			if (MouseCon.y1 == 179) // Switch to menu
+			if (MouseCon.y1 >= 180) // Switch to menu
 				if (BSA.RuleSet > R_EASY)
 				{
 					MouseCon.cursor = 1;
-					SetMouseRange(2 * Crew[plr].StBX, 180, 2 * (Crew[plr].StBX + Crew[plr].StBWdt) - 1, 199);
-					MouseCon.x1 = MouseX(); SetMouseLoc(2 * MouseCon.x1, 181); MouseCon.y1 = MouseY();
+					// The original version teleported the mouse around and set limits to where the mouse can move here.
+					// It is not necessary and won't work properly on modern systems so it was deleted.
 					ActivateMenu(plr, 1);
 				}
 			break;
@@ -1577,7 +1575,7 @@ void MouseControl(void)
 		switch (MouseCon.but1)
 		{
 		case 0:
-			if (MouseCon.y1 == 180) // Switch menu off
+			if (MouseCon.y1 < 180) // Switch menu off
 				ActivateMenu(plr, 0); // Includes MouseFromMenu
 			break;
 		case 1: // Menu click to delay
