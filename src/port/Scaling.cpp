@@ -1,11 +1,16 @@
 #include <SDL2/SDL.h>
 #include "../standard.h"
 #include "../clonk_bs.h" // for color constants
+#include "../bsgfxsys.h"
 
 #include "Scaling.h"
 
 bool IsUiColor(Uint8 color) {
- return color >= CBlack && color <= CYellow;
+	return (color >= CBlack && color <= CYellow);
+}
+
+bool IsSkyColor(Uint8 color) {
+	return IsSkyBack(color);
 }
 
 void CalculateScale2x(Uint8* src, int x, int y, int width, int height, Uint8* e0, Uint8* e1, Uint8* e2, Uint8* e3) {
@@ -16,7 +21,7 @@ void CalculateScale2x(Uint8* src, int x, int y, int width, int height, Uint8* e0
 		*e0 = e;
 		*e1 = e;
 		*e2 = e;
-		*e3 = e;void BlitIndexedPixelsAndScale(int w, int h, Uint8 *sourcePixels, Uint32 *destPixels, SDL_Color *palette, int scaleFactor, UpscaleInterpolationType interpolationType);
+		*e3 = e;
 	}
 	else {
 		bool topInBound = y > 0;
@@ -33,8 +38,8 @@ void CalculateScale2x(Uint8* src, int x, int y, int width, int height, Uint8* e0
 		Uint8 i = rightInBound && bottomInBound ? src[pos + pitch + 1] : e;
 		
 		if (b != h && d != f) {
-			bool smoothD = !IsUiColor(d);
-			bool smoothF = !IsUiColor(f);
+			bool smoothD = !IsUiColor(d) && !IsSkyColor(d);
+			bool smoothF = !IsUiColor(f) && !IsSkyColor(f);
 			*e0 = d == b && smoothD ? d : e;
 			*e1 = b == f && smoothF ? f : e;
 			*e2 = d == h && smoothD ? d : e;
@@ -69,8 +74,8 @@ void CalculateScale2xHalf(Uint8* src, int x, int y, int width, int height, Uint8
 		Uint8 h = bottomInBound ? src[pos + pitch] : e;
 		
 		if (d != f) {
-			bool smoothD = !IsUiColor(d);
-			bool smoothF = !IsUiColor(f);
+			bool smoothD = !IsUiColor(d) && !IsSkyColor(d);
+			bool smoothF = !IsUiColor(f) && !IsSkyColor(f);
 			*e0 = d == b && smoothD ? d : e;
 			*e1 = b == f && smoothF ? f : e;
 		} else {
@@ -177,7 +182,7 @@ void BlitIndexedPixelsAndScale2x(int w, int h, Uint8 *sourcePixels, Uint32 *dest
 
 void BlitIndexedPixelsAndScale4x(int w, int h, Uint8 *sourcePixels, Uint32 *destPixels, SDL_Color *palette, int scaleFactor) {
 	Uint8 *buffer2x = new Uint8[w*2 * h*2]; // unnecessary reallocation, could be avoided but who cares.
-	ApplyScale2xHalf(sourcePixels, w, h, buffer2x);
+	ApplyScale2x(sourcePixels, w, h, buffer2x);
 
 	BlitIndexedPixelsAndScale2x(w*2, h*2, buffer2x, destPixels, palette, scaleFactor / 2);
 	delete buffer2x;
