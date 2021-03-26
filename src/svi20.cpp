@@ -183,7 +183,7 @@ int InitMouse(void)
 	MSON = 0;
 	return 0; // zero if failed*/
 	MSON = 1;
-	return 3; // Ja denk mal man hat ne 3 knopf maus oder sch�tz ich mal wenn nich dann nich oder so ende punkt
+	return 3; // Ja denk mal man hat ne 3 knopf maus oder schätz ich mal wenn nich dann nich oder so ende punkt
 }
 
 int MouseState(int *x, int *y)
@@ -958,6 +958,8 @@ void ScrollHScroll(OBJECT *obj)
 		JumpHScroll(obj, lmx - obj->inwin->x - obj->x);
 		DrawHScrollMark(obj);
 		if (*obj->iptr != lval) ExecULinks(obj->inwin, obj);
+
+		UpdateScreen();
 	} while (Mousebut());
 }
 
@@ -990,6 +992,8 @@ void ScrollVScroll(OBJECT *obj)
 		JumpVScroll(obj, lmy - obj->inwin->y - obj->y);
 		DrawVScrollMark(obj);
 		if (*obj->iptr != lval) ExecULinks(obj->inwin, obj);
+
+		UpdateScreen();
 	} while (Mousebut());
 }
 
@@ -2435,7 +2439,7 @@ void InitMsg(const char *msg, BYTE col = CIMsg)
 	IMsgX = 0; IMsgY += 6;
 
 	UpdateScreen();
-	//SDL_Delay(100); // Sonst gehts ja viel zu schnell. Wir wollen ja noch ein bisschen das DOS-Gef�hl haben.
+	//SDL_Delay(100); // Sonst gehts ja viel zu schnell. Wir wollen ja noch ein bisschen das DOS-Gefühl haben.
 }
 
 void InitMsgOpen(const char *msg, BYTE col = CIMsg)
