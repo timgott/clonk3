@@ -927,7 +927,7 @@ void MoveRocks(void)
 						crck->type = BoundBy(PLANT1 + crck->phase / 10, PLANT1, PLANT3);
 					}
 					// Monster egg
-					if (crck->phase < 10) crck->phase++;
+					if (crck->type == MONSTEGG && crck->phase < 10) crck->phase++;
 				}
 				// Barrels fill
 				if (!Tick20)
@@ -989,7 +989,7 @@ void MoveRocks(void)
 		// MONSTEGG phasing
 		if (crck->type == MONSTEGG)
 		{
-			if (crck->phase < 10) if (crck->phase > 3) // Das Zweite if erzeugt Blindgänger! Die Monster in den Missionen schlüpfen nicht mal damit, aber der Fehler war schon im Original.
+			if (crck->phase < 10) if (crck->phase > 3) // Das Zweite if erzeugt Blindgï¿½nger! Die Monster in den Missionen schlï¿½pfen nicht mal damit, aber der Fehler war schon im Original.
 			{
 				if (Sec1) if (!random(20)) crck->phase++;
 			}
