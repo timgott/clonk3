@@ -18,6 +18,7 @@
 #include "bspxssys.h"
 #include "bsstrsys.h"
 #include "bsweasys.h"
+#include "bsvhcsys.h"
 
 #include "RandomWrapper.h"
 
@@ -339,7 +340,7 @@ void ConElevator(VEHICTYPE *vhc)
 
 void BlowUpBalloon(VEHICTYPE *tvhc)
   {
-  DropBack(tvhc);
+  RemoveVehic(tvhc);
   tvhc->VHDAddToWait=20;
   if (tvhc->VHDBallCrash!=1) // Heavy blow up
     {
