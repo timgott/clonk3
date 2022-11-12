@@ -4,7 +4,8 @@ project(Clonk3)
 # Options
 option(GERMAN_CONTENT "Use German instead of English content files" OFF)
 option(EASY_MONSTER_BBOX "Make monsters easier to hit by increasing their bounding box" ON)
-option(ENABLE_PLANT_GROWTH "Enable previously commented-out experimental code to let wipf plants grow" OFF)
+option(ENABLE_PLANT_GROWTH "Enable previously commented-out experimental code to let wipf plants grow when watered correctly" OFF)
+option(ENABLE_COLLECTABLE_PLANTS "Allow carrying plants" OFF)
 
 # Content path
 if (GERMAN_CONTENT)
@@ -20,6 +21,10 @@ endif()
 
 if (ENABLE_PLANT_GROWTH)
 	add_compile_definitions(ENABLE_PLANT_GROWTH)
+endif()
+
+if (ENABLE_COLLECTABLE_PLANTS)
+	add_compile_definitions(ENABLE_COLLECTABLE_PLANTS)
 endif()
 
 # Enable address sanitizer

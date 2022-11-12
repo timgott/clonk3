@@ -351,13 +351,6 @@ void CheckMen2Rocks(void) // Every Tick1
 												else mptr->carr = TFLINT;
 												crck->type = NOROCK;
 												break;
-												/*case PLANT3:
-										  mptr->carr=PLANT3;
-										  crck->phase-=30;
-										  if (crck->phase>=0) crck->type=BoundBy(PLANT1+crck->phase/10,PLANT1,PLANT3);
-										  else crck->type=NOROCK;
-										  mptr->carrp=30;
-												  break;*/
 											case ARROW: case FARROW: case BARROW:
 												if ((crck->type == FARROW) && (crck->phase >= 10))
 												{
@@ -380,7 +373,22 @@ void CheckMen2Rocks(void) // Every Tick1
 													crck->type = NOROCK;
 												}
 												break;
-											case PLANT1: case PLANT2: case PLANT3: case ROCKPXS:
+#ifdef ENABLE_COLLECTABLE_PLANTS
+											case PLANT3:
+												// Farm grown plants (commented out in released code)
+												mptr->carr=PLANT3;
+												crck->phase-=30;
+												if (crck->phase>=0)
+													crck->type=BoundBy(PLANT1+crck->phase/10,PLANT1,PLANT3);
+												else crck->type=NOROCK;
+													mptr->carrp=30;
+												break;
+#else
+											case PLANT1: case PLANT2: case PLANT3:
+												// plants are not collectable (default)
+												break;
+#endif
+											case ROCKPXS:
 												break;
 											default:
 												mptr->carr = crck->type;
