@@ -418,7 +418,12 @@ BYTE Check4JumpStructureAccess(STRUCTYPE *tstrc, MANTYPE *mptr, BYTE plr)
 			if (NotHostile(plr, tstrc->owner))
 				if (Inside(mptr->x + 4 - (tstrc->x + 8), -2, +2) && Inside(mptr->y - (tstrc->y + 11), -6, +4))
 				{
-					mptr->act = MAWALK;
+					if (mptr->act == MASWIM)
+					{
+						// Original: always set to MAWALK, caused bug that crossbow on tower cannot be pushed anymore.
+						// As far as I can tell this only avoids the swim anim to be played for 1 frame too long
+						mptr->act = MAWALK;
+					}
 					mptr->x = tstrc->x + 4; mptr->y = tstrc->y - 5; mptr->tx = mptr->x;
 					TowerVhcElevation(tstrc);
 					EventCall(206);
