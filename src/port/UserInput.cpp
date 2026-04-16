@@ -35,6 +35,7 @@ int WaitForInputTimeout(int maxSeconds)
 			break;
 		}
 	}
+	return 0;
 }
 
 void WaitForInput()
