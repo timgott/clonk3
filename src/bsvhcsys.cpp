@@ -301,7 +301,7 @@ void MoveElevator(VEHICTYPE *vhc)
     }
 
   // Elevator2WaitingClonk Control           // safety, remove
-  if (vhc->owner<0) { RoundError("safety:elevator w\out owner"); return; }
+  if (vhc->owner<0) { RoundError("safety:elevator w/out owner"); return; }
   cbyown=0;
   if ((vhc->y%10)==0)
     for (cnt=0; (cnt<3) && !cbyown; cnt++)
@@ -684,7 +684,7 @@ void MoveRVehic(VEHICTYPE *vhc) // Moves Lorry, Catapult, Sailboat, Crossbow
     {
     if (!vhc->tptr)
       {
-      RoundError("safety: vhc home w\out tptr");
+      RoundError("safety: vhc home w/out tptr");
       return;
       }
     // Base Re-Entry
@@ -883,7 +883,7 @@ void BoatOnwMovm(VEHICTYPE *vhc)
   else // Move
     {
     // Boat2WaitingCaptain Control           // safety, remove
-    if (vhc->owner<0) { RoundError("safety: boat w\out owner"); return; }
+    if (vhc->owner<0) { RoundError("safety: boat w/out owner"); return; }
     cbyown=0;
     if ((vhc->x%10)==0)
       for (cnt=0; (cnt<3) && !cbyown; cnt++)
@@ -993,4 +993,3 @@ void RemoveVehic(VEHICTYPE *cvhc)
   DropBack(cvhc);
   cvhc->type=VHNOVEHIC;
   }
-

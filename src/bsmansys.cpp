@@ -403,7 +403,7 @@ void CheckMen2Rocks(void) // Every Tick1
 									int collisionBoxH = 6;
 									int collisionBoxOffsetX = 0;
 									int collisionBoxOffsetY = 0;
-									
+
 									#ifdef LARGER_MONSTER_BBOX
 										if (mptr->type == MNMONSTER) {
 											collisionBoxW = 16;
@@ -412,8 +412,8 @@ void CheckMen2Rocks(void) // Every Tick1
 											collisionBoxOffsetY = -2;
 										}
 									#endif
-									
-									if (Inside(crck->x - (mptr->x + collisionBoxOffsetX), 0, collisionBoxW) 
+
+									if (Inside(crck->x - (mptr->x + collisionBoxOffsetX), 0, collisionBoxW)
 									 && Inside(crck->y - (mptr->y + collisionBoxOffsetY), 0, collisionBoxH))
 									{
 										if (Inside(crck->type, ARROW, BARROW)) mptr->strn -= 2;
@@ -616,7 +616,7 @@ void ExecCrossChecking(void) // Called from BSEXCSYS
 void ConstructLine(MANTYPE *mptr)
 {
 	LINETYPE *tline;
-	if (mptr->type != MNMAN) { RoundError("safety: conline w\out man"); return; }
+	if (mptr->type != MNMAN) { RoundError("safety: conline w/out man"); return; }
 	if (mptr->tptr)
 	{
 		if (mptr->carr != LINECON) { RoundError("safety: MAN-TPTR w/out LINECON! 1"); return; }
