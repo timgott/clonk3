@@ -15,7 +15,9 @@ Website of the original: http://clonk.de/classics.php
 - To enable sound you have to select the `SDL Method`
 
 ## Dependencies
-SDL2
+SDL2, CMake
+
+Install on Ubuntu with `apt install cmake libsdl2-dev`
 
 ## Compiling
 Compile using CMake:
@@ -24,4 +26,5 @@ Compile using CMake:
 mkdir build
 cd build
 cmake ..
+make
 ```
